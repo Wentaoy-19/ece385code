@@ -34,7 +34,7 @@ module ADD_SUB9(
     assign fns = {fn,fn,fn,fn};
     four_bit_ra fa0(.x(A[3:0]),.y(fns ^ B[3:0]),.cin(fn),.s(S[3:0]),.cout(cout01));
     four_bit_ra fa1(.x(A[7:4]),.y(fns ^ B[7:4]),.cin(cout01),.s(S[7:4]),.cout(cout1x));
-    full_adder fax(.x(A[7]), .y(fn^B[7]), .cin(c2),.s(S[8]),.cout(coutx));
+    full_adder fax(.x(A[7]), .y(fn ^ B[7]), .cin(c2),.s(S[8]),.cout(coutx));
 endmodule
 
 module arithmetic(

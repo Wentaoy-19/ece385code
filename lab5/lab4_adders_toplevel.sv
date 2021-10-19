@@ -31,16 +31,14 @@ module lab4_adders_toplevel
 	output logic[7:0] Aval, 
 	output logic[7:0] Bval,
 	output logic X
-);
-
-	logic M; 
+); 
 	
 	
 	
 	
 	
 	
-	
+	// woshinidie nishiwoer woshinidadie 我是你大爹，你是我大二
 	
 
     /* Declare Internal Registers */

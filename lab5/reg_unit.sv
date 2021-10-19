@@ -22,7 +22,8 @@ endmodule
 module reg_9 (input  logic Clk, Reset, Shift_In, Load, Shift_En,
               input  logic [8:0]  D,
               output logic Shift_Out,
-              output logic [7:0]  Data_Out);
+              output logic [7:0]  Data_Out, 
+              output logic X);
 
     always_ff @ (posedge Clk)
     begin
@@ -35,7 +36,8 @@ module reg_9 (input  logic Clk, Reset, Shift_In, Load, Shift_En,
 			  Data_Out <= { Data_Out[8], Data_Out[8:1] }; 
 	    end
     end
-    assign Shift_Out = Data_Out[0];
+    assign Shift_Out = Data_Out[0]; 
+    assign 
 
 endmodule
 
@@ -44,7 +46,8 @@ module reg_unit(
     input logic [8:0] A,
     input logic [7:0] B,
     output logic Shift_Out, 
-    output logic [15:0] Data_Out
+    output logic [15:0] Data_Out,
+    output logic X
 );
     logic shift_ab, regb_out; 
     reg_9 reg_a(.Clk(Clk),.Reset(Reset),.Shift_In(0),.Load(Load),.Shift_En(Shift_En),.D(A),.Shift_Out(shift_ab),.Data_Out(Data_Out[15:8])); 
