@@ -98,7 +98,7 @@ module control(
 
 			else begin  // only shift
 					Clr_Ld = 1'b0;
-					Add = 1'b1;
+					Add = 1'b0;
 					Sub = 1'b0;
 					Shift = 1'b1;				
 			end
