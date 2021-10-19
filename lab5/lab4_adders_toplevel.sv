@@ -31,11 +31,7 @@ module lab4_adders_toplevel
 	output logic[7:0] Aval, 
 	output logic[7:0] Bval,
 	output logic X
-); 
-	
-	
-	
-   //yaowentao yaowentao yaowentao yaowentao	
+); 	
 	
 	
 	// woshinidie nishiwoer woshinidadie 我是你大爹，你是我大二
@@ -59,39 +55,40 @@ module lab4_adders_toplevel
     logic[6:0]      Bhex2_comb;
     logic[6:0]      Bhex3_comb;
     
-    /* Behavior of registers A, B, Sum, and CO */
-    always_ff @(posedge Clk) begin
+    // /* Behavior of registers A, B, Sum, and CO */
+    // always_ff @(posedge Clk) begin
         
-        if (!Reset) begin
-            // if reset is pressed, clear the adder's input registers
-            A <= 16'h0000;
-            B <= 16'h0000;
-            Sum <= 16'h0000;
-            CO <= 1'b0;
-        end else if (!LoadB) begin
-            // If LoadB is pressed, copy switches to register B
-            B <= SW;
-        end else begin
-            // otherwise, continuously copy switches to register A
-            A <= SW;
-        end
+    //     if (!Reset) begin
+    //         // if reset is pressed, clear the adder's input registers
+    //         A <= 16'h0000;
+    //         B <= 16'h0000;
+    //         Sum <= 16'h0000;
+    //         CO <= 1'b0;
+    //     end else if (!LoadB) begin
+    //         // If LoadB is pressed, copy switches to register B
+    //         B <= SW;
+    //     end else begin
+    //         // otherwise, continuously copy switches to register A
+    //         A <= SW;
+    //     end
         
-        // transfer sum and carry-out from adder to output register
-        // every clock cycle that Run is pressed
-        if (!Run) begin
-            Sum <= Sum_comb;
-            CO <= CO_comb;
-        end
-            // else, Sum and CO maintain their previous values
+    //     // transfer sum and carry-out from adder to output register
+    //     // every clock cycle that Run is pressed
+    //     if (!Run) begin
+    //         Sum <= Sum_comb;
+    //         CO <= CO_comb;
+    //     end
+    //         // else, Sum and CO maintain their previous values
         
-    end
+    // end
     
     /* Decoders for HEX drivers and output registers
      * Note that the hex drivers are calculated one cycle after Sum so
      * that they have minimal interfere with timing (fmax) analysis.
      * The human eye can't see this one-cycle latency so it's OK. */
+
+
     always_ff @(posedge Clk) begin
-        
         Ahex0 <= Ahex0_comb;
         Ahex1 <= Ahex1_comb;
         Ahex2 <= Ahex2_comb;

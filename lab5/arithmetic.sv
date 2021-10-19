@@ -46,5 +46,5 @@ module arithmetic(
     output [15:0] Sum,
     output M
 );
-
+    
 endmodule
