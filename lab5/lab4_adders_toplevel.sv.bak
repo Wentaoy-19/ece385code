@@ -42,20 +42,9 @@ module lab4_adders_toplevel
     
     logic clr_ld,shift,add,sub,m;
     control controller(.Reset(Reset),.ClearA_LoadB(ClearA_LoadB),.Clk(Clk),.Run(Run),.Clr_Ld(clr_ld),.Shift(shift),.Add(add),.Sub(sub),.M(m));
-    arithmetic arithmetic_unit(.Clr_Ld(clr_ld),.Shift(shift),.Add(add),.Sub(sub),.S(S),.Clk(Clk),.Reset(Reset),.Data_Current(),.Sum({Aval,Bval}),.M(m));
+    arithmetic arithmetic_unit(.Clr_Ld(clr_ld),.Shift(shift),.Add(add),.Sub(sub),.S(S),.Sum({Aval,Bval}),.M(m));
 
-	input logic Clr_Ld,
-	input logic Shift, 
-	input logic Add, 
-	input logic Sub,
-    input logic S[7:0],
-    input logic Clk, Reset,
-    input logic Data_Current[15:0],
 
-    output [15:0] Sum,
-    output M,
-    output X
-	 
     // /* Behavior of registers A, B, Sum, and CO */
     // always_ff @(posedge Clk) begin
         

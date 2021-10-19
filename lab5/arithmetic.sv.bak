@@ -45,7 +45,7 @@ module arithmetic(
 	input logic Add, 
 	input logic Sub,
     input logic S[7:0],
-    input logic Clk, Reset,
+    input logic Clk, Reset, fn,
     input logic Data_Current[15:0],
 
     output [15:0] Sum,

@@ -76,8 +76,9 @@ module control(
 				curr_state == s8 ||
 				curr_state == s10 ||
 				curr_state == s12 ||
-				curr_state == s14) && M == 1'b1)
-			begin
+				curr_state == s14 ||) &&
+				M == 1'b1
+			)begin
 				if(curr_state == s14) // if SUB
 				begin
 					Clr_Ld = 1'b0;
@@ -99,7 +100,7 @@ module control(
 					Add = 1'b0;
 					Sub = 1'b0;
 					Shift = 1'b1;				
-				end
+		end
 
 	end
 	
