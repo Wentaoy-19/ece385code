@@ -45,7 +45,8 @@ module arithmetic(
     input logic[7:0] S,
 
     output [15:0] Sum,
-    output M
+    output M,
+    output X
 );
     
 endmodule
