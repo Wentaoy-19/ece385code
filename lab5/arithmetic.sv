@@ -46,7 +46,6 @@ module arithmetic(
 	input logic Sub,
     input logic S[7:0],
     input logic Clk, Reset,
-    input logic Data_Current[15:0],
 
     output [15:0] Sum,
     output M,
@@ -54,59 +53,39 @@ module arithmetic(
 );
 
     logic fn;
-    logic [7:0] A,B;
-    logic [7:0] AddA,AddB;
+    logic [7:0] A,B,C,D;
     logic [8:0] MID;
 
-    assign Sum[15:0] = Data_Current[15:0];
+
 
     always_comb 
     begin
     if (Clr_Ld == 1'b1)
         begin
             assign A[7:0] = 2'b00000000;
-            assign B[7:0] = S[7:0];
-            assign AddA[7:0] = Data_Current[15:8];
-            assign AddB[7:0] = S[7:0];
+            assign X = 1'b0;
+            assign C[7:0] = S[7:0];
             assign fn = 0;
         end
-    else if (Shift == 1'b1)
-        begin
-            assign A[7:0] = Data_Current[15:0];
-            assign B[7:0] = Data_Current[7:0];
-            assign AddA[7:0] = Data_Current[15:8];
-            assign AddB[7:0] = S[7:0];
-            assign fn = 0;
-        end
+
     else if (Add == 1'b1)
         begin
-            assign A[7:0] = Data_Current[15:0];
-            assign B[7:0] = Data_Current[7:0];
-            assign AddA[7:0] = Data_Current[15:8];
-            assign AddB[7:0] = S[7:0];
             assign fn = 0;
         end
     else if (Sub == 1'b1)
         begin
-            assign A[7:0] = Data_Current[15:0];
-            assign B[7:0] = Data_Current[7:0];
-            assign AddA[7:0] = Data_Current[15:8];
-            assign AddB[7:0] = S[7:0];
             assign fn = 1;
         end
     else
         begin
-            assign A[7:0] = Data_Current[15:0];
-            assign B[7:0] = Data_Current[7:0];
-            assign AddA[7:0] = Data_Current[15:8];
-            assign AddB[7:0] = S[7:0];
             assign fn = 0;
         end    
     end
 
     assign M = Sum[0];
-    reg_unit register1(.Clk(Clk),.Reset(Clr_Ld),.Load(Clr_Ld),.Shift_En(Shift),.A(A[7:0]),.B(B[7:0]),.Shift_Out(M),.Data_Out(Sum[15:0]));
-    ADD_SUB9 Adder1(.A(AddA[7:0]),.B(AddB[7:0]),.fn(fn),.S(MID[8:0]));
+    reg_unit register1(.Clk(Clk),.Reset(Clr_Ld),.Load(Clr_Ld),.Shift_En(Shift),.A(A[7:0]),.B(C[7:0]),.Shift_Out(M),.Data_Out({B[7:0],D[7:0]}));
+    ADD_SUB9 Adder1(.A(B[7:0]),.B(S[7:0]),.fn(fn),.S(MID[8:0]));
+    assign Sum[15:0] = {B[7:0],D[7:0]};
     assign Sum[15:8] = MID[7:0];
     assign X = MID[8];
 

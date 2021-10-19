@@ -69,7 +69,7 @@ module control(
 		end
 		                           //ADD/SUB case
 		else if(
-				(curr_state == s0 ||
+				((curr_state == s0 ||
 				curr_state == s2 ||
 				curr_state == s4 ||
 				curr_state == s6 ||
@@ -87,7 +87,7 @@ module control(
 				end
 				
 				else begin           // case: add
-					Clr_Ld = 1'b0;
+					Clr_Ld = 1'b1;
 					Add = 1'b1;
 					Sub = 1'b0;
 					Shift = 1'b0;						
