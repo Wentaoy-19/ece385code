@@ -38,7 +38,7 @@ module lab4_adders_toplevel
 	
 	
 	
-	
+   //yaowentao yaowentao yaowentao yaowentao	
 	
 	
 	
@@ -129,13 +129,13 @@ module lab4_adders_toplevel
 //        .CO(CO_comb)
 //    );
 
-    carry_select_adder carry_select_adder_inst
-    (
-        .A,             // This is shorthand for .A(A) when both wires/registers have the same name
-        .B,
-        .Sum(Sum_comb), // Connects the Sum_comb wire in this file to the Sum wire in ripple_adder.sv
-        .CO(CO_comb)
-    );
+//    carry_select_adder carry_select_adder_inst
+//    (
+//        .A,             // This is shorthand for .A(A) when both wires/registers have the same name
+//        .B,
+//        .Sum(Sum_comb), // Connects the Sum_comb wire in this file to the Sum wire in ripple_adder.sv
+//        .CO(CO_comb)
+//    );
     
     HexDriver Ahex0_inst
     (
