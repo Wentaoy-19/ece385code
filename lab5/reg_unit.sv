@@ -36,7 +36,6 @@ module reg_9 (input  logic Clk, Reset, Shift_In, Load, Shift_En,
 	     end
     end
     assign Shift_Out = Data_Out[0]; 
-
 endmodule
 
 module reg_unit(

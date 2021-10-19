@@ -42,6 +42,7 @@ module arithmetic(
 	input logic Shift, 
 	input logic Add, 
 	input logic Sub,
+    input logic[7:0] S,
 
     output [15:0] Sum,
     output M
