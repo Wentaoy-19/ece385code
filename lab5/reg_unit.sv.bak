@@ -6,7 +6,7 @@ module reg_8 (input  logic Clk, Reset, Shift_In, Load, Shift_En,
     always_ff @ (posedge Clk)
     begin
 	 	 if (Reset) //notice, this is a sycnrhonous reset, which is recommended on the FPGA
-			  Data_Out <= 8'b0;
+			  Data_Out <= 8'h0;
 		 else if (Load)
 			  Data_Out <= D;
 		 else if (Shift_En)
@@ -27,7 +27,7 @@ module reg_9 (input  logic Clk, Reset, Shift_In, Load, Shift_En,
     always_ff @ (posedge Clk)
     begin
 	 	 if (Reset) 
-			  Data_Out <= 9'b0;
+			  Data_Out <= 8'h0;
 		 else if (Load)
 			  Data_Out <= D;
 		 else if (Shift_En)
@@ -39,59 +39,15 @@ module reg_9 (input  logic Clk, Reset, Shift_In, Load, Shift_En,
 endmodule
 
 module reg_unit(
-    input logic Clk,Load_a,clr_ld, Shift_En, 
+    input logic Clk,Reset,Load, Shift_En, 
     input logic [8:0] A,
     input logic [7:0] B,
     output logic Shift_Out, 
     output logic [15:0] Data_Out,
     output logic X
 );
-    logic shift_ab, regb_out,shifta,shiftb,loada,loadb; 
-	 logic [8:0] input_a;
-	 logic [7:0] input_b;
-	 
-    reg_9 reg_a(.Clk(Clk),.Reset(1'b0),.Shift_In(Data_Out[15]),.Load(loada),.Shift_En(shifta),.D(input_a),.Shift_Out(shift_ab),.Data_Out({X,Data_Out[15:8]})); 
-    reg_8 reg_b(.Clk(Clk),.Reset(1'b0),.Shift_In(shift_ab),.Load(loadb),.Shift_En(shiftb),.D(input_b),.Shift_Out(regb_out),.Data_Out(Data_Out[7:0]));
-	 
-	 always_comb
-	 begin
-		if(Load_a)
-		begin 
-			input_a = A; 
-			input_b = B;
-			shifta = 1'b0;
-			shiftb = 1'b0;
-			loada = 1'b1;
-			loadb = 1'b0;
-		end
-		else if(clr_ld)
-		begin 
-			input_a = 9'b0; 
-			input_b = B;
-			shifta = 1'b0;
-			shiftb = 1'b0;
-			loada = 1'b1;
-			loadb = 1'b1;
-		end 
-		else if(Shift_En)
-		begin 
-			input_a = A; 
-			input_b = B;
-			shifta = 1'b1;
-			shiftb = 1'b1;
-			loada = 1'b0;
-			loadb = 1'b0;
-		end
-		else
-		begin
-			input_a = A; 
-			input_b = B;
-			shifta = 1'b0;
-			shiftb = 1'b0;
-			loada = 1'b0;
-			loadb = 1'b0;		
-		end
-	 end
-	 
+    logic shift_ab, regb_out; 
+    reg_9 reg_a(.Clk(Clk),.Reset(Reset),.Shift_In(0),.Load(Load),.Shift_En(Shift_En),.D(A),.Shift_Out(shift_ab),.Data_Out({X,Data_Out[15:8]})); 
+    reg_8 reg_b(.Clk(Clk),.Reset(Reset),.Shift_In(shift_ab),.Load(Load),.Shift_En(Shift_En),.D(B),.Shift_Out(regb_out),.Data_Out(Data_Out[7:0]));
     
 endmodule 

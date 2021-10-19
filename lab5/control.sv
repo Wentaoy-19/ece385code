@@ -10,11 +10,15 @@ module control(
 	input logic M
 );
 
-	enum logic[4:0] {s0,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15} curr_state,next_state,halt,load;
+	enum logic[4:0] {halt,s0,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15,load} curr_state,next_state;
 
+	
+	
+	
+	
 	always_ff @ (posedge Clk)  
     begin
-        if (Reset)
+        if (~Reset)
             curr_state <= halt;
         else 
             curr_state <= next_state;
@@ -49,7 +53,7 @@ module control(
 			s13: next_state = s14;
 			s14: next_state = s15;
 			s15: next_state = halt;
-			default: next_state = curr_state;
+//			default: next_state = curr_state;
 		endcase  
 
 
@@ -69,14 +73,17 @@ module control(
 		end
 		                           //ADD/SUB case
 		else if(
-				((curr_state == s0 ||
+				(curr_state == s0 ||
 				curr_state == s2 ||
 				curr_state == s4 ||
 				curr_state == s6 ||
 				curr_state == s8 ||
 				curr_state == s10 ||
 				curr_state == s12 ||
-				curr_state == s14) && M == 1'b1)
+				curr_state == s14) )
+			begin
+			
+			if(M==1'b1)
 			begin
 				if(curr_state == s14) // if SUB
 				begin
@@ -87,13 +94,22 @@ module control(
 				end
 				
 				else begin           // case: add
-					Clr_Ld = 1'b1;
+					Clr_Ld = 1'b0;
 					Add = 1'b1;
 					Sub = 1'b0;
 					Shift = 1'b0;						
 				end
 			end
-
+			
+			else
+			begin 
+					Clr_Ld = 1'b0;
+					Add = 1'b0;
+					Sub = 1'b0;
+					Shift = 1'b0;				
+			end
+			
+		end
 		else begin  // only shift
 					Clr_Ld = 1'b0;
 					Add = 1'b0;
