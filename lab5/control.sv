@@ -67,9 +67,8 @@ module control(
 			Sub = 1'b0;
 			Shift = 1'b0;			
 		end
-
-		else begin 
-			if(
+		                           //ADD/SUB case
+		else if(
 				(curr_state == s0 ||
 				curr_state == s2 ||
 				curr_state == s4 ||
@@ -96,14 +95,12 @@ module control(
 				end
 			end
 
-			else begin  // only shift
+		else begin  // only shift
 					Clr_Ld = 1'b0;
 					Add = 1'b0;
 					Sub = 1'b0;
 					Shift = 1'b1;				
-			end
 		end
-
 
 	end
 	
