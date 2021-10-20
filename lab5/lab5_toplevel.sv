@@ -44,7 +44,7 @@ module lab5_toplevel
     logic clr_ld,shift,add,sub,m,clear_a; 
 	 
     control controller(.Reset(reset_s),.ClearA_LoadB(clrld_s),.Clk(Clk),.Run(run_s),.Clr_Ld(clr_ld),.Shift(shift),.Add(add),.Sub(sub),.cleara(clear_a),.M(m));
-    arithmetic arithmetic_unit(.Clr_Ld(clr_ld),.Shift(shift),.Add(add),.Sub(sub),.cleara(clear_a),.S(S),.Clk(Clk),.Reset(Reset),.Sum({Aval,Bval}),.M(m),.X(X));
+    arithmetic arithmetic_unit(.Clr_Ld(clr_ld),.Shift(shift),.Add(add),.Sub(sub),.cleara(clear_a),.S(S_S),.Clk(Clk),.Reset(reset_s),.Sum({Aval,Bval}),.M(m),.X(X));
 	 
     // /* Behavior of registers A, B, Sum, and CO */
     // always_ff @(posedge Clk) begin

@@ -39,7 +39,7 @@ module reg_9 (input  logic Clk, Reset, Shift_In, Load, Shift_En,
 endmodule
 
 module reg_unit(
-    input logic Clk,Load_a,clr_ld, Shift_En,cleara, 
+    input logic Clk,Load_a,clr_ld, Shift_En,cleara, reset,
     input logic [8:0] A,
     input logic [7:0] B,
     output logic Shift_Out, 
@@ -50,8 +50,8 @@ module reg_unit(
 	 logic [8:0] input_a;
 	 logic [7:0] input_b;
 	 
-    reg_9 reg_a(.Clk(Clk),.Reset(cleara),.Shift_In(Data_Out[15]),.Load(loada),.Shift_En(shifta),.D(input_a),.Shift_Out(shift_ab),.Data_Out({X,Data_Out[15:8]})); 
-    reg_8 reg_b(.Clk(Clk),.Reset(1'b0),.Shift_In(shift_ab),.Load(loadb),.Shift_En(shiftb),.D(input_b),.Shift_Out(regb_out),.Data_Out(Data_Out[7:0]));
+    reg_9 reg_a(.Clk(Clk),.Reset(cleara | reset),.Shift_In(Data_Out[15]),.Load(loada),.Shift_En(shifta),.D(input_a),.Shift_Out(shift_ab),.Data_Out({X,Data_Out[15:8]})); 
+    reg_8 reg_b(.Clk(Clk),.Reset(reset),.Shift_In(shift_ab),.Load(loadb),.Shift_En(shiftb),.D(input_b),.Shift_Out(regb_out),.Data_Out(Data_Out[7:0]));
 	 
 	 always_comb
 	 begin

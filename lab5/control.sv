@@ -14,8 +14,7 @@ module control(
 	enum logic[4:0] {halt,idle,idle1,s0,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15,load,start} curr_state,next_state;
 
 	
-	
-	
+
 	
 	always_ff @ (posedge Clk)  
     begin
@@ -56,8 +55,14 @@ module control(
 			s13: next_state = s14;
 			s14: next_state = s15;
 			s15: next_state = idle1;
-			idle1 : next_state = idle;
-			idle : next_state = halt;
+			idle1 : 
+			begin
+				if(Run)
+					next_state = idle1;
+				else
+					next_state = halt;
+			end
+//			idle : next_state = halt;
 			default: next_state = curr_state;
 		endcase  
 
@@ -88,7 +93,7 @@ module control(
 			cleara = 1'b1;
 		end
 		
-		else if(curr_state == idle |curr_state == idle1)  begin
+		else if(curr_state == idle1)  begin
 			Clr_Ld = 1'b0;
 			Add = 1'b0;
 			Sub = 1'b0;
