@@ -47,6 +47,7 @@ module arithmetic(
 	input logic Shift, 
 	input logic Add, 
 	input logic Sub,
+	input logic cleara,
     input logic[7:0] S,
     input logic Clk, Reset,
 
@@ -63,7 +64,7 @@ module arithmetic(
 	
 	 assign A = MID[7:0];
 
-    reg_unit register1(.Clk(Clk),.Load_a( Add || Sub),.clr_ld(Clr_Ld),.Shift_En(Shift),.A(MID[8:0]),.B(S[7:0]),.Shift_Out(shiftout),.Data_Out({B,D}),.X(X));
+    reg_unit register1(.Clk(Clk),.Load_a( Add || Sub),.clr_ld(Clr_Ld),.Shift_En(Shift),.cleara(cleara),.A(MID[8:0]),.B(S[7:0]),.Shift_Out(shiftout),.Data_Out({B,D}),.X(X));
     ADD_SUB9 Adder1(.A(B[7:0]),.B(S[7:0]),.fn(Sub),.S(MID[8:0]));
     assign Sum = {B,D};
 	 assign M = Sum[0]; 

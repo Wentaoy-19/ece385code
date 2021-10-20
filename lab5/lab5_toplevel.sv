@@ -39,10 +39,12 @@ module lab5_toplevel
     logic[6:0]      Bhex0_comb;
     logic[6:0]      Bhex1_comb;
 
-    
-    logic clr_ld,shift,add,sub,m; 
-    control controller(.Reset(Reset),.ClearA_LoadB(ClearA_LoadB),.Clk(Clk),.Run(Run),.Clr_Ld(clr_ld),.Shift(shift),.Add(add),.Sub(sub),.M(m));
-    arithmetic arithmetic_unit(.Clr_Ld(clr_ld),.Shift(shift),.Add(add),.Sub(sub),.S(S),.Clk(Clk),.Reset(Reset),.Sum({Aval,Bval}),.M(m),.X(X));
+    logic [7:0] S_S;
+	 logic run_s, clrld_s,reset_s ; 
+    logic clr_ld,shift,add,sub,m,clear_a; 
+	 
+    control controller(.Reset(reset_s),.ClearA_LoadB(clrld_s),.Clk(Clk),.Run(run_s),.Clr_Ld(clr_ld),.Shift(shift),.Add(add),.Sub(sub),.cleara(clear_a),.M(m));
+    arithmetic arithmetic_unit(.Clr_Ld(clr_ld),.Shift(shift),.Add(add),.Sub(sub),.cleara(clear_a),.S(S),.Clk(Clk),.Reset(Reset),.Sum({Aval,Bval}),.M(m),.X(X));
 	 
     // /* Behavior of registers A, B, Sum, and CO */
     // always_ff @(posedge Clk) begin
@@ -87,7 +89,13 @@ module lab5_toplevel
      * in the same way that you'd place a 74-series hex driver chip on your protoboard 
      * Make sure only *one* adder module (out of the three types) is instantiated*/
 	  
-    
+
+	  
+    sync S_sync[7:0] (Clk, S, S_S);
+    sync botton_sync[2:0] (Clk, {~Run,~ClearA_LoadB,~Reset}, {run_s,clrld_s,reset_s});
+	
+	 
+	 
     HexDriver Ahex0_inst
     (
         .In0(Aval[3:0]),   // This connects the 4 least significant bits of 
