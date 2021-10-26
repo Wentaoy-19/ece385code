@@ -8,38 +8,9 @@ input logic DRMUX, SR1MUX, SR2MUX, ADDR1MUX,
 input logic MIO_EN,
 input logic[15:0] MDR_In, MAR, MDR, IR, PC,Data_from_SRAM, Data_to_SRAM
 ); // TODO:input ? output? 
-
-logic[15:0] BUS;
-
-logic[15:0] MDR_input;
-
 always_ff @(posedge Clk) begin
-
-end
-
-
-
-always_comb begin
-    if(MIO_EN)
-
+    if(LD_MDR)
+        
 end
 
 endmodule
-
-module reg_parallel_16 (
-				  input  logic Clk, Load,
-              input  logic [15:0]  D,
-              output logic [15:0]  Data_Out);
-
-    always_ff @ (posedge Clk)
-    begin
-		 if (Load)
-		 
-			  Data_Out <= D;
-		 
-    end
-	 
-endmodule
-
-
-module PC 
