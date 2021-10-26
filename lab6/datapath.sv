@@ -8,9 +8,17 @@ input logic DRMUX, SR1MUX, SR2MUX, ADDR1MUX,
 input logic MIO_EN,
 input logic[15:0] MDR_In, MAR, MDR, IR, PC,Data_from_SRAM, Data_to_SRAM
 ); // TODO:input ? output? 
+
+logic[15:0] BUS;
+
 always_ff @(posedge Clk) begin
-    if(LD_MDR)
-        
+
+end
+
+
+
+always_comb begin
+    
 end
 
 endmodule
