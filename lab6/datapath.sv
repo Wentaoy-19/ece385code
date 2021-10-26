@@ -11,10 +11,10 @@ module datapath(
 ); // TODO:input ? output? 
 
 logic[15:0] BUS;
-logic[15:0] MDR_input,MDR_mux,MDR_output, MAR_output, ALU_output, PC_output, MARMUX_output,IR_output; 
+logic[15:0] MDR_input,MDR_output, MAR_output, ALU_output, PC_output, MARMUX_output,IR_output; 
 
 
-reg_parallel_16 MDR_unit(.Clk(Clk),.Load(LD_MDR),.D(MDR_mux),.Data_Out(MDR_output));
+reg_parallel_16 MDR_unit(.Clk(Clk),.Load(LD_MDR),.D(MDR_input),.Data_Out(MDR_output));
 reg_parallel_16 MAR_unit(.Clk(Clk),.Load(LD_MAR),.D(BUS),.Data_Out(MAR_output));
 reg_parallel_16 IR_unit(.Clk(Clk),.Load(LD_IR),.D(BUS),.Data_Out(IR_output));
 
@@ -124,7 +124,7 @@ module counter16bit (
 			Dout[0] <= Din[0] ^ 1'b1;
 			Dout[1] <= Din[1] ^ Din[0];
 			Dout[2] <= Din[1] & Din[0] ^ Din[2];
-			Dout[6] <= Din[0]& Din[1]& Din[2]^ Din[3];
+			Dout[3] <= Din[0]& Din[1]& Din[2]^ Din[3];
 			Dout[4] <= Din[0]& Din[1]& Din[2]& Din[3]^ Din[4];
 			Dout[5] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]^ Din[5];
 			Dout[6] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]^ Din[6];
@@ -144,7 +144,7 @@ module counter16bit (
 	
 	
 module PC_module (
-		input logic Clk,
+		input logic Clk, Reset_ah,
 		input logic LD_PC,
 		input logic [1:0] PCMUX,
 		input logic [15:0] Data_from_BUS,
@@ -159,6 +159,9 @@ module PC_module (
 	mux4to1bit16 PCmultiplexer(.Din1(PCplus1), .Din2(Data_from_addrmux_to_PC), .Din3(Data_from_BUS),.Din4(),.select(PCMUX), .Dout(Data_from_PCMUX));
 	
 	counter16bit counter(.Clk(Clk),.Din(DataOut), .Dout(PCplus1));
+	
+	always
+	if (Reset_ah)
 	
 endmodule
 	
