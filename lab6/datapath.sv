@@ -46,10 +46,28 @@ module mux4to1bit16 (
 				Dout = Din2;
 			else if (select == 2'b10)
 				Dout = Din3;
-			else if (select == 2'b11)
+			else
 				Dout = Din4;
 		end
 endmodule
+
+
+
+module mux2to1bit16 (
+		input [15:0] Din1,
+		input [15:0] Din2,
+		input select,
+		output logic [15:0] Dout);
+	
+	always_comb
+		begin
+			if (select == 1'b0)
+				Dout = Din1;
+			else
+				Dout = Din2;
+		end
+endmodule
+
 
 
 module PC (
