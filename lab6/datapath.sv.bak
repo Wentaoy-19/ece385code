@@ -14,21 +14,3 @@ always_ff @(posedge Clk) begin
 end
 
 endmodule
-
-module reg_parallel_16 (
-				  input  logic Clk, Load,
-              input  logic [15:0]  D,
-              output logic [15:0]  Data_Out);
-
-    always_ff @ (posedge Clk)
-    begin
-		 if (Load)
-		 
-			  Data_Out <= D;
-		 
-    end
-	 
-endmodule
-
-
-module PC 
