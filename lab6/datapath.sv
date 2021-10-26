@@ -11,6 +11,8 @@ input logic[15:0] MDR_In, MAR, MDR, IR, PC,Data_from_SRAM, Data_to_SRAM
 
 logic[15:0] BUS;
 
+logic[15:0] MDR_input;
+
 always_ff @(posedge Clk) begin
 
 end
@@ -18,7 +20,8 @@ end
 
 
 always_comb begin
-    
+    if(MIO_EN)
+
 end
 
 endmodule
