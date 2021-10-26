@@ -19,6 +19,7 @@ assign MDR = MDR_output;
 assign MAR = MAR_output;
 
 
+
 always_comb begin
     if(MIO_EN)
         MDR_input = BUS;
@@ -44,7 +45,9 @@ module BUS_select(
         else if (GatePC)
             BUS = PC2BUS;
         else if (GateMARMUX)
-            BUS = MARMUX2BUS;       
+            BUS = MARMUX2BUS; 
+        else  
+            BUS = 16'b0;      
     end
 endmodule
 
