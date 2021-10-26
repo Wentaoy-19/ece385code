@@ -70,6 +70,35 @@ endmodule
 
 
 
+module counter16bit (
+		input [15:0] Din,
+		input logic Clk,
+		output logic [15:0] Dout);
+		
+	always_ff (posedge Clk)
+		begin
+			Dout[0] <= Din[0] ^ 1'b1;
+			Dout[1] <= Din[1] ^ Din[0];
+			Dout[2] <= Din[1] & Din[0] ^ Din[2];
+			Dout[6] <= Din[0]& Din[1]& Din[2]^ Din[3];
+			Dout[4] <= Din[0]& Din[1]& Din[2]& Din[3]^ Din[4];
+			Dout[5] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]^ Din[5];
+			Dout[6] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]^ Din[6];
+			Dout[7] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]^ Din[7];
+			Dout[8] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]& Din[7]^ Din[8];
+			Dout[9] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]& Din[7]& Din[8]^ Din[9];
+			Dout[10] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]& Din[7]& Din[8]& Din[9]^ Din[10];
+			Dout[11] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]& Din[7]& Din[8]& Din[9]& Din[10]^ Din[11];
+			Dout[12] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]& Din[7]& Din[8]& Din[9]& Din[10]& Din[11]^ Din[12];
+			Dout[13] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]& Din[7]& Din[8]& Din[9]& Din[10]& Din[11]& Din[12]^ Din[13];
+			Dout[14] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]& Din[7]& Din[8]& Din[9]& Din[10]& Din[11]& Din[12]& Din[13]^ Din[14];
+			Dout[15] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]& Din[7]& Din[8]& Din[9]& Din[10]& Din[11]& Din[12]& Din[13]& Din[14] ^ Din[15];
+		end
+	endmodule
+			
+
+	
+	
 module PC (
 		input logic Clk,
 		input logic LD_PC,
@@ -77,13 +106,21 @@ module PC (
 		input logic [1:0] PCMUX,
 		input logic [15:0] Data_from_BUS,
 		input logic [15:0] Data_from_addrmux_to_PC,
-		output logic [15:0] Data_to_BUS,
-		output logic [15:0] Data_to_MARMUX
+		output logic [15:0] DataOut
 );
-	logic [15:0] Data_from_PCMUX;	
-	reg_parallel_16 REG_PC(.Clk(Clk), .Load(LD_PC), .D(Data_from_PCMUX), .Data_Out(Data_from_addrmux_to_PC));
+
+	logic [15:0] Data_from_PCMUX, PCplus1;	
+	
+	reg_parallel_16 REG_PC(.Clk(Clk), .Load(LD_PC), .D(Data_from_PCMUX), .Data_Out(DataOut));
+	
+	mux4to1bit16 PCmultiplexer(.Din1(PCplus1), .Din2(Data_from_addrmux_to_PC), .Din3(Data_from_BUS), .Dout(DataOut));
+	
+	counter16bit counter(.Din(DataOut), .Dout(PCplus1))
+	
+endmodule
 	
 	
+			
 	
 	
 	
