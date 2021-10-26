@@ -11,16 +11,21 @@ module datapath(
 ); // TODO:input ? output? 
 
 logic[15:0] BUS;
-logic[15:0] MDR_input,MDR_mux,MDR_output, MAR_output, ALU_output, PC_output, MARMUX_output; 
+logic[15:0] MDR_input,MDR_mux,MDR_output, MAR_output, ALU_output, PC_output, MARMUX_output,IR_output; 
 
 
 reg_parallel_16 MDR_unit(.Clk(Clk),.Load(LD_MDR),.D(MDR_mux),.Data_Out(MDR_output));
 reg_parallel_16 MAR_unit(.Clk(Clk),.Load(LD_MAR),.D(BUS),.Data_Out(MAR_output));
+reg_parallel_16 IR_unit(.Clk(Clk),.Load(LD_IR),.D(BUS),.Data_Out(IR_output));
+
 BUS_select bus_select(.MDR2BUS(MDR_output), .ALU2BUS(ALU_output),.PC2BUS(PC_output),.MARMUX2BUS(MARMUX_output),.GateMDR(GateMDR),.GateALU(GateALU),.GatePC(GatePC),.GateMARMUX(GateMARMUX),.BUS(BUS));
-PC PC_unit(	.Clk(Clk), .LD_PC(LD_PC),.PCMUX(PCMUX),.Data_from_BUS(BUS),.Data_from_addrmux_to_PC(),.DataOut(PC_output));
+PC_module PC_unit(	.Clk(Clk), .LD_PC(LD_PC),.PCMUX(PCMUX),.Data_from_BUS(BUS),.Data_from_addrmux_to_PC(),.DataOut(PC_output));
 assign MDR = MDR_output;
 assign MAR = MAR_output;
+assign PC = PC_output;
+assign IR = IR_output;
 
+	
 
 
 always_comb begin
@@ -29,7 +34,7 @@ always_comb begin
     else
         MDR_input = MDR_In;
 end
-
+endmodule
 
 
 
@@ -74,7 +79,7 @@ module mux4to1bit16 (
 		input [15:0] Din2,
 		input [15:0] Din3,
 		input [15:0] Din4,
-		input [3:0] select,
+		input [1:0] select,
 		output logic [15:0] Dout);
 	
 	always_comb
@@ -114,7 +119,7 @@ module counter16bit (
 		input logic Clk,
 		output logic [15:0] Dout);
 		
-	always_ff (posedge Clk)
+	always_ff @ (posedge Clk)
 		begin
 			Dout[0] <= Din[0] ^ 1'b1;
 			Dout[1] <= Din[1] ^ Din[0];
@@ -138,7 +143,7 @@ module counter16bit (
 
 	
 	
-module PC (
+module PC_module (
 		input logic Clk,
 		input logic LD_PC,
 		input logic [1:0] PCMUX,
@@ -151,14 +156,13 @@ module PC (
 	
 	reg_parallel_16 REG_PC(.Clk(Clk), .Load(LD_PC), .D(Data_from_PCMUX), .Data_Out(DataOut));
 	
-	mux4to1bit16 PCmultiplexer(.Din1(PCplus1), .Din2(Data_from_addrmux_to_PC), .Din3(Data_from_BUS), .Dout(DataOut));
+	mux4to1bit16 PCmultiplexer(.Din1(PCplus1), .Din2(Data_from_addrmux_to_PC), .Din3(Data_from_BUS),.Din4(),.select(PCMUX), .Dout(Data_from_PCMUX));
 	
-	counter16bit counter(.Din(DataOut), .Dout(PCplus1));
+	counter16bit counter(.Clk(Clk),.Din(DataOut), .Dout(PCplus1));
 	
 endmodule
 	
 	
-endmodule		
 	
 	
 	
