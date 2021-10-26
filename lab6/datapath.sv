@@ -1,20 +1,22 @@
 module datapath(
-input logic Clk,
-input logic Reset_ah, Continue_ah, Run_ah, 
-input logic BEN,LD_MAR,LD_MDR,LD_IR,LD_BEN,LD_CC,LD_REG,LD_PC,LD_LED,
-input logic GatePC, GateMDR, GateALU,GateMARMUX,
-input logic[1:0] PCMUX,ADDR2MUX,ALUK,
-input logic DRMUX, SR1MUX, SR2MUX, ADDR1MUX,
-input logic MIO_EN,
-input logic[15:0] MDR_In, MDR, IR, PC,Data_from_SRAM, Data_to_SRAM, 
-output logic[15:0] MAR
+	input logic Clk,
+	input logic Reset_ah, Continue_ah, Run_ah, 
+	input logic BEN,LD_MAR,LD_MDR,LD_IR,LD_BEN,LD_CC,LD_REG,LD_PC,LD_LED,
+	input logic GatePC, GateMDR, GateALU,GateMARMUX,
+	input logic[1:0] PCMUX,ADDR2MUX,ALUK,
+	input logic DRMUX, SR1MUX, SR2MUX, ADDR1MUX,
+	input logic MIO_EN,
+	input logic[15:0] MDR_In,
+	output logic[15:0] MAR,IR,MDR, PC
 ); // TODO:input ? output? 
 
 logic[15:0] BUS;
-logic[15:0] MDR_input,MDR_mux,MDR_output, MAR_output, ALU_output, PC_output, MARMUX_output;
+logic[15:0] MDR_input,MDR_mux,MDR_output, MAR_output, ALU_output, PC_output, MARMUX_output; 
+
+
 reg_parallel_16 MDR_unit(.Clk(Clk),.Load(LD_MDR),.D(MDR_mux),.Data_Out(MDR_output));
 reg_parallel_16 MAR_unit(.Clk(Clk),.Load(LD_MAR),.D(BUS),.Data_Out(MAR_output));
-BUS_select bus_select(.MDR2BUS(MDR_output), .ALU2BUS(ALU_output),.PC2BUS(PC_output),.MARMUX2BUS(MARMUX_output),.GateMDR(GateMDR),.GateALU(GateALU),.GatePC(GatePC),.GateMARMUX(GateMARMUX));
+BUS_select bus_select(.MDR2BUS(MDR_output), .ALU2BUS(ALU_output),.PC2BUS(PC_output),.MARMUX2BUS(MARMUX_output),.GateMDR(GateMDR),.GateALU(GateALU),.GatePC(GatePC),.GateMARMUX(GateMARMUX),.BUS(BUS));
 PC PC_unit(	.Clk(Clk), .LD_PC(LD_PC),.PCMUX(PCMUX),.Data_from_BUS(BUS),.Data_from_addrmux_to_PC(),.DataOut(PC_output));
 assign MDR = MDR_output;
 assign MAR = MAR_output;
@@ -28,7 +30,7 @@ always_comb begin
         MDR_input = MDR_In;
 end
 
-endmodule
+
 
 
 
@@ -151,12 +153,12 @@ module PC (
 	
 	mux4to1bit16 PCmultiplexer(.Din1(PCplus1), .Din2(Data_from_addrmux_to_PC), .Din3(Data_from_BUS), .Dout(DataOut));
 	
-	counter16bit counter(.Din(DataOut), .Dout(PCplus1))
+	counter16bit counter(.Din(DataOut), .Dout(PCplus1));
 	
 endmodule
 	
 	
-			
+endmodule		
 	
 	
 	
