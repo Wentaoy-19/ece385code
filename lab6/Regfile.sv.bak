@@ -1,7 +1,7 @@
 module reg_file(
     input logic Clk,
     input logic [15:0] BUS,
-    input logic [2:0] IR11_9,IR8_6,SR2,
+    input logic [2:0] IR11_9,IR8_6,SR2
     input logic DR,SR1,LD_REG,
     output logic [15:0] SR1OUT, SR2OUT
 );
