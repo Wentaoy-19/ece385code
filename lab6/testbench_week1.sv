@@ -75,6 +75,15 @@ timeprecision 1ns;
 	   S = 16'd0075;
 	#5 Continue = 0;
 	
+//	#4 Reset = 1;
+//	#2 Run = 1;
+//	
+//	// run again to see if fetch automatically halts
+//	#10 Continue = 0;
+//	#5 Continue = 1;
+//	   S = 16'd0075;
+//	#5 Continue = 0;
+	
 
 	end
 	 
