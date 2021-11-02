@@ -75,7 +75,7 @@ assign MIO_EN = ~OE;
 // You need to make your own datapath module and connect everything to the datapath
 // Be careful about whether Reset is active high or low
 
-// TODO: REMEMBER Reset!
+// TODO: REMEMBER adding Reset!
 datapath d0 (.Clk(Clk),.Reset_ah(Reset_ah),.Continue_ah(Continue_ah),.Run_ah(Run_ah),.BEN(BEN),.LD_MAR(LD_MAR),.LD_MDR(LD_MDR),.LD_IR(LD_IR),.LD_BEN(LD_BEN),.LD_CC(LD_CC),
 .LD_REG(LD_REG),.LD_PC(LD_PC),.LD_LED(LD_LED),.GatePC(GatePC), .GateMDR(GateMDR), .GateALU(GateALU),.GateMARMUX(GateMARMUX),.PCMUX(PCMUX),.ADDR2MUX(ADDR2MUX),.ALUK(ALUK),.DRMUX(DRMUX), .SR1MUX(SR1MUX), .SR2MUX(SR2MUX), .ADDR1MUX(ADDR1MUX),
 .MIO_EN(MIO_EN),.MDR_In(MDR_In),
@@ -95,6 +95,7 @@ tristate #(.N(16)) tr0(
 );
 
 // State machine and control signals
+// TODO: figure out the input pins here
 ISDU state_controller(
     .*, .Reset(Reset_ah), .Run(Run_ah), .Continue(Continue_ah),
     .Opcode(IR[15:12]), .IR_5(IR[5]), .IR_11(IR[11]),
