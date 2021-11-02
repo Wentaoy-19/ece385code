@@ -66,7 +66,7 @@ endmodule
 	
 	
 module PC_module (
-		input logic Clk,
+		input logic Clk, Reset_ah,
 		input logic LD_PC,
 		input logic reset,
 		input logic [1:0] PCMUX,
