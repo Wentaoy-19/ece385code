@@ -19,7 +19,7 @@ module ADDRMUX(
 	always_comb
 		begin
 			if (IR[5] == 1'b0)
-				offset6 = {10'b000000000, IR[5:0]};
+				offset6 = {10'b0, IR[5:0]};
 			else
 				offset6 = {10'b1111111111, IR[5:0]};
 		end
@@ -27,7 +27,7 @@ module ADDRMUX(
 	always_comb
 		begin
 			if (IR[8] == 1'b0)
-				offset9 = {7'b0000000, IR[8:0]};
+				offset9 = {7'b0, IR[8:0]};
 			else
 				offset9 = {7'b1111111, IR[8:0]};
 		end
@@ -35,7 +35,7 @@ module ADDRMUX(
 	always_comb
 		begin
 			if (IR[10] == 1'b0)
-				offset11 = {5'b00000, IR[10:0]};
+				offset11 = {5'b0, IR[10:0]};
 			else
 				offset11 = {5'b11111, IR[10:0]};
 		end

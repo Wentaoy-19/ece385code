@@ -142,7 +142,7 @@ module ISDU (   input logic         Clk,
 				else 
 					Next_state = PauseIR2;
 			PauseIR2 : 
-				if (~Continue) 
+				if (Continue) 
 					Next_state = PauseIR2;
 				else 
 					Next_state = S_18;
