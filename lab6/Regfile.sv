@@ -9,7 +9,7 @@ module reg_file(
     logic [7:0] reg_ld;
     logic outr0, outr1,outr2,outr3,outr4,outr5,outr6,outr7;
 
-    assign drmux_out = DR ? IR11_9 : 3'b111;    //TODO: check what DR,SR1 means
+    assign drmux_out = DR ? IR11_9 : 3'b111;    //FIXME: check what DR,SR1 means
     assign sr1mux_out = SR1 ? IR8_6 : IR11_9;
 
     reg_parallel_16 reg0(.Clk(Clk),.Load(LD_REG&reg_ld[0]),.D(BUS),.Data_Out(outr0));

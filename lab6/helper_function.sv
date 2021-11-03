@@ -103,12 +103,6 @@ module ripple_adder
     output  logic[15:0]     Sum,
     output  logic           CO
 );
-
-    /* TODO
-     *
-     * Insert code here to implement a ripple adder.
-     * Your code should be completly combinational (don't use always_ff or always_latch).
-     * Feel free to create sub-modules or other files. */
 	  logic C0,C1,C2 ;
 	  four_bit_ra FRA0(.x(A[3:0]),.y(B[3:0]),.cin(0),.s(Sum[3:0]),.cout(C0));
 	  four_bit_ra FRA1(.x(A[7:4]),.y(B[7:4]),.cin(C0),.s(Sum[7:4]),.cout(C1));
