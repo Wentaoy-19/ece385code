@@ -49,16 +49,16 @@ logic [15:0] Data_from_SRAM, Data_to_SRAM;
 logic [3:0][3:0] hex_4;
 
 // For week 1, hexdrivers will display IR. Comment out these in week 2.
-HexDriver hex_driver3 (IR[15:12], HEX3);
-HexDriver hex_driver2 (IR[11:8], HEX2);
-HexDriver hex_driver1 (IR[7:4], HEX1);
-HexDriver hex_driver0 (IR[3:0], HEX0);
+// HexDriver hex_driver3 (IR[15:12], HEX3);
+// HexDriver hex_driver2 (IR[11:8], HEX2);
+// HexDriver hex_driver1 (IR[7:4], HEX1);
+// HexDriver hex_driver0 (IR[3:0], HEX0);
 
 // For week 2, hexdrivers will be mounted to Mem2IO
-// HexDriver hex_driver3 (hex_4[3][3:0], HEX3);
-// HexDriver hex_driver2 (hex_4[2][3:0], HEX2);
-// HexDriver hex_driver1 (hex_4[1][3:0], HEX1);
-// HexDriver hex_driver0 (hex_4[0][3:0], HEX0);
+HexDriver hex_driver3 (hex_4[3][3:0], HEX3);
+HexDriver hex_driver2 (hex_4[2][3:0], HEX2);
+HexDriver hex_driver1 (hex_4[1][3:0], HEX1);
+HexDriver hex_driver0 (hex_4[0][3:0], HEX0);
 
 // The other hex display will show PC for both weeks.
 HexDriver hex_driver7 (PC[15:12], HEX7);
@@ -70,16 +70,17 @@ HexDriver hex_driver4 (PC[3:0], HEX4);
 // MEM2IO will determine what gets put onto Data_CPU (which serves as a potential
 // input into MDR)
 assign ADDR = { 4'b00, MAR }; //Note, our external SRAM chip is 1Mx16, but address space is only 64Kx16
-assign MIO_EN = ~OE;
+assign MIO_EN = OE;  
 
 // You need to make your own datapath module and connect everything to the datapath
 // Be careful about whether Reset is active high or low
 
-// TODO: REMEMBER adding Reset!
-datapath d0 (.Clk(Clk),.Reset_ah(Reset_ah),.Continue_ah(Continue_ah),.Run_ah(Run_ah),.BEN(BEN),.LD_MAR(LD_MAR),.LD_MDR(LD_MDR),.LD_IR(LD_IR),.LD_BEN(LD_BEN),.LD_CC(LD_CC),
-.LD_REG(LD_REG),.LD_PC(LD_PC),.LD_LED(LD_LED),.GatePC(GatePC), .GateMDR(GateMDR), .GateALU(GateALU),.GateMARMUX(GateMARMUX),.PCMUX(PCMUX),.ADDR2MUX(ADDR2MUX),.ALUK(ALUK),.DRMUX(DRMUX), .SR1MUX(SR1MUX), .SR2MUX(SR2MUX), .ADDR1MUX(ADDR1MUX),
+uni_reg #(.N(12)) LDE_REG(.Clk(Clk),.Load(LD_LED),.reset(Reset_ah),.D(IR[11:0]),.Data_Out(LED));   
+
+datapath d0 (.Clk(Clk),.Reset_ah(Reset_ah),.LD_MAR(LD_MAR),.LD_MDR(LD_MDR),.LD_IR(LD_IR),.LD_BEN(LD_BEN),.LD_CC(LD_CC),
+.LD_REG(LD_REG),.LD_PC(LD_PC),.GatePC(GatePC), .GateMDR(GateMDR), .GateALU(GateALU),.GateMARMUX(GateMARMUX),.PCMUX(PCMUX),.ADDR2MUX(ADDR2MUX),.ALUK(ALUK),.DRMUX(DRMUX), .SR1MUX(SR1MUX), .SR2MUX(SR2MUX), .ADDR1MUX(ADDR1MUX),
 .MIO_EN(MIO_EN),.MDR_In(MDR_In),
-.MAR(MAR), .MDR(MDR), .IR(IR), .PC(PC));
+.MAR(MAR), .MDR(MDR), .IR(IR), .PC(PC),.BEN(BEN));
 
 // Our SRAM and I/O controller
 Mem2IO memory_subsystem(
@@ -95,11 +96,15 @@ tristate #(.N(16)) tr0(
 );
 
 // State machine and control signals
-// TODO: figure out the input pins here
-ISDU state_controller(
-    .*, .Reset(Reset_ah), .Run(Run_ah), .Continue(Continue_ah),
-    .Opcode(IR[15:12]), .IR_5(IR[5]), .IR_11(IR[11]),
-    .Mem_CE(CE), .Mem_UB(UB), .Mem_LB(LB), .Mem_OE(OE), .Mem_WE(WE)
-);
+// ISDU state_controller(
+//     .*, .Reset(Reset_ah), .Run(Run_ah), .Continue(Continue_ah),
+//     .Opcode(IR[15:12]), .IR_5(IR[5]), .IR_11(IR[11]),
+//     .Mem_CE(CE), .Mem_UB(UB), .Mem_LB(LB), .Mem_OE(OE), .Mem_WE(WE)
+// );
+
+ISDU state_controller(.Clk(Clk),.Reset(Reset_ah),.Run(Run_ah),.Continue(Continue_ah),.Opcode(IR[15:12]), .IR_5(IR[5]),.IR_11(IR[11]),.BEN(BEN),.LD_MAR(LD_MAR),
+    .LD_MDR(LD_MDR),.LD_IR(LD_IR),.LD_BEN(LD_BEN),.LD_CC(LD_CC),.LD_REG(LD_REG),.LD_PC(LD_PC),.LD_LED(LD_LED),.GatePC(GatePC),.GateMDR(GateMDR),.GateALU(GataALU),
+	.GateMARMUX(GateMARMUX),.PCMUX(PCMUX),.DRMUX(DRMUX),.SR1MUX(SR1MUX),.SR2MUX(SR2MUX),.ADDR1MUX(ADDR1MUX),.ADDR2MUX(ADDR2MUX),.ALUK(ALUK),
+    .Mem_CE(CE),.Mem_UB(UB),.Mem_LB(LB),.Mem_OE(OE),.Mem_WE(WE));
 
 endmodule

@@ -6,7 +6,7 @@ module ALU(
 );
     logic [15:0] B, out_add,out_and,out_not;
     ripple_adder adder(.A(SR1OUT),.B(B),.Sum(out_add),.CO()); 
-    assign B = sr2mux ? SR2OUT : IMME ; // TODO: figure out sr2mux 
+    assign B = sr2mux ? IMME : SR2OUT ; 
     assign out_and = B & SR1OUT; 
     assign out_not = ~SR1OUT; 
 
