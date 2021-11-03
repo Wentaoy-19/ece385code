@@ -1,13 +1,15 @@
 module uni_reg #(N = 16) (
-			input  logic Clk, Load,
+			input  logic Clk, Load,reset,
             input  logic [N-1:0]  D,
             output logic [N-1:0]  Data_Out
 );
     always_ff @ (posedge Clk)
     begin
-		 if (Load)
-			Data_Out <= D; 
-         else 
+		if (reset)
+			Data_Out <= N'b0;  // FIXME: have problem? 
+		else if (Load) 
+			Data_Out <= D;
+        else 
         	Data_Out <= Data_Out;		 
     end
 endmodule
@@ -15,15 +17,17 @@ endmodule
 // fortest
 
 module reg_parallel_16 (
-			input  logic Clk, Load,
+			input  logic Clk, Load,reset,
             input  logic [15:0]  D,
             output logic [15:0]  Data_Out);
 
     always_ff @ (posedge Clk)
     begin
-		 if (Load)
-			  Data_Out <= D; 
-         else 
+		 if (reset)
+			Data_Out <= 16'b0;
+		else if (Load) 
+			Data_Out <= D;
+        else 
             Data_Out <= Data_Out;		 
     end
 endmodule
