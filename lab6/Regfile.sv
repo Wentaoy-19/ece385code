@@ -1,5 +1,6 @@
 module reg_file(
     input logic Clk,
+    input logic reset,
     input logic [15:0] BUS,
     input logic [2:0] IR11_9,IR8_6,SR2,
     input logic DR,SR1,LD_REG,
@@ -9,17 +10,17 @@ module reg_file(
     logic [7:0] reg_ld;
     logic outr0, outr1,outr2,outr3,outr4,outr5,outr6,outr7;
 
-    assign drmux_out = DR ? IR11_9 : 3'b111;    //FIXME: check what DR,SR1 means
-    assign sr1mux_out = SR1 ? IR8_6 : IR11_9;
+    assign drmux_out = DR ? 3'b111 : IR11_9;   
+    assign sr1mux_out = SR1 ? IR11_9 : IR8_6;
 
-    reg_parallel_16 reg0(.Clk(Clk),.Load(LD_REG&reg_ld[0]),.D(BUS),.Data_Out(outr0));
-    reg_parallel_16 reg1(.Clk(Clk),.Load(LD_REG&reg_ld[1]),.D(BUS),.Data_Out(outr1));
-    reg_parallel_16 reg2(.Clk(Clk),.Load(LD_REG&reg_ld[2]),.D(BUS),.Data_Out(outr2));
-    reg_parallel_16 reg3(.Clk(Clk),.Load(LD_REG&reg_ld[3]),.D(BUS),.Data_Out(outr3));
-    reg_parallel_16 reg4(.Clk(Clk),.Load(LD_REG&reg_ld[4]),.D(BUS),.Data_Out(outr4));
-    reg_parallel_16 reg5(.Clk(Clk),.Load(LD_REG&reg_ld[5]),.D(BUS),.Data_Out(outr5));
-    reg_parallel_16 reg6(.Clk(Clk),.Load(LD_REG&reg_ld[6]),.D(BUS),.Data_Out(outr6));
-    reg_parallel_16 reg7(.Clk(Clk),.Load(LD_REG&reg_ld[7]),.D(BUS),.Data_Out(outr7));
+    reg_parallel_16 reg0(.Clk(Clk),.reset(reset),.Load(LD_REG&reg_ld[0]),.D(BUS),.Data_Out(outr0));
+    reg_parallel_16 reg1(.Clk(Clk),.reset(reset),.Load(LD_REG&reg_ld[1]),.D(BUS),.Data_Out(outr1));
+    reg_parallel_16 reg2(.Clk(Clk),.reset(reset),.Load(LD_REG&reg_ld[2]),.D(BUS),.Data_Out(outr2));
+    reg_parallel_16 reg3(.Clk(Clk),.reset(reset),.Load(LD_REG&reg_ld[3]),.D(BUS),.Data_Out(outr3));
+    reg_parallel_16 reg4(.Clk(Clk),.reset(reset),.Load(LD_REG&reg_ld[4]),.D(BUS),.Data_Out(outr4));
+    reg_parallel_16 reg5(.Clk(Clk),.reset(reset),.Load(LD_REG&reg_ld[5]),.D(BUS),.Data_Out(outr5));
+    reg_parallel_16 reg6(.Clk(Clk),.reset(reset),.Load(LD_REG&reg_ld[6]),.D(BUS),.Data_Out(outr6));
+    reg_parallel_16 reg7(.Clk(Clk),.reset(reset),.Load(LD_REG&reg_ld[7]),.D(BUS),.Data_Out(outr7));
 
     always_comb 
     begin

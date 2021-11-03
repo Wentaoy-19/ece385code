@@ -150,7 +150,6 @@ module ISDU (   input logic         Clk,
 				case (Opcode)
 					4'b0001 : 
 						Next_state = S_01;
-					//TODO: check if it match the control in module
 					4'b0101 : 
 						Next_state = S_05;
 					4'b1001 :
@@ -206,11 +205,10 @@ module ISDU (   input logic         Clk,
 			S_22 :
 				Next_state = S_18; 				
 			default : 
-				Next_state = State; //FIXME: What is the default case?
+				Next_state = State; 
 		endcase
 		
 		// Assign control signals based on current state
-		// TODO: check all signals with modules 
 		case (State)
 			Halted: ;
 			S_18 : 
@@ -232,7 +230,8 @@ module ISDU (   input logic         Clk,
 					GateMDR = 1'b1;
 					LD_IR = 1'b1;
 				end
-			PauseIR1: ;
+			PauseIR1:
+				LD_LED = 1'b1 ; 
 			PauseIR2: ;
 			S_32 : 
 				LD_BEN = 1'b1;
@@ -245,7 +244,7 @@ module ISDU (   input logic         Clk,
 					LD_REG = 1'b1; 
 					DRMUX = 1'b0;  
 					LD_CC = 1'b1;
-					//LD_BEN = 1'b1; //FIXME: set ld_ben? or not 
+					//LD_BEN = 1'b1; 
 				end
 			S_05 :
 				begin
@@ -287,6 +286,7 @@ module ISDU (   input logic         Clk,
 					GateMDR = 1'b1;
 					DRMUX = 1'b0;
 					LD_CC = 1'b1;
+					LD_REG = 1'b1;
 				end
 			S_07 :
 				begin
@@ -299,13 +299,12 @@ module ISDU (   input logic         Clk,
 			S_23 :
 				begin
 					SR1MUX = 1'b1;
-					ADDR1MUX = 1'b1;
-					ADDR2MUX = 2'b00;
-					GateMARMUX = 1'b1;
+					ALUK = 2'b11;
+					GateALU = 1'b1;
 					LD_MDR = 1'b1; 
-					Mem_OE = 1'b0;
+					Mem_OE = 1'b1;
 				end
-			S_16_1 : // FIXME: how to write data into memory?
+			S_16_1 : 
 				begin
 					Mem_WE = 1'b0;
 				end
@@ -321,29 +320,43 @@ module ISDU (   input logic         Clk,
 				end
 			S_21 :
 				begin
-					ADDR1MUX = 1'b0;
-					ADDR2MUX = 2'b11;
-					PCMUX = 2'b01;
-					LD_PC = 1'b1;
+					if(IR_11)
+					begin
+						ADDR1MUX = 1'b0;
+						ADDR2MUX = 2'b11;
+						PCMUX = 2'b01;
+						LD_PC = 1'b1;
+					end
+					else begin
+						SR1MUX = 1'b0;
+						ADDR1MUX = 1'b1;
+						ADDR2MUX = 2'b00;
+						PCMUX = 2'b01;
+						LD_PC = 1'b1;
+					end
+					// ADDR1MUX = 1'b0;
+					// ADDR2MUX = 2'b11;
+					// PCMUX = 2'b01;
+					// LD_PC = 1'b1;
 				end
 			S_12 :
 				begin
 					SR1MUX = 1'b0;
-					ADDR1MUX =1'b1;
-					ADDR2MUX = 2'b00;
-					PCMUX = 2'b01;
+					ALUK = 2'b11; 
+					GateALU = 1'b1;
+					PCMUX = 2'b10;
 					LD_PC = 1'b1;
 				end 
-			S_0 :  // FIXME: does s0 have control signals? 
+			S_0 : 
 				begin
 					
 				end
 			S_22 :
-				ADDR1MUX = 2'b00;
+				ADDR1MUX = 1'b0;
 				ADDR2MUX = 2'b10;
 				PCMUX = 2'b01 ;
 				LD_PC = 1'b1;
-			default : ; // FIXME: need default?
+			default : ; 
 		endcase
 	end 
 

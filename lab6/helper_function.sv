@@ -6,7 +6,7 @@ module uni_reg #(N = 16) (
     always_ff @ (posedge Clk)
     begin
 		if (reset)
-			Data_Out <= N'b0;  // FIXME: have problem? 
+			Data_Out <= 0; 
 		else if (Load) 
 			Data_Out <= D;
         else 
