@@ -82,14 +82,10 @@ timeprecision 1ns;
    // data_out is the the variable name of output for each register instantiation	
 	always begin
 		#1
-//		PC = test.my_slc.d0.PC;
-//		MAR = test.my_slc.d0.MAR_reg.data_out;
-//	   MDR = test.my_slc.d0.MDR_reg.data_out;
-//	   IR = test.my_slc.d0.IR_reg.data_out;	
-	PC = test.my_slc.d0.PC;
-	MAR = test.my_slc.d0.MAR_unit.Data_Out;
-	MDR = test.my_slc.d0.MDR_unit.Data_Out;
-	IR = test.my_slc.d0.IR_unit.Data_Out;
+		PC = test.my_slc.d0.PC;
+		MAR = test.my_slc.d0.MAR_reg.data_out;
+	   MDR = test.my_slc.d0.MDR_reg.data_out;
+	   IR = test.my_slc.d0.IR_reg.data_out;	
 	end
 	
 	// initialize clock signal 
@@ -105,15 +101,15 @@ timeprecision 1ns;
 		
 	
 	// Basic I/O Test 1		
-//	#2 Reset = 1;
-//	#2 Run = 0;
-//	   S = 16'h0003;
-//	// change switch values to see if hex display is correct
-//	#100 S = 16'hFFFF;
-//   #100 S = 16'h0000;	
-//	// reset program
-//	#100 Reset = 0;
-//	   Run = 1;
+	#2 Reset = 1;
+	#2 Run = 0;
+	   S = 16'h0003;
+	// change switch values to see if hex display is correct
+	#100 S = 16'hFFFF;
+   #100 S = 16'h0000;	
+	// reset program
+	#100 Reset = 0;
+	   Run = 1;
 	
 	
 	
@@ -152,7 +148,7 @@ timeprecision 1ns;
 //		
 //	
 //	
-	// XOR Test
+//	// XOR Test
 //	#10 Reset = 1;
 //   #10 Continue = 1;
 //		Run = 0;
@@ -172,7 +168,7 @@ timeprecision 1ns;
 //	
 //	
 //	
-	// Multiplication Test
+//	// Multiplication Test
 //	#10 Reset = 1;
 //	#10 Continue = 1;
 //		Run = 0;
@@ -257,20 +253,20 @@ timeprecision 1ns;
 //		
 //		
 //	// "Act Once" Test
-	#10 Reset = 1;
-	#10 Continue = 1;
-		S = 16'h002A;
-		Run = 0;
-	// Hex should count up by 1 each time, starting from 0
-	#150 Continue = 0;
-	#10 Continue = 1;
-	#100 Continue = 0;
-	#10 Continue = 1;
-	#100 Continue = 0;
-	#10 Continue = 1;
-	// reset program
-	#100 Reset = 0;
-	   Run = 1;
+//	#10 Reset = 1;
+//	#10 Continue = 1;
+//		S = 16'h002A;
+//		Run = 0;
+//	// Hex should count up by 1 each time, starting from 0
+//	#150 Continue = 0;
+//	#10 Continue = 1;
+//	#100 Continue = 0;
+//	#10 Continue = 1;
+//	#100 Continue = 0;
+//	#10 Continue = 1;
+//	// reset program
+//	#100 Reset = 0;
+//	   Run = 1;
 
 	end
 	 
