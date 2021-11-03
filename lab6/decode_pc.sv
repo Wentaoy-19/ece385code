@@ -3,7 +3,7 @@ module ADDRMUX(
     input logic [1:0] ADDR2MUX,
     input logic ADDR1MUX,
     input logic [15:0] data_from_SR1OUT, data_from_PC,
-    output logic [15:0] Data_out, SEXT,
+    output logic [15:0] Data_Out, SEXT,
 	 output logic [3:0] Data_to_controller,
 	 output logic [2:0] Data_to_BEN
 );
@@ -19,25 +19,25 @@ module ADDRMUX(
 	always_comb
 		begin
 			if (IR[5] == 1'b0)
-				offset6 = {10'b0, IR[5:0]};
+				offset6 = {10'b000000000, IR[5:0]};
 			else
-				offset6 = {10'b1, IR[5:0]};
+				offset6 = {10'b111111111, IR[5:0]};
 		end
 		
 	always_comb
 		begin
 			if (IR[8] == 1'b0)
-				offset9 = {7'b0, IR[8:0]};
+				offset9 = {7'b0000000, IR[8:0]};
 			else
-				offset9 = {7'b1, IR[8:0]};
+				offset9 = {7'b1111111, IR[8:0]};
 		end
 		
 	always_comb
 		begin
 			if (IR[10] == 1'b0)
-				offset11 = {5'b0, IR[10:0]};
+				offset11 = {5'b00000, IR[10:0]};
 			else
-				offset11 = {5'b1, IR[10:0]};
+				offset11 = {5'b11111, IR[10:0]};
 		end
 		
 	always_comb

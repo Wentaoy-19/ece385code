@@ -83,9 +83,9 @@ timeprecision 1ns;
 	always begin
 		#1
 		PC = test.my_slc.d0.PC;
-		MAR = test.my_slc.d0.MAR_unit.Data_Out;
-		MDR = test.my_slc.d0.MDR_unit.Data_Out;
-		IR = test.my_slc.d0.IR_unit.Data_Out;
+		MAR = test.my_slc.d0.MAR_reg.data_out;
+	   MDR = test.my_slc.d0.MDR_reg.data_out;
+	   IR = test.my_slc.d0.IR_reg.data_out;	
 	end
 	
 	// initialize clock signal 

@@ -8,7 +8,7 @@ module reg_file(
 );
     logic [2:0] drmux_out, sr1mux_out;
     logic [7:0] reg_ld;
-    logic outr0, outr1,outr2,outr3,outr4,outr5,outr6,outr7;
+    logic [15:0] outr0, outr1,outr2,outr3,outr4,outr5,outr6,outr7;
 
     assign drmux_out = DR ? 3'b111 : IR11_9;   
     assign sr1mux_out = SR1 ? IR11_9 : IR8_6;

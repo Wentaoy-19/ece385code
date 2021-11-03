@@ -54,7 +54,7 @@ module ISDU (   input logic         Clk,
 									Mem_OE,
 									Mem_WE
 				);
-	enum logic [3:0] {  Halted, 
+	enum logic [4:0] {  Halted, 
 						PauseIR1, 
 						PauseIR2, 
 						S_18, 
@@ -133,7 +133,7 @@ module ISDU (   input logic         Clk,
 			S_33_2 : 
 				Next_state = S_35;
 			S_35 : 
-				Next_state = PauseIR1;
+				Next_state = S_32;
 			// PauseIR1 and PauseIR2 are only for Week 1 such that TAs can see 
 			// the values in IR.
 			PauseIR1 : 
@@ -142,7 +142,7 @@ module ISDU (   input logic         Clk,
 				else 
 					Next_state = PauseIR2;
 			PauseIR2 : 
-				if (Continue) 
+				if (~Continue) 
 					Next_state = PauseIR2;
 				else 
 					Next_state = S_18;
@@ -352,10 +352,12 @@ module ISDU (   input logic         Clk,
 					
 				end
 			S_22 :
-				ADDR1MUX = 1'b0;
-				ADDR2MUX = 2'b10;
-				PCMUX = 2'b01 ;
-				LD_PC = 1'b1;
+				begin
+					ADDR1MUX = 1'b0;
+					ADDR2MUX = 2'b10;
+					PCMUX = 2'b01 ;
+					LD_PC = 1'b1;
+				end
 			default : ; 
 		endcase
 	end 
