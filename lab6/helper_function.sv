@@ -6,9 +6,9 @@ module uni_reg #(N = 16) (
     always_ff @ (posedge Clk)
     begin
 		 if (Load)
-			  Data_Out <= D; 
+			Data_Out <= D; 
          else 
-            Data_Out <= Data_Out;		 
+        	Data_Out <= Data_Out;		 
     end
 endmodule
 
