@@ -12,6 +12,8 @@ module uni_reg #(N = 16) (
     end
 endmodule
 
+// fortest
+
 module reg_parallel_16 (
 			input  logic Clk, Load,
             input  logic [15:0]  D,
