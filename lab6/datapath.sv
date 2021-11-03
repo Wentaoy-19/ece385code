@@ -8,33 +8,35 @@ module datapath(
 	input logic MIO_EN,
 	input logic[15:0] MDR_In,
 	output logic[15:0] MAR,IR,MDR, PC, 
-	output logic IR5
+	output logic IR5, IR11
 ); 	//TODO: Clearify the pins 
 
 logic[15:0] BUS;
 logic[15:0] MDR_input,MDR_output, MAR_output, ALU_output, PC_output, MARMUX_output,IR_output,IR_input; 
-
 
 reg_parallel_16 MDR_unit(.Clk(Clk),.Load(LD_MDR),.D(MDR_input),.Data_Out(MDR_output));
 reg_parallel_16 MAR_unit(.Clk(Clk),.Load(LD_MAR),.D(BUS),.Data_Out(MAR_output));
 reg_parallel_16 IR_unit(.Clk(Clk),.Load(LD_IR|Reset_ah),.D(IR_input),.Data_Out(IR_output));
 
 BUS_select bus_select(.MDR2BUS(MDR_output), .ALU2BUS(ALU_output),.PC2BUS(PC_output),.MARMUX2BUS(MARMUX_output),.GateMDR(GateMDR),.GateALU(GateALU),.GatePC(GatePC),.GateMARMUX(GateMARMUX),.BUS(BUS));
-PC_module PC_unit(	.Clk(Clk), .LD_PC(LD_PC),.PCMUX(PCMUX),.Data_from_BUS(BUS),.Data_from_addrmux_to_PC(),.DataOut(PC_output),.reset(Reset_ah));
+PC_module PC_unit(.Clk(Clk), .LD_PC(LD_PC),.PCMUX(PCMUX),.Data_from_BUS(BUS),.Data_from_addrmux_to_PC(),.DataOut(PC_output),.reset(Reset_ah)); 
+ADDRMUX addrmux(.IR(),.ADDR2MUX(),.ADDR1MUX(),.data_from_SR1OUT, .data_from_PC(),.Data_out, .SEXT(),.Data_to_controller(),.Data_to_BEN()); 
+ALU alu(.SR1OUT(), .SR2OUT(),.IMME(),.sr2mux(),.ALUK(),.OUT());
+reg_file regfile(.Clk(Clk),.BUS(),.IR11_9(),.IR8_6,SR2(),.DR(),.SR1(),.LD_REG(),.SR1OUT(),.SR2OUT());
+
 assign MDR = MDR_output;
 assign MAR = MAR_output;
 assign PC = PC_output;
 assign IR_input = Reset_ah ? 16'b0 : BUS;
-assign IR = IR_output;
-	
-
+assign IR = IR_output; 
+assign IR5 = IR_output[5];
+assign IR11 = IR_output[11];
 
 always_comb begin
     if(MIO_EN)
         MDR_input = MDR_In;
     else
-        MDR_input = BUS;
-		  
+        MDR_input = BUS;	  
 end
 endmodule
 
