@@ -54,7 +54,6 @@ module ISDU (   input logic         Clk,
 									Mem_OE,
 									Mem_WE
 				);
-	// TODO: finish all the states 
 	enum logic [3:0] {  Halted, 
 						PauseIR1, 
 						PauseIR2, 
@@ -70,11 +69,11 @@ module ISDU (   input logic         Clk,
 						S_25_1,
 						S_25_2,
 						S_27,
-						S_7,
+						S_07,
 						S_23,
 						S_16_1,
 						S_16_2,
-						S_4,
+						S_04,
 						S_21,
 						S_12,
 						S_0,
@@ -248,7 +247,6 @@ module ISDU (   input logic         Clk,
 					LD_CC = 1'b1;
 					//LD_BEN = 1'b1; //FIXME: set ld_ben? or not 
 				end
-			//TODO: You need to finish the rest of states..... 
 			S_05 :
 				begin
 					SR1MUX = 1'b0;

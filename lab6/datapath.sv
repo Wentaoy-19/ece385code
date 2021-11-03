@@ -7,7 +7,8 @@ module datapath(
 	input logic DRMUX, SR1MUX, SR2MUX, ADDR1MUX,
 	input logic MIO_EN,
 	input logic[15:0] MDR_In,
-	output logic[15:0] MAR,IR,MDR, PC
+	output logic[15:0] MAR,IR,MDR, PC, 
+	output logic IR5
 ); 	//TODO: Clearify the pins 
 
 logic[15:0] BUS;
