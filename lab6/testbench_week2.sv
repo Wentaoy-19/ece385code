@@ -173,26 +173,26 @@ timeprecision 1ns;
 //	
 //	
 	// Multiplication Test
-//	#10 Reset = 1;
-//	#10 Continue = 1;
-//		Run = 0;
-//		S = 16'h0031;
-//	// x2020 multiplies x0005, and the result should be xA0A0
-//	// enter x0005
-//	#200 S = 16'h0005;
-//	   Continue = 0;
-//	#10 Continue = 1;
-//	// enter x2020
-//	#150 S = 16'h2020;
-//	   Continue = 0;
-//	#10 Continue = 1;
-//	// reset program
-//	#1000 Reset = 0;
-//	   Run = 1;
+	#10 Reset = 1;
+	#10 Continue = 1;
+		Run = 0;
+		S = 16'h0031;
+	// x2020 multiplies x0005, and the result should be xA0A0
+	// enter x0005
+	#200 S = 16'h0005;
+	   Continue = 0;
+	#10 Continue = 1;
+	// enter x2020
+	#150 S = 16'h2020;
+	   Continue = 0;
+	#10 Continue = 1;
+	// reset program
+	#1000 Reset = 0;
+	   Run = 1;
 //		
 //		
 //		
-//	// Sort Test
+	// Sort Test
 //	#10 Reset = 1;
 //	#10 Continue = 1;
 //		S = 16'h005A;
@@ -257,20 +257,20 @@ timeprecision 1ns;
 //		
 //		
 //	// "Act Once" Test
-	#10 Reset = 1;
-	#10 Continue = 1;
-		S = 16'h002A;
-		Run = 0;
-	// Hex should count up by 1 each time, starting from 0
-	#150 Continue = 0;
-	#10 Continue = 1;
-	#100 Continue = 0;
-	#10 Continue = 1;
-	#100 Continue = 0;
-	#10 Continue = 1;
-	// reset program
-	#100 Reset = 0;
-	   Run = 1;
+//	#10 Reset = 1;
+//	#10 Continue = 1;
+//		S = 16'h002A;
+//		Run = 0;
+//	// Hex should count up by 1 each time, starting from 0
+//	#150 Continue = 0;
+//	#10 Continue = 1;
+//	#100 Continue = 0;
+//	#10 Continue = 1;
+//	#100 Continue = 0;
+//	#10 Continue = 1;
+//	// reset program
+//	#100 Reset = 0;
+//	   Run = 1;
 
 	end
 	 

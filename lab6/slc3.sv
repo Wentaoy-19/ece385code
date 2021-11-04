@@ -29,9 +29,14 @@ module slc3(
 // Declaration of push button active high signals
 logic Reset_ah, Continue_ah, Run_ah;
 
-assign Reset_ah = ~Reset;
-assign Continue_ah = ~Continue;
-assign Run_ah = ~Run;
+//assign Reset_ah = ~Reset;
+//assign Continue_ah = ~Continue;
+//assign Run_ah = ~Run;
+
+sync reset_sync (Clk, ~Reset, Reset_ah);
+sync continue_sync (Clk, ~Continue, Continue_ah);
+sync run_sync (Clk, ~Run, Run_ah);
+
 
 // Internal connections
 logic BEN;
