@@ -72,31 +72,55 @@ endmodule
 
 
 
+//module counter16bit (
+//		input [15:0] Din,
+//		input logic Clk,
+//		output logic [15:0] Dout);
+//		
+//	always_ff @ (posedge Clk)
+//		begin
+//			Dout[0] <= Din[0] ^ 1'b1;
+//			Dout[1] <= Din[1] ^ Din[0];
+//			Dout[2] <= Din[1] & Din[0] ^ Din[2];
+//			Dout[3] <= Din[0]& Din[1]& Din[2]^ Din[3];
+//			Dout[4] <= Din[0]& Din[1]& Din[2]& Din[3]^ Din[4];
+//			Dout[5] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]^ Din[5];
+//			Dout[6] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]^ Din[6];
+//			Dout[7] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]^ Din[7];
+//			Dout[8] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]& Din[7]^ Din[8];
+//			Dout[9] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]& Din[7]& Din[8]^ Din[9];
+//			Dout[10] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]& Din[7]& Din[8]& Din[9]^ Din[10];
+//			Dout[11] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]& Din[7]& Din[8]& Din[9]& Din[10]^ Din[11];
+//			Dout[12] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]& Din[7]& Din[8]& Din[9]& Din[10]& Din[11]^ Din[12];
+//			Dout[13] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]& Din[7]& Din[8]& Din[9]& Din[10]& Din[11]& Din[12]^ Din[13];
+//			Dout[14] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]& Din[7]& Din[8]& Din[9]& Din[10]& Din[11]& Din[12]& Din[13]^ Din[14];
+//			Dout[15] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]& Din[7]& Din[8]& Din[9]& Din[10]& Din[11]& Din[12]& Din[13]& Din[14] ^ Din[15];
+//		end
+//	endmodule
+
 module counter16bit (
-		input [15:0] Din,
-		input logic Clk,
-		output logic [15:0] Dout);
-		
-	always_ff @ (posedge Clk)
-		begin
-			Dout[0] <= Din[0] ^ 1'b1;
-			Dout[1] <= Din[1] ^ Din[0];
-			Dout[2] <= Din[1] & Din[0] ^ Din[2];
-			Dout[3] <= Din[0]& Din[1]& Din[2]^ Din[3];
-			Dout[4] <= Din[0]& Din[1]& Din[2]& Din[3]^ Din[4];
-			Dout[5] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]^ Din[5];
-			Dout[6] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]^ Din[6];
-			Dout[7] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]^ Din[7];
-			Dout[8] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]& Din[7]^ Din[8];
-			Dout[9] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]& Din[7]& Din[8]^ Din[9];
-			Dout[10] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]& Din[7]& Din[8]& Din[9]^ Din[10];
-			Dout[11] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]& Din[7]& Din[8]& Din[9]& Din[10]^ Din[11];
-			Dout[12] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]& Din[7]& Din[8]& Din[9]& Din[10]& Din[11]^ Din[12];
-			Dout[13] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]& Din[7]& Din[8]& Din[9]& Din[10]& Din[11]& Din[12]^ Din[13];
-			Dout[14] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]& Din[7]& Din[8]& Din[9]& Din[10]& Din[11]& Din[12]& Din[13]^ Din[14];
-			Dout[15] <= Din[0]& Din[1]& Din[2]& Din[3]& Din[4]& Din[5]& Din[6]& Din[7]& Din[8]& Din[9]& Din[10]& Din[11]& Din[12]& Din[13]& Din[14] ^ Din[15];
-		end
-	endmodule
+  input [15:0] Din,
+  output logic [15:0] Dout);
+  
+ logic c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15;
+ full_adder adder1( .x(1'b1), .y(Din[0]), .cin(0), .s(Dout[0]), .cout(c1));
+ full_adder adder2( .x(c1), .y(Din[1]), .cin(0), .s(Dout[1]), .cout(c2));
+ full_adder adder3( .x(c2), .y(Din[2]), .cin(0), .s(Dout[2]), .cout(c3));
+ full_adder adder4( .x(c3), .y(Din[3]), .cin(0), .s(Dout[3]), .cout(c4));
+ full_adder adder5( .x(c4), .y(Din[4]), .cin(0), .s(Dout[4]), .cout(c5));
+ full_adder adder6( .x(c5), .y(Din[5]), .cin(0), .s(Dout[5]), .cout(c6));
+ full_adder adder7( .x(c6), .y(Din[6]), .cin(0), .s(Dout[6]), .cout(c7));
+ full_adder adder8( .x(c7), .y(Din[7]), .cin(0), .s(Dout[7]), .cout(c8));
+ full_adder adder9( .x(c8), .y(Din[8]), .cin(0), .s(Dout[8]), .cout(c9));
+ full_adder adder10( .x(c9), .y(Din[9]), .cin(0), .s(Dout[9]), .cout(c10));
+ full_adder adder11( .x(c10), .y(Din[10]), .cin(0), .s(Dout[10]), .cout(c11));
+ full_adder adder12( .x(c11), .y(Din[11]), .cin(0), .s(Dout[11]), .cout(c12));
+ full_adder adder13( .x(c12), .y(Din[12]), .cin(0), .s(Dout[12]), .cout(c13));
+ full_adder adder14( .x(c13), .y(Din[13]), .cin(0), .s(Dout[13]), .cout(c14));
+ full_adder adder15( .x(c14), .y(Din[14]), .cin(0), .s(Dout[14]), .cout(c15));
+ full_adder adder16( .x(c15), .y(Din[15]), .cin(0), .s(Dout[15]), .cout());
+
+ endmodule
 
 
 
