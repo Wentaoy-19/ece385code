@@ -82,15 +82,15 @@ module PC_module (
 		output logic [15:0] DataOut
 );
 
-	logic [15:0] Data_from_PCMUX, PCplus1,dataout_mid;	
+	logic [15:0] Data_from_PCMUX, PCplus1, dataout_mid;	
 	
 	reg_parallel_16 REG_PC(.Clk(Clk), .Load(LD_PC),.reset(reset), .D(dataout_mid), .Data_Out(DataOut));
 	
 	mux4to1bit16 PCmultiplexer(.Din1(PCplus1), .Din2(Data_from_addrmux_to_PC), .Din3(Data_from_BUS),.Din4(),.select(PCMUX), .Dout(dataout_mid)); 
 	
-	assign PCplus1 = DataOut + 16'b1;
+	//assign PCplus1 = DataOut + 16'b1;
 	
-//	counter16bit counter(.Clk(Clk),.Din(DataOut), .Dout(PCplus1));
+	counter16bit incrementer(.Din(DataOut), .Dout(PCplus1));
 	
 //	assign Data_from_PCMUX = ~run ? S : dataout_mid;
 	
