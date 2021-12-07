@@ -19,12 +19,13 @@ module AES (
 
 	logic [1407:0] KeySchedule;
 	logic [127:0] state;
+	logic [127:0] next_state;
 	logic [127:0] key;
 	logic [127:0] addroundkey_out;
-	logic [127:0] invshiftrows_in;
 	logic [127:0] invshiftrows_out;
 	logic [127:0] mixcolumns_in;
 	logic [127:0] mixcolumns_out;
+	logic [127:0] Sub_Out;
 
 	enum logic [4:0]{
 		WAIT, 
@@ -67,59 +68,8 @@ module AES (
 		end
 	end
 	
-	always_comb
-	begin
 	
-	//Transition relation
-	
-	end
-	
-	always_comb
-	begin
-		
-		unique case (AES_STATE)
-			
-			WAIT:
-				begin
-					AES_DONE = 0;
-				end
-				
-			DONE:
-				begin
-					AES_DONE = 1;
-				end
-			
-			KEY_EXPANSION:
-				begin
-					
-					AES_DONE = 0;
-				end
-				
-			INITIAL_ROUND:
-				begin
-
-					AES_DONE = 0;
-				end
-				
-		endcase
-		
-	end
-	
-	
-	//KeyExpansion
-	KeyExpansion keyexpansion(.clk(CLK), .Cipherkey(AES_KEY), .KeySchedule(KeySchedule));
-
-	// AddRoundKey
-	AddRoundKey addroundkey(.state(state), .roundKey(key), .out(addroundkey_out));
-	
-	//InvShiftRows
-	InvShiftRows invshiftrows(.data_in(invshiftrows_in), .data_out(invshiftrows_out));
-
-	// InvMixColumns
-	InvMixColumns invmixcolumns(.in(mixcolumns_in),.out(mixcolumns_out));
-	
-	
-	
+	//Transition Relations
 	always_comb 
 	begin 
 	
@@ -195,5 +145,68 @@ module AES (
 		
 		endcase 
 	end
+	
+	//State Contents
+	always_comb
+	begin
+		
+		unique case (AES_STATE)
+			
+			WAIT:
+				begin
+					AES_DONE = 0;
+				end
+				
+			DONE:
+				begin
+					AES_DONE = 1;
+				end
+			
+			KEY_EXPANSION:
+				begin
+					
+					AES_DONE = 0;
+				end
+				
+			INITIAL_ROUND:
+				begin
+
+					AES_DONE = 0;
+				end
+				
+		endcase
+		
+	end
+	
+	
+	//KeyExpansion
+	KeyExpansion keyexpansion(.clk(CLK), .Cipherkey(AES_KEY), .KeySchedule(KeySchedule));
+
+	// AddRoundKey
+	AddRoundKey addroundkey(.state(state), .roundKey(key), .out(addroundkey_out));
+	
+	//InvShiftRows
+	InvShiftRows invshiftrows(.data_in(state), .data_out(invshiftrows_out));
+
+	// InvMixColumns
+	InvMixColumns invmixcolumns(.in(mixcolumns_in),.out(mixcolumns_out));
+	
+	// InvSubBytes  
+	InvSubBytes sub0(.clk(CLK), .in(state[7:0]), .out(Sub_Out[7:0]));  
+	InvSubBytes sub1(.clk(CLK), .in(state[15:8]), .out(Sub_Out[15:8]));  
+	InvSubBytes sub2(.clk(CLK), .in(state[23:16]), .out(Sub_Out[23:16]));  
+	InvSubBytes sub3(.clk(CLK), .in(state[31:24]), .out(Sub_Out[31:24]));  
+	InvSubBytes sub4(.clk(CLK), .in(state[39:32]), .out(Sub_Out[39:32]));  
+	InvSubBytes sub5(.clk(CLK), .in(state[47:40]), .out(Sub_Out[47:40]));  
+	InvSubBytes sub6(.clk(CLK), .in(state[55:48]), .out(Sub_Out[55:48]));  
+	InvSubBytes sub7(.clk(CLK), .in(state[63:56]), .out(Sub_Out[63:56]));  
+	InvSubBytes sub8(.clk(CLK), .in(state[71:64]), .out(Sub_Out[71:64]));  
+	InvSubBytes sub9(.clk(CLK), .in(state[79:72]), .out(Sub_Out[79:72]));  
+	InvSubBytes sub10(.clk(CLK), .in(state[87:80]), .out(Sub_Out[87:80]));  
+	InvSubBytes sub11(.clk(CLK), .in(state[95:88]), .out(Sub_Out[95:88]));  
+	InvSubBytes sub12(.clk(CLK), .in(state[103:96]), .out(Sub_Out[103:96]));  
+	InvSubBytes sub13(.clk(CLK), .in(state[111:104]), .out(Sub_Out[111:104]));  
+	InvSubBytes sub14(.clk(CLK), .in(state[119:112]), .out(Sub_Out[119:112]));  
+	InvSubBytes sub15(.clk(CLK), .in(state[127:120]), .out(Sub_Out[127:120]));
 	
 endmodule
