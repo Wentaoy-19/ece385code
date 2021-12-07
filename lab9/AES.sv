@@ -23,8 +23,8 @@ module AES (
 	logic [127:0] key;
 	logic [127:0] addroundkey_out;
 	logic [127:0] invshiftrows_out;
-	logic [127:0] mixcolumns_in;
-	logic [127:0] mixcolumns_out;
+	logic [31:0] mixcolumns_in;
+	logic [31:0] mixcolumns_out;
 	logic [127:0] Sub_Out;
 
 	enum logic [4:0]{
@@ -44,10 +44,6 @@ module AES (
 		INVSUB,
 		INVSHIFTROW,
 		ADDRK
-
-
-
-		
 		
 	} AES_STATE, AES_NEXT_STATE;
 	
@@ -63,6 +59,7 @@ module AES (
 		end
 		
 		else begin
+			state <= next_state;
 			AES_STATE <= AES_NEXT_STATE;
 			loop_counter = loop_counter_next;
 		end
@@ -149,6 +146,12 @@ module AES (
 	//State Contents
 	always_comb
 	begin
+	
+		next_state = state;
+		AES_DONE = 1'b0;
+		AES_MSG_DEC = 128'b0;
+		MixColumns_In = 32'b0;
+		key = 128'b0;
 		
 		unique case (AES_STATE)
 			
@@ -159,21 +162,100 @@ module AES (
 				
 			DONE:
 				begin
-					AES_DONE = 1;
+					AES_MSG_DEC = addroundkey_out;
+					AES_DONE = 1'b1;
 				end
 			
 			KEY_EXPANSION:
 				begin
-					
+					next_state = AES_MSG_ENC;
 					AES_DONE = 0;
 				end
 				
 			INITIAL_ROUND:
 				begin
-
+					key = KeySchedule[127:0];
+					next_state = addroundkey_out;
+					AES_DONE = 0;
+				end
+			
+			LOOP_INVSUB:
+				begin
+					next_state = Sub_Out;
 					AES_DONE = 0;
 				end
 				
+			LOOP_INVSHIFTROW:
+				begin
+					next_state = invshiftrows_out;
+					AES_DONE = 0;
+				end
+			
+			LOOP_INVMIXCOL1:
+				begin
+					mixcolumns_in = state[31:0];
+					next_state[31:0] = mixcolumns_out;
+					AES_DONE = 0;
+				end
+				
+			LOOP_INVMIXCOL2:
+				begin
+					mixcolumns_in = state[63:32];
+					next_state[63:32] = mixcolumns_out;
+					AES_DONE = 0;
+				end
+		
+			LOOP_INVMIXCOL3:
+				begin
+					mixcolumns_in = state[95:64];
+					next_state[95:64] = mixcolumns_out;
+					AES_DONE = 0;
+				end
+				
+			LOOP_INVMIXCOL4:
+				begin
+					mixcolumns_in = state[127:96];
+					next_state[127:96] = mixcolumns_out;
+					AES_DONE = 0;
+				end	
+				
+			LOOP_ADDRK:
+				begin
+					case (Loop_counter)
+						4'd0:key = KeySchedule[255:128];
+						4'd1:key = KeySchedule[383:256];
+						4'd2:key = KeySchedule[511:384];
+						4'd3:key = KeySchedule[639:512];
+						4'd4:key = KeySchedule[767:640];
+						4'd5:key = KeySchedule[895:768];
+						4'd6:key = KeySchedule[1023:896];
+						4'd7:key = KeySchedule[1151:1024];
+						4'd8:key = KeySchedule[1279:1152];
+						default: 
+							key = 128'b0;
+					endcase
+					next_state = addroundkey_out;
+					AES_DONE = 0;
+				end
+
+			INVSUB:
+				begin
+					next_state = Sub_Out;
+					AES_DONE = 0;
+				end
+				
+			INVSHIFTROW:
+				begin
+					next_state = invshiftrows_out;
+					AES_DONE = 0;
+				end
+				
+			ADDRK
+				begin
+					key = KeySchedule[1407:1280];
+					next_state = addroundkey_out;
+					AES_DONE = 0;
+				end
 		endcase
 		
 	end
