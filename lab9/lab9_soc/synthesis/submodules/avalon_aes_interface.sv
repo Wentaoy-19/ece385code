@@ -38,11 +38,15 @@ module avalon_aes_interface (
 	output logic [31:0] EXPORT_DATA		// Exported Conduit Signal to LEDs
 );
 	logic [15:0][31:0] regfile; 
+	logic [3:0][31:0] MSG_DEC;
+	logic Done; 
+	logic [127:0]next_state_out;
+	
+	
 	integer i;
 	
 	always_ff @ (posedge CLK)
 	begin 
-	
 		if(RESET)
 		begin
 			for(i=0;i<16;i=i+1)
@@ -64,22 +68,47 @@ module avalon_aes_interface (
 			endcase
 		end
 		
-//		else if(AVL_CS && AVL_READ)
+//		else if(AVL_CS && regfile[15][0])
 //		begin
-//			AVL_READDATA 
+////			regfile[15][0] = Done;
+//			regfile[11:8] = MSG_DEC;
 //		end
+
+		else if(Done && AVL_CS)
+		begin
+			regfile[11:8] <= MSG_DEC;
+			regfile[15][0] <= Done;
+		end
 		
+//		else if(~Done && AVL_CS)
+//		begin
+//			regfile[11:8] <= next_state_out;
+//		end
+
+
 		
 	end
-	
+
 	always_comb 
 	begin
 		EXPORT_DATA = {regfile[7][31:16], regfile[4][15:0]};		
-		AVL_READDATA = 32'b0;
 		
 		if(AVL_READ)
 			AVL_READDATA = regfile[AVL_ADDR];
+		else
+			AVL_READDATA = 32'b0;
 	end
+	
+	AES aes(
+	.CLK(CLK),
+	.RESET(RESET),
+	.AES_START(regfile[14][0]),
+	.AES_DONE(Done),
+	.AES_KEY(regfile[3:0]),
+	.AES_MSG_ENC(regfile[7:4]),
+	.AES_MSG_DEC(MSG_DEC),
+	.next_state_out(next_state_out));
+
 	
 
 

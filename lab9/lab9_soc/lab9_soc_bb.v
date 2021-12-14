@@ -14,7 +14,7 @@ module lab9_soc (
 	sdram_wire_ras_n,
 	sdram_wire_we_n);	
 
-	input	[31:0]	aes_export_new_signal;
+	output	[31:0]	aes_export_new_signal;
 	input		clk_clk;
 	input		reset_reset_n;
 	output		sdram_clk_clk;
