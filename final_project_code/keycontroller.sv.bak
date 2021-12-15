@@ -1,0 +1,8 @@
+module keycontroller(
+	input [31:0] keycodes, 
+	output character1_move_l,
+	output character1_move_r,
+	output character1_attack
+);
+
+endmodule 

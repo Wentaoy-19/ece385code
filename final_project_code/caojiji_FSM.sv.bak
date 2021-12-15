@@ -1,6 +1,7 @@
 module caojiji_FSM(input     Clk,                
                              Reset,              
                              frame_clk, 
+					 input [15:0] keycode, 
 					 output  [7:0] state_out, 
 					 output	[7:0] frame_num);
 
@@ -11,9 +12,7 @@ module caojiji_FSM(input     Clk,
 					 
 	logic [7:0] state;			 
 					 
-	parameter [7:0] delay_forward = 8'd10;		
-	parameter [7:0] frame_num_forward = 8'd4; 
-	parameter [7:0] frame_num_backward = 8'd4; 	
+					 
 					 
 					 
 	 always_ff @ (posedge Clk)
@@ -55,7 +54,7 @@ module caojiji_FSM(input     Clk,
 	 
 	 
 
-		if(delay >= delay_forward) begin
+		if(delay >= 8'd10) begin
 		
 			delay_in = 8'd0;
 			
