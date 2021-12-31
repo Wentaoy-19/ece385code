@@ -1,5 +1,5 @@
 Flow report for lab9
-Thu Nov 25 00:01:24 2021
+Tue Dec 07 18:16:33 2021
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,7 +40,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Thu Nov 25 00:01:24 2021       ;
+; Flow Status                        ; Successful - Tue Dec 07 18:16:33 2021       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; lab9                                        ;
 ; Top-level Entity Name              ; lab9_top                                    ;
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/24/2021 23:59:53 ;
+; Start date & time ; 12/07/2021 18:10:53 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; lab9                ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+------------------------------------------------------------+---------------+-----------------+----------------+
 ; Assignment Name                     ; Value                                                      ; Default Value ; Entity Name     ; Section Id     ;
 +-------------------------------------+------------------------------------------------------------+---------------+-----------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 158846174506345.163776959230704                            ; --            ; --              ; --             ;
+; COMPILER_SIGNATURE_ID               ; 24062491136.163887185113692                                ; --            ; --              ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Systemverilog Hdl                                          ; --            ; --              ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (SystemVerilog)                            ; <None>        ; --              ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                                       ; --            ; --              ; eda_simulation ;
@@ -110,12 +110,12 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:43     ; 1.0                     ; 4930 MB             ; 00:01:02                           ;
-; Fitter               ; 00:00:24     ; 1.1                     ; 5918 MB             ; 00:00:38                           ;
-; Assembler            ; 00:00:04     ; 1.0                     ; 4702 MB             ; 00:00:04                           ;
-; Timing Analyzer      ; 00:00:05     ; 1.2                     ; 4909 MB             ; 00:00:05                           ;
-; EDA Netlist Writer   ; 00:00:07     ; 1.0                     ; 4712 MB             ; 00:00:07                           ;
-; Total                ; 00:01:23     ; --                      ; --                  ; 00:01:56                           ;
+; Analysis & Synthesis ; 00:03:09     ; 1.0                     ; 4911 MB             ; 00:05:18                           ;
+; Fitter               ; 00:01:23     ; 1.1                     ; 5755 MB             ; 00:02:12                           ;
+; Assembler            ; 00:00:13     ; 1.0                     ; 4695 MB             ; 00:00:12                           ;
+; Timing Analyzer      ; 00:00:12     ; 1.2                     ; 4883 MB             ; 00:00:14                           ;
+; EDA Netlist Writer   ; 00:00:17     ; 1.0                     ; 4708 MB             ; 00:00:18                           ;
+; Total                ; 00:05:14     ; --                      ; --                  ; 00:08:14                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -124,11 +124,11 @@ refer to the applicable agreement for further details.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; DESKTOP-L7U37UC  ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; DESKTOP-L7U37UC  ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; DESKTOP-L7U37UC  ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; DESKTOP-L7U37UC  ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; DESKTOP-L7U37UC  ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; DESKTOP-BBI0778  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; DESKTOP-BBI0778  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; DESKTOP-BBI0778  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-BBI0778  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-BBI0778  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 

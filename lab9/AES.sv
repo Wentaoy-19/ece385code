@@ -150,7 +150,7 @@ module AES (
 		next_state = state;
 		AES_DONE = 1'b0;
 		AES_MSG_DEC = 128'b0;
-		MixColumns_In = 32'b0;
+		mixcolumns_in = 32'b0;
 		key = 128'b0;
 		
 		unique case (AES_STATE)
@@ -221,7 +221,7 @@ module AES (
 				
 			LOOP_ADDRK:
 				begin
-					case (Loop_counter)
+					case (loop_counter)
 						4'd0:key = KeySchedule[255:128];
 						4'd1:key = KeySchedule[383:256];
 						4'd2:key = KeySchedule[511:384];
@@ -250,7 +250,7 @@ module AES (
 					AES_DONE = 0;
 				end
 				
-			ADDRK
+			ADDRK:
 				begin
 					key = KeySchedule[1407:1280];
 					next_state = addroundkey_out;
