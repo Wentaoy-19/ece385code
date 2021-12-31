@@ -48,17 +48,17 @@ module lab8( input               CLOCK_50,
                     );
     
     logic Reset_h, Clk;
-    logic [7:0] keycode,keycode1,keycode2,keycode3;
-	 logic [31:0] keycodes;
+    logic [7:0] keycode0,keycode1,keycode2,keycode3,keycode4,keycode5;
+	 logic [47:0] keycodes;
 	 logic [9:0] DrawX,DrawY;
-	 logic is_ball,is_character,is_background;
+	 logic is_ball,is_character,is_background,move_l,move_r;
 	 logic [7:0] character_data, background_data;
 	 logic [7:0] caojiji_frame_num, caojiji_state; 
 	 
-	 logic character1_move_l, character1_move_r, character1_attack;
+	 logic character1_move_l, character1_move_r, character1_attack,character1_defend;
     
-	 assign keycodes = {keycode3,keycode2,keycode1,keycode};
-	 assign LEDG[2:0] = {character1_attack,character1_move_r,character1_move_l};
+	 assign keycodes = {keycode5,keycode4,keycode3,keycode2,keycode1,keycode0};
+	 assign LEDG[1:0] = {move_l,move_r};
 
 	 
     assign Clk = CLOCK_50;
@@ -105,10 +105,12 @@ module lab8( input               CLOCK_50,
                              .sdram_wire_ras_n(DRAM_RAS_N),
                              .sdram_wire_we_n(DRAM_WE_N), 
                              .sdram_clk_clk(DRAM_CLK),
-                             .keycode_export(keycode), 
+                             .keycode0_export(keycode0), 
 									  .keycode1_export(keycode1),
 									  .keycode2_export(keycode2),
 									  .keycode3_export(keycode3), 
+									  .keycode4_export(keycode4),
+									  .keycode5_export(keycode5),
                              .otg_hpi_address_export(hpi_addr),
                              .otg_hpi_data_in_port(hpi_data_in),
                              .otg_hpi_data_out_port(hpi_data_out),
@@ -145,6 +147,10 @@ caojiji caojiji_instance(.Clk(Clk), .Reset(Reset_h),
                .DrawX(DrawX), .DrawY(DrawY),       
                .is_character(is_character), 
 					.character1_state(caojiji_state),
+					.move_l(move_l),
+					.move_r(move_r),
+					.character1_move_r(character1_move_r),
+					.character1_move_l(character1_move_l),
 					.data_Out(character_data),
 					.frame_num(caojiji_frame_num)
 ); 
@@ -170,6 +176,8 @@ caojiji_FSM caojiji_FSM(.Clk(Clk),
 				 .character1_attack(character1_attack),
 				 .character1_move_l(character1_move_l),
 				 .character1_move_r(character1_move_r),
+				 .move_l(move_l),
+				 .move_r(move_r),
 				.state_out(caojiji_state), 
 				.frame_num(caojiji_frame_num));
 

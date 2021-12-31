@@ -13,6 +13,7 @@ module caojiji
 									  
 					input [7:0]   frame_num,
 					input [7:0]   character1_state,
+					input logic move_l,move_r,character1_move_r, character1_move_l,
 					
                input [9:0]   DrawX, DrawY,       // Current pixel coordinates
                output logic  is_character, 
@@ -34,8 +35,20 @@ module caojiji
 	logic [18:0] image_width, image_height;	
 	logic [7:0] data_out_forward, data_out_backward,data_out_attack,data_out_stand;
 	
-	assign character_x = 19'd320;
-	assign character_y = 19'd240; 
+	
+    always_ff @ (posedge Clk)
+    begin
+        if (Reset)
+        begin
+            character_x <= 19'd320;
+            character_y <= 19'd240;
+        end
+        else
+        begin
+				character_x <= character_x_in;
+				character_y <= character_y_in;
+        end
+    end
 	
 	enum logic [7:0] {state_stand,state_attack, state_movel, state_mover} state_in;
 	
@@ -56,7 +69,6 @@ module caojiji
 	
 	always_comb 
 	begin 
-		
 		if(character1_state == state_stand)
 		begin
 			image_width = STAND_WIDTH;
@@ -86,8 +98,31 @@ module caojiji
 			image_width = STAND_WIDTH;
 			image_height = STAND_HEIGHT;
 			data_Out = data_out_stand;
+		end	
+	end
+	
+	always_comb 
+	begin
+		character_x_in = character_x;
+		character_y_in = character_y;
+		if(move_r)
+		begin
+			character_x_in = character_x + 19'b1;
+		end
+		if(move_l)
+		begin
+			character_x_in = character_x - 19'b1;
 		end
 		
+		
+		if(character_x_in + FORWARD_WIDTH >= 19'd640)
+		begin
+			character_x_in = 19'd640-FORWARD_WIDTH;
+		end
+		if(character_x_in <= 19'd2)
+		begin
+			character_x_in = 19'd2;
+		end
 	end
 
 
@@ -95,7 +130,7 @@ module caojiji
 
 	always_comb begin
 		is_character = 1'b0;
-		if (DrawX >= character_x && DrawX<=character_x + image_width && DrawY >= character_y && DrawY<=character_y + image_height )
+		if (DrawX >= character_x && DrawX<character_x + image_width && DrawY >= character_y && DrawY<character_y + image_height )
 			is_character = 1'b1;
 	end
  
