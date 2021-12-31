@@ -23,6 +23,8 @@ module caojiji_FSM(input     Clk,
 	parameter [7:0] frame_num_move_l = 8'd4; 	
 	parameter [7:0] frame_num_attack = 8'd8;
 	parameter [7:0] frame_num_stand = 8'd7;
+	parameter [7:0] frame_num_hurt = 8'd3; 
+	parameter [7:0] frame_num_defend = 8'd0;
 	
 	enum logic [7:0] {state_stand,state_attack, state_movel, state_mover} state_in, state;
 	assign state_out = state;
