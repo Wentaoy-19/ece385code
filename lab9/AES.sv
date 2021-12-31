@@ -157,8 +157,11 @@ module AES (
 		AES_DONE = 1'b0;
 		
 		AES_MSG_DEC = 128'b0;
+<<<<<<< HEAD
+=======
 //		AES_MSG_DEC = state;
 		
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 		mixcolumns_in = 32'b0;
 		key = 128'b0;
 		

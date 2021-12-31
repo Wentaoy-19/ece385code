@@ -1,5 +1,9 @@
 Assembler report for lab9
+<<<<<<< HEAD
+Tue Dec 07 18:15:59 2021
+=======
 Tue Dec 07 20:51:47 2021
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -11,7 +15,11 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   3. Assembler Settings
   4. Assembler Encrypted IP Cores Summary
   5. Assembler Generated Files
+<<<<<<< HEAD
+  6. Assembler Device Options: D:/gitbash/ece385code/lab9/output_files/lab9.sof
+=======
   6. Assembler Device Options: D:/ECE385/ece385code/lab9/output_files/lab9.sof
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
   7. Assembler Messages
 
 
@@ -38,7 +46,11 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
+<<<<<<< HEAD
+; Assembler Status      ; Successful - Tue Dec 07 18:15:59 2021 ;
+=======
 ; Assembler Status      ; Successful - Tue Dec 07 20:51:47 2021 ;
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 ; Revision Name         ; lab9                                  ;
 ; Top-level Entity Name ; lab9_top                              ;
 ; Family                ; Cyclone IV E                          ;
@@ -63,6 +75,25 @@ refer to the applicable agreement for further details.
 +--------+------------------------+--------------+
 
 
+<<<<<<< HEAD
++--------------------------------------------------+
+; Assembler Generated Files                        ;
++--------------------------------------------------+
+; File Name                                        ;
++--------------------------------------------------+
+; D:/gitbash/ece385code/lab9/output_files/lab9.sof ;
++--------------------------------------------------+
+
+
++----------------------------------------------------------------------------+
+; Assembler Device Options: D:/gitbash/ece385code/lab9/output_files/lab9.sof ;
++----------------+-----------------------------------------------------------+
+; Option         ; Setting                                                   ;
++----------------+-----------------------------------------------------------+
+; JTAG usercode  ; 0x007D855E                                                ;
+; Checksum       ; 0x007D855E                                                ;
++----------------+-----------------------------------------------------------+
+=======
 +-------------------------------------------------+
 ; Assembler Generated Files                       ;
 +-------------------------------------------------+
@@ -80,6 +111,7 @@ refer to the applicable agreement for further details.
 ; JTAG usercode  ; 0x00BBAEA7                                               ;
 ; Checksum       ; 0x00BBAEA7                                               ;
 +----------------+----------------------------------------------------------+
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 
 
 +--------------------+
@@ -88,15 +120,26 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+<<<<<<< HEAD
+    Info: Processing started: Tue Dec 07 18:15:46 2021
+=======
     Info: Processing started: Tue Dec 07 20:51:42 2021
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off lab9 -c lab9
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
+<<<<<<< HEAD
+    Info: Peak virtual memory: 4695 megabytes
+    Info: Processing ended: Tue Dec 07 18:15:59 2021
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:12
+=======
     Info: Peak virtual memory: 4712 megabytes
     Info: Processing ended: Tue Dec 07 20:51:47 2021
     Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:04
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 
 

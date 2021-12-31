@@ -1,5 +1,9 @@
 Fitter report for lab9
+<<<<<<< HEAD
+Tue Dec 07 18:15:40 2021
+=======
 Tue Dec 07 20:51:39 2021
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -128,7 +132,11 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
+<<<<<<< HEAD
+; Fitter Status                      ; Successful - Tue Dec 07 18:15:40 2021       ;
+=======
 ; Fitter Status                      ; Successful - Tue Dec 07 20:51:39 2021       ;
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; lab9                                        ;
 ; Top-level Entity Name              ; lab9_top                                    ;
@@ -212,9 +220,19 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 12          ;
-; Maximum allowed            ; 6           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
+<<<<<<< HEAD
+; Average used               ; 1.05        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   1.8%      ;
+;     Processor 3            ;   1.8%      ;
+;     Processor 4            ;   1.7%      ;
+=======
 ; Average used               ; 1.07        ;
 ; Maximum used               ; 6           ;
 ;                            ;             ;
@@ -225,6 +243,7 @@ refer to the applicable agreement for further details.
 ;     Processor 4            ;   1.5%      ;
 ;     Processor 5            ;   1.5%      ;
 ;     Processor 6            ;   1.4%      ;
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 +----------------------------+-------------+
 
 
@@ -954,7 +973,11 @@ refer to the applicable agreement for further details.
 +--------------+
 ; Pin-Out File ;
 +--------------+
+<<<<<<< HEAD
+The pin-out file can be found in D:/gitbash/ece385code/lab9/output_files/lab9.pin.
+=======
 The pin-out file can be found in D:/ECE385/ece385code/lab9/output_files/lab9.pin.
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 
 
 +----------------------------------------------------------------------------+
@@ -5830,13 +5853,19 @@ RAM content values are presented in the following format: (Binary) (Octal) (Deci
 ; Fitter Messages ;
 +-----------------+
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (119006): Selected device EP4CE115F29C7 for design "lab9"
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
+<<<<<<< HEAD
+Info (15535): Implemented PLL "lab9_soc:lab9_qsystem|lab9_soc_sdram_pll:sdram_pll|lab9_soc_sdram_pll_altpll_lqa2:sd1|pll7" as Cyclone IV E PLL type File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram_pll.v Line: 150
+    Info (15099): Implementing clock multiplication of 1, clock division of 1, and phase shift of 0 degrees (0 ps) for lab9_soc:lab9_qsystem|lab9_soc_sdram_pll:sdram_pll|lab9_soc_sdram_pll_altpll_lqa2:sd1|wire_pll7_clk[0] port File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram_pll.v Line: 150
+    Info (15099): Implementing clock multiplication of 1, clock division of 1, and phase shift of -54 degrees (-3000 ps) for lab9_soc:lab9_qsystem|lab9_soc_sdram_pll:sdram_pll|lab9_soc_sdram_pll_altpll_lqa2:sd1|wire_pll7_clk[1] port File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram_pll.v Line: 150
+=======
 Info (15535): Implemented PLL "lab9_soc:lab9_qsystem|lab9_soc_sdram_pll:sdram_pll|lab9_soc_sdram_pll_altpll_lqa2:sd1|pll7" as Cyclone IV E PLL type File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram_pll.v Line: 150
     Info (15099): Implementing clock multiplication of 1, clock division of 1, and phase shift of 0 degrees (0 ps) for lab9_soc:lab9_qsystem|lab9_soc_sdram_pll:sdram_pll|lab9_soc_sdram_pll_altpll_lqa2:sd1|wire_pll7_clk[0] port File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram_pll.v Line: 150
     Info (15099): Implementing clock multiplication of 1, clock division of 1, and phase shift of -54 degrees (-3000 ps) for lab9_soc:lab9_qsystem|lab9_soc_sdram_pll:sdram_pll|lab9_soc_sdram_pll_altpll_lqa2:sd1|wire_pll7_clk[1] port File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram_pll.v Line: 150
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 Info (171003): Fitter is performing an Auto Fit compilation, which may decrease Fitter effort to reduce compilation time
 Warning (292013): Feature LogicLock is only available with a valid subscription license. You can purchase a software subscription to gain full access to this feature.
 Info (176444): Device migration not selected. If you intend to use device migration later, you may need to change the pin assignments as they may be incompatible with other devices
@@ -5907,6 +5936,47 @@ Info (332111): Found 1 clocks
     Info (332111):   Period   Clock Name
     Info (332111): ======== ============
     Info (332111):  100.000 altera_reserved_tck
+<<<<<<< HEAD
+Info (176353): Automatically promoted node CLOCK_50~input (placed in PIN Y2 (CLK2, DIFFCLK_1p)) File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 12
+    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G3
+Info (176353): Automatically promoted node lab9_soc:lab9_qsystem|lab9_soc_sdram_pll:sdram_pll|lab9_soc_sdram_pll_altpll_lqa2:sd1|wire_pll7_clk[0] (placed in counter C1 of PLL_1) File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram_pll.v Line: 192
+    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G4
+Info (176353): Automatically promoted node lab9_soc:lab9_qsystem|lab9_soc_sdram_pll:sdram_pll|lab9_soc_sdram_pll_altpll_lqa2:sd1|wire_pll7_clk[1] (placed in counter C0 of PLL_1) File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram_pll.v Line: 192
+    Info (176355): Automatically promoted destinations to use location or clock signal External Clock Output CLKCTRL_PLL1E0
+Info (176353): Automatically promoted node altera_internal_jtag~TCKUTAP 
+    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
+Info (176353): Automatically promoted node lab9_soc:lab9_qsystem|altera_reset_controller:rst_controller|r_sync_rst  File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_reset_controller.v Line: 288
+    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
+    Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
+        Info (176357): Destination node lab9_soc:lab9_qsystem|avalon_aes_interface:aes|regfile~0 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/avalon_aes_interface.sv Line: 40
+        Info (176357): Destination node lab9_soc:lab9_qsystem|avalon_aes_interface:aes|regfile[4][3]~5 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/avalon_aes_interface.sv Line: 43
+        Info (176357): Destination node lab9_soc:lab9_qsystem|avalon_aes_interface:aes|regfile~6 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/avalon_aes_interface.sv Line: 40
+        Info (176357): Destination node lab9_soc:lab9_qsystem|avalon_aes_interface:aes|regfile~7 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/avalon_aes_interface.sv Line: 40
+        Info (176357): Destination node lab9_soc:lab9_qsystem|avalon_aes_interface:aes|regfile~8 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/avalon_aes_interface.sv Line: 40
+        Info (176357): Destination node lab9_soc:lab9_qsystem|avalon_aes_interface:aes|regfile~9 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/avalon_aes_interface.sv Line: 40
+        Info (176357): Destination node lab9_soc:lab9_qsystem|avalon_aes_interface:aes|regfile~10 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/avalon_aes_interface.sv Line: 40
+        Info (176357): Destination node lab9_soc:lab9_qsystem|avalon_aes_interface:aes|regfile~11 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/avalon_aes_interface.sv Line: 40
+        Info (176357): Destination node lab9_soc:lab9_qsystem|avalon_aes_interface:aes|regfile~12 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/avalon_aes_interface.sv Line: 40
+        Info (176357): Destination node lab9_soc:lab9_qsystem|avalon_aes_interface:aes|regfile~13 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/avalon_aes_interface.sv Line: 40
+        Info (176358): Non-global destination nodes limited to 10 nodes
+Info (176353): Automatically promoted node lab9_soc:lab9_qsystem|altera_reset_controller:rst_controller_002|altera_reset_synchronizer:alt_rst_sync_uq1|altera_reset_synchronizer_int_chain_out  File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_reset_synchronizer.v Line: 62
+    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
+    Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
+        Info (176357): Destination node lab9_soc:lab9_qsystem|lab9_soc_sdram:sdram|active_rnw~1 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram.v Line: 215
+        Info (176357): Destination node lab9_soc:lab9_qsystem|lab9_soc_sdram:sdram|active_cs_n~0 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram.v Line: 212
+        Info (176357): Destination node lab9_soc:lab9_qsystem|lab9_soc_sdram:sdram|active_cs_n~1 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram.v Line: 212
+        Info (176357): Destination node lab9_soc:lab9_qsystem|lab9_soc_sdram:sdram|i_refs[0] File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram.v Line: 356
+        Info (176357): Destination node lab9_soc:lab9_qsystem|lab9_soc_sdram:sdram|i_refs[2] File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram.v Line: 356
+        Info (176357): Destination node lab9_soc:lab9_qsystem|lab9_soc_sdram:sdram|i_refs[1] File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram.v Line: 356
+Info (176353): Automatically promoted node lab9_soc:lab9_qsystem|altera_reset_controller:rst_controller_001|altera_reset_synchronizer:alt_rst_sync_uq1|altera_reset_synchronizer_int_chain_out  File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_reset_synchronizer.v Line: 62
+    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
+Info (176353): Automatically promoted node lab9_soc:lab9_qsystem|altera_reset_controller:rst_controller_002|merged_reset~0  File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_reset_controller.v Line: 134
+    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
+Info (176353): Automatically promoted node lab9_soc:lab9_qsystem|lab9_soc_sdram_pll:sdram_pll|prev_reset  File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram_pll.v Line: 268
+    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
+    Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
+        Info (176357): Destination node lab9_soc:lab9_qsystem|lab9_soc_sdram_pll:sdram_pll|readdata[0]~1 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram_pll.v Line: 252
+=======
 Info (176353): Automatically promoted node CLOCK_50~input (placed in PIN Y2 (CLK2, DIFFCLK_1p)) File: D:/ECE385/ece385code/lab9/lab9_top.sv Line: 12
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G3
 Info (176353): Automatically promoted node lab9_soc:lab9_qsystem|lab9_soc_sdram_pll:sdram_pll|lab9_soc_sdram_pll_altpll_lqa2:sd1|wire_pll7_clk[0] (placed in counter C1 of PLL_1) File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram_pll.v Line: 192
@@ -5946,6 +6016,7 @@ Info (176353): Automatically promoted node lab9_soc:lab9_qsystem|lab9_soc_sdram_
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
         Info (176357): Destination node lab9_soc:lab9_qsystem|lab9_soc_sdram_pll:sdram_pll|readdata[0]~1 File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram_pll.v Line: 252
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 Info (176233): Starting register packing
 Warning (176250): Ignoring invalid fast I/O register assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Warning (176251): Ignoring some wildcard destinations of fast I/O register assignments
@@ -6368,25 +6439,48 @@ Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "VGA_R[7]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "VGA_SYNC_N" is assigned to location or region, but does not exist in design
     Warning (15706): Node "VGA_VS" is assigned to location or region, but does not exist in design
+<<<<<<< HEAD
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:19
+=======
 Info (171121): Fitter preparation operations ending: elapsed time is 00:00:07
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
-Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:01
+Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:03
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
+<<<<<<< HEAD
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:15
+=======
 Info (170192): Fitter placement operations ending: elapsed time is 00:00:07
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 3% of the available device resources
     Info (170196): Router estimated peak interconnect usage is 33% of the available device resources in the region that extends from location X46_Y37 to location X57_Y48
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
+<<<<<<< HEAD
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:06
+Info (11888): Total time spent on timing analysis during the Fitter is 2.04 seconds.
+=======
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:03
 Info (11888): Total time spent on timing analysis during the Fitter is 0.78 seconds.
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
+<<<<<<< HEAD
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:08
+Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
+Info (144001): Generated suppressed messages file D:/gitbash/ece385code/lab9/output_files/lab9.fit.smsg
+Info: Quartus Prime Fitter was successful. 0 errors, 392 warnings
+    Info: Peak virtual memory: 5755 megabytes
+    Info: Processing ended: Tue Dec 07 18:15:43 2021
+    Info: Elapsed time: 00:01:26
+    Info: Total CPU time (on all processors): 00:02:15
+=======
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:03
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info (144001): Generated suppressed messages file D:/ECE385/ece385code/lab9/output_files/lab9.fit.smsg
@@ -6395,11 +6489,16 @@ Info: Quartus Prime Fitter was successful. 0 errors, 392 warnings
     Info: Processing ended: Tue Dec 07 20:51:41 2021
     Info: Elapsed time: 00:00:35
     Info: Total CPU time (on all processors): 00:00:59
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
+<<<<<<< HEAD
+The suppressed messages can be found in D:/gitbash/ece385code/lab9/output_files/lab9.fit.smsg.
+=======
 The suppressed messages can be found in D:/ECE385/ece385code/lab9/output_files/lab9.fit.smsg.
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 
 

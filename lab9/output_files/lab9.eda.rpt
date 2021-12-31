@@ -1,5 +1,9 @@
 EDA Netlist Writer report for lab9
+<<<<<<< HEAD
+Tue Dec 07 18:16:33 2021
+=======
 Tue Dec 07 20:52:04 2021
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -36,7 +40,11 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
+<<<<<<< HEAD
+; EDA Netlist Writer Status ; Successful - Tue Dec 07 18:16:33 2021 ;
+=======
 ; EDA Netlist Writer Status ; Successful - Tue Dec 07 20:52:04 2021 ;
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 ; Revision Name             ; lab9                                  ;
 ; Top-level Entity Name     ; lab9_top                              ;
 ; Family                    ; Cyclone IV E                          ;
@@ -66,6 +74,22 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------------------------------+---------------------------------+
 
 
+<<<<<<< HEAD
++------------------------------------------------------------------------------+
+; Simulation Generated Files                                                   ;
++------------------------------------------------------------------------------+
+; Generated Files                                                              ;
++------------------------------------------------------------------------------+
+; D:/gitbash/ece385code/lab9/simulation/modelsim/lab9_7_1200mv_85c_slow.svo    ;
+; D:/gitbash/ece385code/lab9/simulation/modelsim/lab9_7_1200mv_0c_slow.svo     ;
+; D:/gitbash/ece385code/lab9/simulation/modelsim/lab9_min_1200mv_0c_fast.svo   ;
+; D:/gitbash/ece385code/lab9/simulation/modelsim/lab9.svo                      ;
+; D:/gitbash/ece385code/lab9/simulation/modelsim/lab9_7_1200mv_85c_v_slow.sdo  ;
+; D:/gitbash/ece385code/lab9/simulation/modelsim/lab9_7_1200mv_0c_v_slow.sdo   ;
+; D:/gitbash/ece385code/lab9/simulation/modelsim/lab9_min_1200mv_0c_v_fast.sdo ;
+; D:/gitbash/ece385code/lab9/simulation/modelsim/lab9_v.sdo                    ;
++------------------------------------------------------------------------------+
+=======
 +-----------------------------------------------------------------------------+
 ; Simulation Generated Files                                                  ;
 +-----------------------------------------------------------------------------+
@@ -80,6 +104,7 @@ refer to the applicable agreement for further details.
 ; D:/ECE385/ece385code/lab9/simulation/modelsim/lab9_min_1200mv_0c_v_fast.sdo ;
 ; D:/ECE385/ece385code/lab9/simulation/modelsim/lab9_v.sdo                    ;
 +-----------------------------------------------------------------------------+
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 
 
 +-----------------------------+
@@ -88,6 +113,24 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+<<<<<<< HEAD
+    Info: Processing started: Tue Dec 07 18:16:16 2021
+Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off lab9 -c lab9
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (204019): Generated file lab9_7_1200mv_85c_slow.svo in folder "D:/gitbash/ece385code/lab9/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file lab9_7_1200mv_0c_slow.svo in folder "D:/gitbash/ece385code/lab9/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file lab9_min_1200mv_0c_fast.svo in folder "D:/gitbash/ece385code/lab9/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file lab9.svo in folder "D:/gitbash/ece385code/lab9/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file lab9_7_1200mv_85c_v_slow.sdo in folder "D:/gitbash/ece385code/lab9/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file lab9_7_1200mv_0c_v_slow.sdo in folder "D:/gitbash/ece385code/lab9/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file lab9_min_1200mv_0c_v_fast.sdo in folder "D:/gitbash/ece385code/lab9/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file lab9_v.sdo in folder "D:/gitbash/ece385code/lab9/simulation/modelsim/" for EDA simulation tool
+Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4708 megabytes
+    Info: Processing ended: Tue Dec 07 18:16:33 2021
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:18
+=======
     Info: Processing started: Tue Dec 07 20:51:55 2021
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off lab9 -c lab9
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -104,5 +147,6 @@ Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
     Info: Processing ended: Tue Dec 07 20:52:04 2021
     Info: Elapsed time: 00:00:09
     Info: Total CPU time (on all processors): 00:00:10
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 
 

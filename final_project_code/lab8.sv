@@ -51,11 +51,12 @@ module lab8( input               CLOCK_50,
     logic [7:0] keycode0,keycode1,keycode2,keycode3,keycode4,keycode5;
 	 logic [47:0] keycodes;
 	 logic [9:0] DrawX,DrawY;
-	 logic is_ball,is_character,is_background,move_l,move_r;
-	 logic [7:0] character_data, background_data;
-	 logic [7:0] caojiji_frame_num, caojiji_state; 
+	 logic is_ball,is_character1,is_character2,is_background,move_l,move_r;
+	 logic [7:0] character1_data, character2_data, background_data;
+	 logic [7:0] caojiji_frame_num, caojiji_state, iori_frame_num, iori_state; 
 	 
-	 logic character1_move_l, character1_move_r, character1_attack,character1_defend;
+	 logic character1_move_l, character1_move_r, character1_attack, character1_defend;
+	 logic character2_move_l, character2_move_r, character2_attack, character2_defense, character2_hurt;
     
 	 assign keycodes = {keycode5,keycode4,keycode3,keycode2,keycode1,keycode0};
 	 assign LEDG[1:0] = {move_l,move_r};
@@ -142,18 +143,34 @@ module lab8( input               CLOCK_50,
 //                         .frame_clk(VGA_VS),          
 //               .DrawX(DrawX), .DrawY(DrawY),      
 //               .is_ball(is_ball) );
-caojiji caojiji_instance(.Clk(Clk), .Reset(Reset_h),              
-                             .frame_clk(VGA_VS),       
-               .DrawX(DrawX), .DrawY(DrawY),       
-               .is_character(is_character), 
-					.character1_state(caojiji_state),
-					.move_l(move_l),
-					.move_r(move_r),
-					.character1_move_r(character1_move_r),
-					.character1_move_l(character1_move_l),
-					.data_Out(character_data),
-					.frame_num(caojiji_frame_num)
-); 
+//caojiji caojiji_instance(.Clk(Clk), .Reset(Reset_h),              
+//                             .frame_clk(VGA_VS),       
+//               .DrawX(DrawX), .DrawY(DrawY),       
+//               .is_character(is_character1), 
+//					.character1_state(caojiji_state),
+//					.move_l(move_l),
+//					.move_r(move_r),
+//					.character1_move_r(character1_move_r),
+//					.character1_move_l(character1_move_l),
+//					.data_Out(character1_data),
+//					.frame_num(caojiji_frame_num)
+//);
+
+
+
+iori iori_instance(.Clk(Clk), 
+						 .Reset(Reset_h),              
+                   .frame_clk(VGA_VS),       
+                   .DrawX(DrawX), 
+						 .DrawY(DrawY),       
+                   .is_character(is_character2), 
+					    .character2_state(iori_state),
+					    .data_Out(character2_data),
+					    .frame_num(iori_frame_num) 
+);
+
+
+
 //background background_instance(.Clk(Clk),                
 //                             .Reset(Reset_h),              
 //                             .frame_clk(VGA_VS),        
@@ -163,23 +180,42 @@ caojiji caojiji_instance(.Clk(Clk), .Reset(Reset_h),
 //               .is_background(is_background), 
 //					.data_Out(background_data));
     
-color_mapper color_instance(.is_character(is_character), .is_background(is_background), 
+color_mapper color_instance(
+							  .is_character1(is_character1), 
+							  .is_character2(is_character2),
+							  .is_background(is_background), 
                        .DrawX(DrawX), .DrawY(DrawY),    
-							  .character_data(character_data),.background_data(background_data),
+							  .character1_data(character1_data),
+							  .character2_data(character2_data),
+							  .background_data(background_data),
                        .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B));
 							  
 
 
-caojiji_FSM caojiji_FSM(.Clk(Clk),                
+//caojiji_FSM caojiji_FSM(.Clk(Clk),                
+//            .Reset(Reset_h),              
+//             .frame_clk(VGA_VS), 
+//				 .character1_attack(character1_attack),
+//				 .character1_move_l(character1_move_l),
+//				 .character1_move_r(character1_move_r),
+//				 .move_l(move_l),
+//				 .move_r(move_r),
+//				.state_out(caojiji_state), 
+//				.frame_num(caojiji_frame_num));
+
+				
+				
+iori_FSM iori_FSM(.Clk(Clk),                
             .Reset(Reset_h),              
              .frame_clk(VGA_VS), 
-				 .character1_attack(character1_attack),
-				 .character1_move_l(character1_move_l),
-				 .character1_move_r(character1_move_r),
-				 .move_l(move_l),
-				 .move_r(move_r),
-				.state_out(caojiji_state), 
-				.frame_num(caojiji_frame_num));
+				 .character2_attack(character2_attack),
+				 .character2_move_l(character2_move_l),
+				 .character2_move_r(character2_move_r),
+				 .character2_hurt(character2_hurt),
+				 .character2_defense(character2_defense),
+				.state_out(iori_state), 
+				.frame_num(iori_frame_num));
+				
 
 
 							  
@@ -187,7 +223,10 @@ keycontroller keycontroller(
 	.keycodes(keycodes), 
 	.character1_move_l(character1_move_l),
 	.character1_move_r(character1_move_r),
-	.character1_attack(character1_attack)
+	.character1_attack(character1_attack),
+	.character2_move_l(character2_move_l),
+	.character2_move_r(character2_move_r),
+	.character2_attack(character2_attack)
 );
 							  
     

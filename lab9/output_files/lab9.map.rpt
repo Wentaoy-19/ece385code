@@ -1,5 +1,9 @@
 Analysis & Synthesis report for lab9
+<<<<<<< HEAD
+Tue Dec 07 18:14:14 2021
+=======
 Tue Dec 07 20:51:05 2021
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -396,7 +400,11 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
+<<<<<<< HEAD
+; Analysis & Synthesis Status        ; Successful - Tue Dec 07 18:14:13 2021       ;
+=======
 ; Analysis & Synthesis Status        ; Successful - Tue Dec 07 20:51:05 2021       ;
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; lab9                                        ;
 ; Top-level Entity Name              ; lab9_top                                    ;
@@ -504,22 +512,112 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 12          ;
-; Maximum allowed            ; 6           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 6           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
 ;     Processor 4            ;   0.0%      ;
-;     Processor 5            ;   0.0%      ;
-;     Processor 6            ;   0.0%      ;
 +----------------------------+-------------+
 
 
+<<<<<<< HEAD
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                                                  ;
++-----------------------------------------------------------------------------------------------+-----------------+----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+-------------+
+; File Name with User-Entered Path                                                              ; Used in Netlist ; File Type                                    ; File Name with Absolute Path                                                                                             ; Library     ;
++-----------------------------------------------------------------------------------------------+-----------------+----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+-------------+
+; avalon_aes_interface.sv                                                                       ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/avalon_aes_interface.sv                                                                       ;             ;
+; lab9_soc/synthesis/lab9_soc.v                                                                 ; yes             ; User Verilog HDL File                        ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/lab9_soc.v                                                                 ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/altera_reset_controller.v                                       ; yes             ; User Verilog HDL File                        ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_reset_controller.v                                       ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/altera_reset_synchronizer.v                                     ; yes             ; User Verilog HDL File                        ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_reset_synchronizer.v                                     ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_irq_mapper.sv                                          ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_irq_mapper.sv                                          ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v                                    ; yes             ; User Verilog HDL File                        ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v                                    ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_avalon_st_adapter.v                  ; yes             ; User Verilog HDL File                        ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_avalon_st_adapter.v                  ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v                      ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v                      ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/altera_avalon_st_clock_crosser.v                                ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_avalon_st_clock_crosser.v                                ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/altera_std_synchronizer_nocut.v                                 ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_std_synchronizer_nocut.v                                 ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_rsp_mux_001.sv                       ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_rsp_mux_001.sv                       ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/altera_merlin_arbitrator.sv                                     ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_merlin_arbitrator.sv                                     ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_rsp_mux.sv                           ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_rsp_mux.sv                           ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_rsp_demux_002.sv                     ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_rsp_demux_002.sv                     ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_rsp_demux.sv                         ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_rsp_demux.sv                         ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_cmd_mux_002.sv                       ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_cmd_mux_002.sv                       ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_cmd_mux.sv                           ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_cmd_mux.sv                           ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_cmd_demux_001.sv                     ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_cmd_demux_001.sv                     ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_cmd_demux.sv                         ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_cmd_demux.sv                         ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_router_004.sv                        ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_router_004.sv                        ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_router_002.sv                        ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_router_002.sv                        ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_router_001.sv                        ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_router_001.sv                        ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_router.sv                            ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_router.sv                            ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/altera_avalon_sc_fifo.v                                         ; yes             ; User Verilog HDL File                        ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_avalon_sc_fifo.v                                         ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/altera_merlin_slave_agent.sv                                    ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_merlin_slave_agent.sv                                    ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/altera_merlin_burst_uncompressor.sv                             ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_merlin_burst_uncompressor.sv                             ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/altera_merlin_master_agent.sv                                   ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_merlin_master_agent.sv                                   ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/altera_merlin_slave_translator.sv                               ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_merlin_slave_translator.sv                               ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/altera_merlin_master_translator.sv                              ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_merlin_master_translator.sv                              ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_sysid_qsys_0.v                                         ; yes             ; User Verilog HDL File                        ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sysid_qsys_0.v                                         ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_sdram_pll.v                                            ; yes             ; User Verilog HDL File                        ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram_pll.v                                            ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_sdram.v                                                ; yes             ; User Verilog HDL File                        ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram.v                                                ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_onchip_memory2_0.hex                                   ; yes             ; User Hexadecimal (Intel-Format) File         ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_onchip_memory2_0.hex                                   ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_onchip_memory2_0.v                                     ; yes             ; User Verilog HDL File                        ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_onchip_memory2_0.v                                     ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0.v                                         ; yes             ; User Verilog HDL File                        ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0.v                                         ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v                                     ; yes             ; User Verilog HDL File                        ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v                                     ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu_debug_slave_sysclk.v                  ; yes             ; User Verilog HDL File                        ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu_debug_slave_sysclk.v                  ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu_debug_slave_tck.v                     ; yes             ; User Verilog HDL File                        ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu_debug_slave_tck.v                     ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v                 ; yes             ; User Verilog HDL File                        ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v                 ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu_test_bench.v                          ; yes             ; User Verilog HDL File                        ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu_test_bench.v                          ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_jtag_uart_0.v                                          ; yes             ; User Verilog HDL File                        ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_jtag_uart_0.v                                          ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/lab9_soc_TIMER.v                                                ; yes             ; User Verilog HDL File                        ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_TIMER.v                                                ; lab9_soc    ;
+; lab9_soc/synthesis/submodules/avalon_aes_interface.sv                                         ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/avalon_aes_interface.sv                                         ; lab9_soc    ;
+; lab9_top.sv                                                                                   ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/lab9_top.sv                                                                                   ;             ;
+; hexdriver.sv                                                                                  ; yes             ; User SystemVerilog HDL File                  ; D:/gitbash/ece385code/lab9/hexdriver.sv                                                                                  ;             ;
+; scfifo.tdf                                                                                    ; yes             ; Megafunction                                 ; d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/scfifo.tdf                                               ;             ;
+; a_regfifo.inc                                                                                 ; yes             ; Megafunction                                 ; d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/a_regfifo.inc                                            ;             ;
+; a_dpfifo.inc                                                                                  ; yes             ; Megafunction                                 ; d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/a_dpfifo.inc                                             ;             ;
+; a_i2fifo.inc                                                                                  ; yes             ; Megafunction                                 ; d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/a_i2fifo.inc                                             ;             ;
+; a_fffifo.inc                                                                                  ; yes             ; Megafunction                                 ; d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/a_fffifo.inc                                             ;             ;
+; a_f2fifo.inc                                                                                  ; yes             ; Megafunction                                 ; d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/a_f2fifo.inc                                             ;             ;
+; aglobal181.inc                                                                                ; yes             ; Megafunction                                 ; d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/aglobal181.inc                                           ;             ;
+; db/scfifo_jr21.tdf                                                                            ; yes             ; Auto-Generated Megafunction                  ; D:/gitbash/ece385code/lab9/db/scfifo_jr21.tdf                                                                            ;             ;
+; db/a_dpfifo_l011.tdf                                                                          ; yes             ; Auto-Generated Megafunction                  ; D:/gitbash/ece385code/lab9/db/a_dpfifo_l011.tdf                                                                          ;             ;
+; db/a_fefifo_7cf.tdf                                                                           ; yes             ; Auto-Generated Megafunction                  ; D:/gitbash/ece385code/lab9/db/a_fefifo_7cf.tdf                                                                           ;             ;
+; db/cntr_do7.tdf                                                                               ; yes             ; Auto-Generated Megafunction                  ; D:/gitbash/ece385code/lab9/db/cntr_do7.tdf                                                                               ;             ;
+; db/altsyncram_nio1.tdf                                                                        ; yes             ; Auto-Generated Megafunction                  ; D:/gitbash/ece385code/lab9/db/altsyncram_nio1.tdf                                                                        ;             ;
+; db/cntr_1ob.tdf                                                                               ; yes             ; Auto-Generated Megafunction                  ; D:/gitbash/ece385code/lab9/db/cntr_1ob.tdf                                                                               ;             ;
+; alt_jtag_atlantic.v                                                                           ; yes             ; Encrypted Megafunction                       ; d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/alt_jtag_atlantic.v                                      ;             ;
+; sld_jtag_endpoint_adapter.vhd                                                                 ; yes             ; Encrypted Megafunction                       ; d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd                            ;             ;
+; sld_jtag_endpoint_adapter_impl.sv                                                             ; yes             ; Encrypted Megafunction                       ; d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter_impl.sv                        ;             ;
+; altsyncram.tdf                                                                                ; yes             ; Megafunction                                 ; d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/altsyncram.tdf                                           ;             ;
+; stratix_ram_block.inc                                                                         ; yes             ; Megafunction                                 ; d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/stratix_ram_block.inc                                    ;             ;
+; lpm_mux.inc                                                                                   ; yes             ; Megafunction                                 ; d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/lpm_mux.inc                                              ;             ;
+; lpm_decode.inc                                                                                ; yes             ; Megafunction                                 ; d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/lpm_decode.inc                                           ;             ;
+; a_rdenreg.inc                                                                                 ; yes             ; Megafunction                                 ; d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/a_rdenreg.inc                                            ;             ;
+; altrom.inc                                                                                    ; yes             ; Megafunction                                 ; d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/altrom.inc                                               ;             ;
+; altram.inc                                                                                    ; yes             ; Megafunction                                 ; d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/altram.inc                                               ;             ;
+; altdpram.inc                                                                                  ; yes             ; Megafunction                                 ; d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/altdpram.inc                                             ;             ;
+; db/altsyncram_6mc1.tdf                                                                        ; yes             ; Auto-Generated Megafunction                  ; D:/gitbash/ece385code/lab9/db/altsyncram_6mc1.tdf                                                                        ;             ;
+; altera_std_synchronizer.v                                                                     ; yes             ; Megafunction                                 ; d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/altera_std_synchronizer.v                                ;             ;
+; db/altsyncram_ac71.tdf                                                                        ; yes             ; Auto-Generated Megafunction                  ; D:/gitbash/ece385code/lab9/db/altsyncram_ac71.tdf                                                                        ;             ;
+; sld_virtual_jtag_basic.v                                                                      ; yes             ; Megafunction                                 ; d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/sld_virtual_jtag_basic.v                                 ;             ;
+; db/altsyncram_tqg1.tdf                                                                        ; yes             ; Auto-Generated Megafunction                  ; D:/gitbash/ece385code/lab9/db/altsyncram_tqg1.tdf                                                                        ;             ;
+; sld_hub.vhd                                                                                   ; yes             ; Encrypted Megafunction                       ; d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/sld_hub.vhd                                              ; altera_sld  ;
+; db/ip/sld2dead247/alt_sld_fab.v                                                               ; yes             ; Encrypted Auto-Found Verilog HDL File        ; D:/gitbash/ece385code/lab9/db/ip/sld2dead247/alt_sld_fab.v                                                               ; alt_sld_fab ;
+; db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab.v                                        ; yes             ; Encrypted Auto-Found Verilog HDL File        ; D:/gitbash/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab.v                                        ; alt_sld_fab ;
+; db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_ident.sv                                 ; yes             ; Auto-Found SystemVerilog HDL File            ; D:/gitbash/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_ident.sv                                 ; alt_sld_fab ;
+; db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_presplit.sv                              ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; D:/gitbash/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_presplit.sv                              ; alt_sld_fab ;
+; db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd                            ; yes             ; Encrypted Auto-Found VHDL File               ; D:/gitbash/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd                            ; alt_sld_fab ;
+; db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_splitter.sv                              ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; D:/gitbash/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_splitter.sv                              ; alt_sld_fab ;
+; sld_jtag_hub.vhd                                                                              ; yes             ; Encrypted Megafunction                       ; d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/sld_jtag_hub.vhd                                         ;             ;
+; sld_rom_sr.vhd                                                                                ; yes             ; Encrypted Megafunction                       ; d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/sld_rom_sr.vhd                                           ;             ;
++-----------------------------------------------------------------------------------------------+-----------------+----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+-------------+
+=======
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                                                          ;
 +-----------------------------------------------------------------------------------------------+-----------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+-------------+
@@ -620,6 +718,7 @@ refer to the applicable agreement for further details.
 ; db/altsyncram_a471.tdf                                                                        ; yes             ; Auto-Generated Megafunction                           ; D:/ECE385/ece385code/lab9/db/altsyncram_a471.tdf                                                                        ;             ;
 ; db/lab9.rom0_InvSubBytes_b45f9bbb.hdl.mif                                                     ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; D:/ECE385/ece385code/lab9/db/lab9.rom0_InvSubBytes_b45f9bbb.hdl.mif                                                     ;             ;
 +-----------------------------------------------------------------------------------------------+-----------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+-------------+
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 
 
 +--------------------------------------------------------------+
@@ -11046,7 +11145,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
+<<<<<<< HEAD
+; Top            ; 00:00:37     ;
+=======
 ; Top            ; 00:00:18     ;
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 +----------------+--------------+
 
 
@@ -11056,6 +11159,170 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+<<<<<<< HEAD
+    Info: Processing started: Tue Dec 07 18:10:49 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab9 -c lab9
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file addroundkey.sv
+    Info (12023): Found entity 1: AddRoundKey File: D:/gitbash/ece385code/lab9/AddRoundKey.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file avalon_aes_interface.sv
+    Info (12023): Found entity 1: avalon_aes_interface File: D:/gitbash/ece385code/lab9/avalon_aes_interface.sv Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/lab9_soc.v
+    Info (12023): Found entity 1: lab9_soc File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/lab9_soc.v Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/altera_reset_controller.v
+    Info (12023): Found entity 1: altera_reset_controller File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_reset_controller.v Line: 42
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/altera_reset_synchronizer.v
+    Info (12023): Found entity 1: altera_reset_synchronizer File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_reset_synchronizer.v Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_irq_mapper.sv
+    Info (12023): Found entity 1: lab9_soc_irq_mapper File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_irq_mapper.sv Line: 31
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v
+    Info (12023): Found entity 1: lab9_soc_mm_interconnect_0 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_avalon_st_adapter.v
+    Info (12023): Found entity 1: lab9_soc_mm_interconnect_0_avalon_st_adapter File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_avalon_st_adapter.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv
+    Info (12023): Found entity 1: lab9_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv Line: 66
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v
+    Info (12023): Found entity 1: altera_avalon_st_handshake_clock_crosser File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/altera_avalon_st_clock_crosser.v
+    Info (12023): Found entity 1: altera_avalon_st_clock_crosser File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_avalon_st_clock_crosser.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/altera_avalon_st_pipeline_base.v
+    Info (12023): Found entity 1: altera_avalon_st_pipeline_base File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_avalon_st_pipeline_base.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/altera_std_synchronizer_nocut.v
+    Info (12023): Found entity 1: altera_std_synchronizer_nocut File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_std_synchronizer_nocut.v Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_rsp_mux_001.sv
+    Info (12023): Found entity 1: lab9_soc_mm_interconnect_0_rsp_mux_001 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_rsp_mux_001.sv Line: 51
+Info (12021): Found 2 design units, including 2 entities, in source file lab9_soc/synthesis/submodules/altera_merlin_arbitrator.sv
+    Info (12023): Found entity 1: altera_merlin_arbitrator File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_merlin_arbitrator.sv Line: 103
+    Info (12023): Found entity 2: altera_merlin_arb_adder File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_merlin_arbitrator.sv Line: 228
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_rsp_mux.sv
+    Info (12023): Found entity 1: lab9_soc_mm_interconnect_0_rsp_mux File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_rsp_mux.sv Line: 51
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_rsp_demux_002.sv
+    Info (12023): Found entity 1: lab9_soc_mm_interconnect_0_rsp_demux_002 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_rsp_demux_002.sv Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_rsp_demux.sv
+    Info (12023): Found entity 1: lab9_soc_mm_interconnect_0_rsp_demux File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_rsp_demux.sv Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_cmd_mux_002.sv
+    Info (12023): Found entity 1: lab9_soc_mm_interconnect_0_cmd_mux_002 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_cmd_mux_002.sv Line: 51
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_cmd_mux.sv
+    Info (12023): Found entity 1: lab9_soc_mm_interconnect_0_cmd_mux File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_cmd_mux.sv Line: 51
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_cmd_demux_001.sv
+    Info (12023): Found entity 1: lab9_soc_mm_interconnect_0_cmd_demux_001 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_cmd_demux_001.sv Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_cmd_demux.sv
+    Info (12023): Found entity 1: lab9_soc_mm_interconnect_0_cmd_demux File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_cmd_demux.sv Line: 43
+Info (12021): Found 2 design units, including 2 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_router_004.sv
+    Info (12023): Found entity 1: lab9_soc_mm_interconnect_0_router_004_default_decode File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_router_004.sv Line: 45
+    Info (12023): Found entity 2: lab9_soc_mm_interconnect_0_router_004 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_router_004.sv Line: 84
+Info (12021): Found 2 design units, including 2 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_router_002.sv
+    Info (12023): Found entity 1: lab9_soc_mm_interconnect_0_router_002_default_decode File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_router_002.sv Line: 45
+    Info (12023): Found entity 2: lab9_soc_mm_interconnect_0_router_002 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_router_002.sv Line: 84
+Info (12021): Found 2 design units, including 2 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_router_001.sv
+    Info (12023): Found entity 1: lab9_soc_mm_interconnect_0_router_001_default_decode File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_router_001.sv Line: 45
+    Info (12023): Found entity 2: lab9_soc_mm_interconnect_0_router_001 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_router_001.sv Line: 84
+Info (12021): Found 2 design units, including 2 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_router.sv
+    Info (12023): Found entity 1: lab9_soc_mm_interconnect_0_router_default_decode File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_router.sv Line: 45
+    Info (12023): Found entity 2: lab9_soc_mm_interconnect_0_router File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_router.sv Line: 84
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/altera_avalon_sc_fifo.v
+    Info (12023): Found entity 1: altera_avalon_sc_fifo File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_avalon_sc_fifo.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/altera_merlin_slave_agent.sv
+    Info (12023): Found entity 1: altera_merlin_slave_agent File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_merlin_slave_agent.sv Line: 34
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+    Info (12023): Found entity 1: altera_merlin_burst_uncompressor File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_merlin_burst_uncompressor.sv Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/altera_merlin_master_agent.sv
+    Info (12023): Found entity 1: altera_merlin_master_agent File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_merlin_master_agent.sv Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/altera_merlin_slave_translator.sv
+    Info (12023): Found entity 1: altera_merlin_slave_translator File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_merlin_slave_translator.sv Line: 35
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/altera_merlin_master_translator.sv
+    Info (12023): Found entity 1: altera_merlin_master_translator File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_merlin_master_translator.sv Line: 32
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_sysid_qsys_0.v
+    Info (12023): Found entity 1: lab9_soc_sysid_qsys_0 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sysid_qsys_0.v Line: 34
+Info (12021): Found 4 design units, including 4 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_sdram_pll.v
+    Info (12023): Found entity 1: lab9_soc_sdram_pll_dffpipe_l2c File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram_pll.v Line: 37
+    Info (12023): Found entity 2: lab9_soc_sdram_pll_stdsync_sv6 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram_pll.v Line: 98
+    Info (12023): Found entity 3: lab9_soc_sdram_pll_altpll_lqa2 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram_pll.v Line: 130
+    Info (12023): Found entity 4: lab9_soc_sdram_pll File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram_pll.v Line: 217
+Info (12021): Found 2 design units, including 2 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_sdram.v
+    Info (12023): Found entity 1: lab9_soc_sdram_input_efifo_module File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram.v Line: 21
+    Info (12023): Found entity 2: lab9_soc_sdram File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram.v Line: 159
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_onchip_memory2_0.v
+    Info (12023): Found entity 1: lab9_soc_onchip_memory2_0 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_onchip_memory2_0.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0.v
+    Info (12023): Found entity 1: lab9_soc_nios2_gen2_0 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0.v Line: 9
+Info (12021): Found 21 design units, including 21 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v
+    Info (12023): Found entity 1: lab9_soc_nios2_gen2_0_cpu_register_bank_a_module File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 21
+    Info (12023): Found entity 2: lab9_soc_nios2_gen2_0_cpu_register_bank_b_module File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 87
+    Info (12023): Found entity 3: lab9_soc_nios2_gen2_0_cpu_nios2_oci_debug File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 153
+    Info (12023): Found entity 4: lab9_soc_nios2_gen2_0_cpu_nios2_oci_break File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 295
+    Info (12023): Found entity 5: lab9_soc_nios2_gen2_0_cpu_nios2_oci_xbrk File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 588
+    Info (12023): Found entity 6: lab9_soc_nios2_gen2_0_cpu_nios2_oci_dbrk File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 795
+    Info (12023): Found entity 7: lab9_soc_nios2_gen2_0_cpu_nios2_oci_itrace File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 982
+    Info (12023): Found entity 8: lab9_soc_nios2_gen2_0_cpu_nios2_oci_td_mode File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 1115
+    Info (12023): Found entity 9: lab9_soc_nios2_gen2_0_cpu_nios2_oci_dtrace File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 1183
+    Info (12023): Found entity 10: lab9_soc_nios2_gen2_0_cpu_nios2_oci_compute_input_tm_cnt File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 1265
+    Info (12023): Found entity 11: lab9_soc_nios2_gen2_0_cpu_nios2_oci_fifo_wrptr_inc File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 1337
+    Info (12023): Found entity 12: lab9_soc_nios2_gen2_0_cpu_nios2_oci_fifo_cnt_inc File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 1380
+    Info (12023): Found entity 13: lab9_soc_nios2_gen2_0_cpu_nios2_oci_fifo File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 1427
+    Info (12023): Found entity 14: lab9_soc_nios2_gen2_0_cpu_nios2_oci_pib File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 1913
+    Info (12023): Found entity 15: lab9_soc_nios2_gen2_0_cpu_nios2_oci_im File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 1936
+    Info (12023): Found entity 16: lab9_soc_nios2_gen2_0_cpu_nios2_performance_monitors File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2006
+    Info (12023): Found entity 17: lab9_soc_nios2_gen2_0_cpu_nios2_avalon_reg File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2023
+    Info (12023): Found entity 18: lab9_soc_nios2_gen2_0_cpu_ociram_sp_ram_module File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2116
+    Info (12023): Found entity 19: lab9_soc_nios2_gen2_0_cpu_nios2_ocimem File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2181
+    Info (12023): Found entity 20: lab9_soc_nios2_gen2_0_cpu_nios2_oci File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2362
+    Info (12023): Found entity 21: lab9_soc_nios2_gen2_0_cpu File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2834
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu_debug_slave_sysclk.v
+    Info (12023): Found entity 1: lab9_soc_nios2_gen2_0_cpu_debug_slave_sysclk File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu_debug_slave_sysclk.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu_debug_slave_tck.v
+    Info (12023): Found entity 1: lab9_soc_nios2_gen2_0_cpu_debug_slave_tck File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu_debug_slave_tck.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v
+    Info (12023): Found entity 1: lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu_test_bench.v
+    Info (12023): Found entity 1: lab9_soc_nios2_gen2_0_cpu_test_bench File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu_test_bench.v Line: 21
+Info (12021): Found 5 design units, including 5 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_jtag_uart_0.v
+    Info (12023): Found entity 1: lab9_soc_jtag_uart_0_sim_scfifo_w File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_jtag_uart_0.v Line: 21
+    Info (12023): Found entity 2: lab9_soc_jtag_uart_0_scfifo_w File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_jtag_uart_0.v Line: 78
+    Info (12023): Found entity 3: lab9_soc_jtag_uart_0_sim_scfifo_r File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_jtag_uart_0.v Line: 164
+    Info (12023): Found entity 4: lab9_soc_jtag_uart_0_scfifo_r File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_jtag_uart_0.v Line: 243
+    Info (12023): Found entity 5: lab9_soc_jtag_uart_0 File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_jtag_uart_0.v Line: 331
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/lab9_soc_timer.v
+    Info (12023): Found entity 1: lab9_soc_TIMER File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_TIMER.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_soc/synthesis/submodules/avalon_aes_interface.sv
+    Info (12023): Found entity 1: avalon_aes_interface File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/avalon_aes_interface.sv Line: 21
+Info (12021): Found 2 design units, including 2 entities, in source file subbytes.sv
+    Info (12023): Found entity 1: SubBytes File: D:/gitbash/ece385code/lab9/SubBytes.sv Line: 14
+    Info (12023): Found entity 2: InvSubBytes File: D:/gitbash/ece385code/lab9/SubBytes.sv Line: 93
+Info (12021): Found 1 design units, including 1 entities, in source file lab9_top.sv
+    Info (12023): Found entity 1: lab9_top File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 11
+Info (12021): Found 2 design units, including 2 entities, in source file keyexpansion.sv
+    Info (12023): Found entity 1: KeyExpansion File: D:/gitbash/ece385code/lab9/KeyExpansion.sv Line: 13
+    Info (12023): Found entity 2: KeyExpansionOne File: D:/gitbash/ece385code/lab9/KeyExpansion.sv Line: 41
+Info (12021): Found 1 design units, including 1 entities, in source file invshiftrows.sv
+    Info (12023): Found entity 1: InvShiftRows File: D:/gitbash/ece385code/lab9/InvShiftRows.sv Line: 2
+Info (12021): Found 5 design units, including 5 entities, in source file invmixcolumns.sv
+    Info (12023): Found entity 1: InvMixColumns File: D:/gitbash/ece385code/lab9/InvMixColumns.sv Line: 14
+    Info (12023): Found entity 2: GF_Mul_9 File: D:/gitbash/ece385code/lab9/InvMixColumns.sv Line: 74
+    Info (12023): Found entity 3: GF_Mul_b File: D:/gitbash/ece385code/lab9/InvMixColumns.sv Line: 93
+    Info (12023): Found entity 4: GF_Mul_d File: D:/gitbash/ece385code/lab9/InvMixColumns.sv Line: 112
+    Info (12023): Found entity 5: GF_Mul_e File: D:/gitbash/ece385code/lab9/InvMixColumns.sv Line: 131
+Info (12021): Found 1 design units, including 1 entities, in source file hexdriver.sv
+    Info (12023): Found entity 1: hexdriver File: D:/gitbash/ece385code/lab9/hexdriver.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file aes.sv
+    Info (12023): Found entity 1: AES File: D:/gitbash/ece385code/lab9/AES.sv Line: 10
+Warning (10037): Verilog HDL or VHDL warning at lab9_soc_sdram.v(318): conditional expression evaluates to a constant File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram.v Line: 318
+Warning (10037): Verilog HDL or VHDL warning at lab9_soc_sdram.v(328): conditional expression evaluates to a constant File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram.v Line: 328
+Warning (10037): Verilog HDL or VHDL warning at lab9_soc_sdram.v(338): conditional expression evaluates to a constant File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram.v Line: 338
+Warning (10037): Verilog HDL or VHDL warning at lab9_soc_sdram.v(682): conditional expression evaluates to a constant File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram.v Line: 682
+Info (12127): Elaborating entity "lab9_top" for the top level hierarchy
+Warning (10034): Output port "LEDG" at lab9_top.sv(14) has no driver File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 14
+Warning (10034): Output port "LEDR" at lab9_top.sv(15) has no driver File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 15
+Info (12128): Elaborating entity "lab9_soc" for hierarchy "lab9_soc:lab9_qsystem" File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 54
+Info (12128): Elaborating entity "avalon_aes_interface" for hierarchy "lab9_soc:lab9_qsystem|avalon_aes_interface:aes" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/lab9_soc.v Line: 105
+Info (12128): Elaborating entity "lab9_soc_TIMER" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_TIMER:timer" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/lab9_soc.v Line: 116
+Info (12128): Elaborating entity "lab9_soc_jtag_uart_0" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/lab9_soc.v Line: 129
+Info (12128): Elaborating entity "lab9_soc_jtag_uart_0_scfifo_w" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|lab9_soc_jtag_uart_0_scfifo_w:the_lab9_soc_jtag_uart_0_scfifo_w" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_jtag_uart_0.v Line: 420
+Info (12128): Elaborating entity "scfifo" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|lab9_soc_jtag_uart_0_scfifo_w:the_lab9_soc_jtag_uart_0_scfifo_w|scfifo:wfifo" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_jtag_uart_0.v Line: 139
+Info (12130): Elaborated megafunction instantiation "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|lab9_soc_jtag_uart_0_scfifo_w:the_lab9_soc_jtag_uart_0_scfifo_w|scfifo:wfifo" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_jtag_uart_0.v Line: 139
+Info (12133): Instantiated megafunction "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|lab9_soc_jtag_uart_0_scfifo_w:the_lab9_soc_jtag_uart_0_scfifo_w|scfifo:wfifo" with the following parameter: File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_jtag_uart_0.v Line: 139
+=======
     Info: Processing started: Tue Dec 07 20:50:04 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab9 -c lab9
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -11230,6 +11497,7 @@ Info (12128): Elaborating entity "lab9_soc_jtag_uart_0_scfifo_w" for hierarchy "
 Info (12128): Elaborating entity "scfifo" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|lab9_soc_jtag_uart_0_scfifo_w:the_lab9_soc_jtag_uart_0_scfifo_w|scfifo:wfifo" File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_jtag_uart_0.v Line: 139
 Info (12130): Elaborated megafunction instantiation "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|lab9_soc_jtag_uart_0_scfifo_w:the_lab9_soc_jtag_uart_0_scfifo_w|scfifo:wfifo" File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_jtag_uart_0.v Line: 139
 Info (12133): Instantiated megafunction "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|lab9_soc_jtag_uart_0_scfifo_w:the_lab9_soc_jtag_uart_0_scfifo_w|scfifo:wfifo" with the following parameter: File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_jtag_uart_0.v Line: 139
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
     Info (12134): Parameter "lpm_hint" = "RAM_BLOCK_TYPE=AUTO"
     Info (12134): Parameter "lpm_numwords" = "64"
     Info (12134): Parameter "lpm_showahead" = "OFF"
@@ -11240,6 +11508,29 @@ Info (12133): Instantiated megafunction "lab9_soc:lab9_qsystem|lab9_soc_jtag_uar
     Info (12134): Parameter "underflow_checking" = "OFF"
     Info (12134): Parameter "use_eab" = "ON"
 Info (12021): Found 1 design units, including 1 entities, in source file db/scfifo_jr21.tdf
+<<<<<<< HEAD
+    Info (12023): Found entity 1: scfifo_jr21 File: D:/gitbash/ece385code/lab9/db/scfifo_jr21.tdf Line: 24
+Info (12128): Elaborating entity "scfifo_jr21" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|lab9_soc_jtag_uart_0_scfifo_w:the_lab9_soc_jtag_uart_0_scfifo_w|scfifo:wfifo|scfifo_jr21:auto_generated" File: d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/scfifo.tdf Line: 299
+Info (12021): Found 1 design units, including 1 entities, in source file db/a_dpfifo_l011.tdf
+    Info (12023): Found entity 1: a_dpfifo_l011 File: D:/gitbash/ece385code/lab9/db/a_dpfifo_l011.tdf Line: 28
+Info (12128): Elaborating entity "a_dpfifo_l011" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|lab9_soc_jtag_uart_0_scfifo_w:the_lab9_soc_jtag_uart_0_scfifo_w|scfifo:wfifo|scfifo_jr21:auto_generated|a_dpfifo_l011:dpfifo" File: D:/gitbash/ece385code/lab9/db/scfifo_jr21.tdf Line: 37
+Info (12021): Found 1 design units, including 1 entities, in source file db/a_fefifo_7cf.tdf
+    Info (12023): Found entity 1: a_fefifo_7cf File: D:/gitbash/ece385code/lab9/db/a_fefifo_7cf.tdf Line: 24
+Info (12128): Elaborating entity "a_fefifo_7cf" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|lab9_soc_jtag_uart_0_scfifo_w:the_lab9_soc_jtag_uart_0_scfifo_w|scfifo:wfifo|scfifo_jr21:auto_generated|a_dpfifo_l011:dpfifo|a_fefifo_7cf:fifo_state" File: D:/gitbash/ece385code/lab9/db/a_dpfifo_l011.tdf Line: 42
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_do7.tdf
+    Info (12023): Found entity 1: cntr_do7 File: D:/gitbash/ece385code/lab9/db/cntr_do7.tdf Line: 25
+Info (12128): Elaborating entity "cntr_do7" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|lab9_soc_jtag_uart_0_scfifo_w:the_lab9_soc_jtag_uart_0_scfifo_w|scfifo:wfifo|scfifo_jr21:auto_generated|a_dpfifo_l011:dpfifo|a_fefifo_7cf:fifo_state|cntr_do7:count_usedw" File: D:/gitbash/ece385code/lab9/db/a_fefifo_7cf.tdf Line: 38
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_nio1.tdf
+    Info (12023): Found entity 1: altsyncram_nio1 File: D:/gitbash/ece385code/lab9/db/altsyncram_nio1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_nio1" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|lab9_soc_jtag_uart_0_scfifo_w:the_lab9_soc_jtag_uart_0_scfifo_w|scfifo:wfifo|scfifo_jr21:auto_generated|a_dpfifo_l011:dpfifo|altsyncram_nio1:FIFOram" File: D:/gitbash/ece385code/lab9/db/a_dpfifo_l011.tdf Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_1ob.tdf
+    Info (12023): Found entity 1: cntr_1ob File: D:/gitbash/ece385code/lab9/db/cntr_1ob.tdf Line: 25
+Info (12128): Elaborating entity "cntr_1ob" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|lab9_soc_jtag_uart_0_scfifo_w:the_lab9_soc_jtag_uart_0_scfifo_w|scfifo:wfifo|scfifo_jr21:auto_generated|a_dpfifo_l011:dpfifo|cntr_1ob:rd_ptr_count" File: D:/gitbash/ece385code/lab9/db/a_dpfifo_l011.tdf Line: 44
+Info (12128): Elaborating entity "lab9_soc_jtag_uart_0_scfifo_r" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|lab9_soc_jtag_uart_0_scfifo_r:the_lab9_soc_jtag_uart_0_scfifo_r" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_jtag_uart_0.v Line: 434
+Info (12128): Elaborating entity "alt_jtag_atlantic" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|alt_jtag_atlantic:lab9_soc_jtag_uart_0_alt_jtag_atlantic" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_jtag_uart_0.v Line: 569
+Info (12130): Elaborated megafunction instantiation "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|alt_jtag_atlantic:lab9_soc_jtag_uart_0_alt_jtag_atlantic" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_jtag_uart_0.v Line: 569
+Info (12133): Instantiated megafunction "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|alt_jtag_atlantic:lab9_soc_jtag_uart_0_alt_jtag_atlantic" with the following parameter: File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_jtag_uart_0.v Line: 569
+=======
     Info (12023): Found entity 1: scfifo_jr21 File: D:/ECE385/ece385code/lab9/db/scfifo_jr21.tdf Line: 24
 Info (12128): Elaborating entity "scfifo_jr21" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|lab9_soc_jtag_uart_0_scfifo_w:the_lab9_soc_jtag_uart_0_scfifo_w|scfifo:wfifo|scfifo_jr21:auto_generated" File: d:/intelfpga_lite/18.1/quartus/libraries/megafunctions/scfifo.tdf Line: 299
 Info (12021): Found 1 design units, including 1 entities, in source file db/a_dpfifo_l011.tdf
@@ -11261,10 +11552,22 @@ Info (12128): Elaborating entity "lab9_soc_jtag_uart_0_scfifo_r" for hierarchy "
 Info (12128): Elaborating entity "alt_jtag_atlantic" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|alt_jtag_atlantic:lab9_soc_jtag_uart_0_alt_jtag_atlantic" File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_jtag_uart_0.v Line: 569
 Info (12130): Elaborated megafunction instantiation "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|alt_jtag_atlantic:lab9_soc_jtag_uart_0_alt_jtag_atlantic" File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_jtag_uart_0.v Line: 569
 Info (12133): Instantiated megafunction "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|alt_jtag_atlantic:lab9_soc_jtag_uart_0_alt_jtag_atlantic" with the following parameter: File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_jtag_uart_0.v Line: 569
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
     Info (12134): Parameter "INSTANCE_ID" = "0"
     Info (12134): Parameter "LOG2_RXFIFO_DEPTH" = "6"
     Info (12134): Parameter "LOG2_TXFIFO_DEPTH" = "6"
     Info (12134): Parameter "SLD_AUTO_INSTANCE_INDEX" = "YES"
+<<<<<<< HEAD
+Info (12128): Elaborating entity "sld_jtag_endpoint_adapter" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|alt_jtag_atlantic:lab9_soc_jtag_uart_0_alt_jtag_atlantic|sld_jtag_endpoint_adapter:inst" File: d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/alt_jtag_atlantic.v Line: 276
+Info (12128): Elaborating entity "sld_jtag_endpoint_adapter_impl" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|alt_jtag_atlantic:lab9_soc_jtag_uart_0_alt_jtag_atlantic|sld_jtag_endpoint_adapter:inst|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst" File: d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd Line: 232
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/lab9_soc.v Line: 158
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0.v Line: 65
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_test_bench" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_test_bench:the_lab9_soc_nios2_gen2_0_cpu_test_bench" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 3546
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_register_bank_a_module" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_register_bank_a_module:lab9_soc_nios2_gen2_0_cpu_register_bank_a" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 4063
+Info (12128): Elaborating entity "altsyncram" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_register_bank_a_module:lab9_soc_nios2_gen2_0_cpu_register_bank_a|altsyncram:the_altsyncram" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 58
+Info (12130): Elaborated megafunction instantiation "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_register_bank_a_module:lab9_soc_nios2_gen2_0_cpu_register_bank_a|altsyncram:the_altsyncram" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 58
+Info (12133): Instantiated megafunction "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_register_bank_a_module:lab9_soc_nios2_gen2_0_cpu_register_bank_a|altsyncram:the_altsyncram" with the following parameter: File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 58
+=======
 Info (12128): Elaborating entity "sld_jtag_endpoint_adapter" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|alt_jtag_atlantic:lab9_soc_jtag_uart_0_alt_jtag_atlantic|sld_jtag_endpoint_adapter:inst" File: d:/intelfpga_lite/18.1/quartus/libraries/megafunctions/alt_jtag_atlantic.v Line: 276
 Info (12128): Elaborating entity "sld_jtag_endpoint_adapter_impl" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_jtag_uart_0:jtag_uart_0|alt_jtag_atlantic:lab9_soc_jtag_uart_0_alt_jtag_atlantic|sld_jtag_endpoint_adapter:inst|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst" File: d:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd Line: 232
 Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0" File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/lab9_soc.v Line: 158
@@ -11274,6 +11577,7 @@ Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_register_bank_a_modu
 Info (12128): Elaborating entity "altsyncram" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_register_bank_a_module:lab9_soc_nios2_gen2_0_cpu_register_bank_a|altsyncram:the_altsyncram" File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 58
 Info (12130): Elaborated megafunction instantiation "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_register_bank_a_module:lab9_soc_nios2_gen2_0_cpu_register_bank_a|altsyncram:the_altsyncram" File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 58
 Info (12133): Instantiated megafunction "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_register_bank_a_module:lab9_soc_nios2_gen2_0_cpu_register_bank_a|altsyncram:the_altsyncram" with the following parameter: File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 58
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
     Info (12134): Parameter "address_reg_b" = "CLOCK0"
     Info (12134): Parameter "init_file" = "UNUSED"
     Info (12134): Parameter "maximum_depth" = "0"
@@ -11289,6 +11593,35 @@ Info (12133): Instantiated megafunction "lab9_soc:lab9_qsystem|lab9_soc_nios2_ge
     Info (12134): Parameter "widthad_a" = "5"
     Info (12134): Parameter "widthad_b" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_6mc1.tdf
+<<<<<<< HEAD
+    Info (12023): Found entity 1: altsyncram_6mc1 File: D:/gitbash/ece385code/lab9/db/altsyncram_6mc1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_6mc1" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_register_bank_a_module:lab9_soc_nios2_gen2_0_cpu_register_bank_a|altsyncram:the_altsyncram|altsyncram_6mc1:auto_generated" File: d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_register_bank_b_module" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_register_bank_b_module:lab9_soc_nios2_gen2_0_cpu_register_bank_b" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 4081
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_nios2_oci" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 4577
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_nios2_oci_debug" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_oci_debug:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci_debug" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2531
+Info (12128): Elaborating entity "altera_std_synchronizer" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_oci_debug:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci_debug|altera_std_synchronizer:the_altera_std_synchronizer" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 220
+Info (12130): Elaborated megafunction instantiation "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_oci_debug:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci_debug|altera_std_synchronizer:the_altera_std_synchronizer" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 220
+Info (12133): Instantiated megafunction "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_oci_debug:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci_debug|altera_std_synchronizer:the_altera_std_synchronizer" with the following parameter: File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 220
+    Info (12134): Parameter "depth" = "2"
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_nios2_oci_break" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_oci_break:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci_break" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2561
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_nios2_oci_xbrk" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_oci_xbrk:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci_xbrk" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2582
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_nios2_oci_dbrk" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_oci_dbrk:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci_dbrk" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2608
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_nios2_oci_itrace" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_oci_itrace:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci_itrace" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2624
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_nios2_oci_dtrace" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_oci_dtrace:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci_dtrace" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2639
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_nios2_oci_td_mode" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_oci_dtrace:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci_dtrace|lab9_soc_nios2_gen2_0_cpu_nios2_oci_td_mode:lab9_soc_nios2_gen2_0_cpu_nios2_oci_trc_ctrl_td_mode" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 1233
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_nios2_oci_fifo" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_oci_fifo:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci_fifo" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2654
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_nios2_oci_compute_input_tm_cnt" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_oci_fifo:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci_fifo|lab9_soc_nios2_gen2_0_cpu_nios2_oci_compute_input_tm_cnt:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci_compute_input_tm_cnt" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 1546
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_nios2_oci_fifo_wrptr_inc" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_oci_fifo:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci_fifo|lab9_soc_nios2_gen2_0_cpu_nios2_oci_fifo_wrptr_inc:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci_fifo_wrptr_inc" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 1555
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_nios2_oci_fifo_cnt_inc" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_oci_fifo:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci_fifo|lab9_soc_nios2_gen2_0_cpu_nios2_oci_fifo_cnt_inc:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci_fifo_cnt_inc" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 1564
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_nios2_oci_pib" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_oci_pib:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci_pib" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2659
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_nios2_oci_im" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_oci_im:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci_im" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2673
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_nios2_avalon_reg" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_avalon_reg:the_lab9_soc_nios2_gen2_0_cpu_nios2_avalon_reg" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2692
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_nios2_ocimem" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_ocimem:the_lab9_soc_nios2_gen2_0_cpu_nios2_ocimem" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2712
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_ociram_sp_ram_module" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_ocimem:the_lab9_soc_nios2_gen2_0_cpu_nios2_ocimem|lab9_soc_nios2_gen2_0_cpu_ociram_sp_ram_module:lab9_soc_nios2_gen2_0_cpu_ociram_sp_ram" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2332
+Info (12128): Elaborating entity "altsyncram" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_ocimem:the_lab9_soc_nios2_gen2_0_cpu_nios2_ocimem|lab9_soc_nios2_gen2_0_cpu_ociram_sp_ram_module:lab9_soc_nios2_gen2_0_cpu_ociram_sp_ram|altsyncram:the_altsyncram" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2156
+Info (12130): Elaborated megafunction instantiation "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_ocimem:the_lab9_soc_nios2_gen2_0_cpu_nios2_ocimem|lab9_soc_nios2_gen2_0_cpu_ociram_sp_ram_module:lab9_soc_nios2_gen2_0_cpu_ociram_sp_ram|altsyncram:the_altsyncram" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2156
+Info (12133): Instantiated megafunction "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_ocimem:the_lab9_soc_nios2_gen2_0_cpu_nios2_ocimem|lab9_soc_nios2_gen2_0_cpu_ociram_sp_ram_module:lab9_soc_nios2_gen2_0_cpu_ociram_sp_ram|altsyncram:the_altsyncram" with the following parameter: File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2156
+=======
     Info (12023): Found entity 1: altsyncram_6mc1 File: D:/ECE385/ece385code/lab9/db/altsyncram_6mc1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_6mc1" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_register_bank_a_module:lab9_soc_nios2_gen2_0_cpu_register_bank_a|altsyncram:the_altsyncram|altsyncram_6mc1:auto_generated" File: d:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_register_bank_b_module" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_register_bank_b_module:lab9_soc_nios2_gen2_0_cpu_register_bank_b" File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 4081
@@ -11316,6 +11649,7 @@ Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_ociram_sp_ram_module
 Info (12128): Elaborating entity "altsyncram" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_ocimem:the_lab9_soc_nios2_gen2_0_cpu_nios2_ocimem|lab9_soc_nios2_gen2_0_cpu_ociram_sp_ram_module:lab9_soc_nios2_gen2_0_cpu_ociram_sp_ram|altsyncram:the_altsyncram" File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2156
 Info (12130): Elaborated megafunction instantiation "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_ocimem:the_lab9_soc_nios2_gen2_0_cpu_nios2_ocimem|lab9_soc_nios2_gen2_0_cpu_ociram_sp_ram_module:lab9_soc_nios2_gen2_0_cpu_ociram_sp_ram|altsyncram:the_altsyncram" File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2156
 Info (12133): Instantiated megafunction "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_ocimem:the_lab9_soc_nios2_gen2_0_cpu_nios2_ocimem|lab9_soc_nios2_gen2_0_cpu_ociram_sp_ram_module:lab9_soc_nios2_gen2_0_cpu_ociram_sp_ram|altsyncram:the_altsyncram" with the following parameter: File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2156
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
     Info (12134): Parameter "init_file" = "UNUSED"
     Info (12134): Parameter "maximum_depth" = "0"
     Info (12134): Parameter "numwords_a" = "256"
@@ -11327,6 +11661,16 @@ Info (12133): Instantiated megafunction "lab9_soc:lab9_qsystem|lab9_soc_nios2_ge
     Info (12134): Parameter "width_byteena_a" = "4"
     Info (12134): Parameter "widthad_a" = "8"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ac71.tdf
+<<<<<<< HEAD
+    Info (12023): Found entity 1: altsyncram_ac71 File: D:/gitbash/ece385code/lab9/db/altsyncram_ac71.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_ac71" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_ocimem:the_lab9_soc_nios2_gen2_0_cpu_nios2_ocimem|lab9_soc_nios2_gen2_0_cpu_ociram_sp_ram_module:lab9_soc_nios2_gen2_0_cpu_ociram_sp_ram|altsyncram:the_altsyncram|altsyncram_ac71:auto_generated" File: d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2814
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_debug_slave_tck" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper|lab9_soc_nios2_gen2_0_cpu_debug_slave_tck:the_lab9_soc_nios2_gen2_0_cpu_debug_slave_tck" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v Line: 157
+Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_debug_slave_sysclk" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper|lab9_soc_nios2_gen2_0_cpu_debug_slave_sysclk:the_lab9_soc_nios2_gen2_0_cpu_debug_slave_sysclk" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v Line: 177
+Info (12128): Elaborating entity "sld_virtual_jtag_basic" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:lab9_soc_nios2_gen2_0_cpu_debug_slave_phy" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v Line: 207
+Info (12130): Elaborated megafunction instantiation "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:lab9_soc_nios2_gen2_0_cpu_debug_slave_phy" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v Line: 207
+Info (12133): Instantiated megafunction "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:lab9_soc_nios2_gen2_0_cpu_debug_slave_phy" with the following parameter: File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v Line: 207
+=======
     Info (12023): Found entity 1: altsyncram_ac71 File: D:/ECE385/ece385code/lab9/db/altsyncram_ac71.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_ac71" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_nios2_ocimem:the_lab9_soc_nios2_gen2_0_cpu_nios2_ocimem|lab9_soc_nios2_gen2_0_cpu_ociram_sp_ram_module:lab9_soc_nios2_gen2_0_cpu_ociram_sp_ram|altsyncram:the_altsyncram|altsyncram_ac71:auto_generated" File: d:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper" File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu.v Line: 2814
@@ -11335,6 +11679,7 @@ Info (12128): Elaborating entity "lab9_soc_nios2_gen2_0_cpu_debug_slave_sysclk" 
 Info (12128): Elaborating entity "sld_virtual_jtag_basic" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:lab9_soc_nios2_gen2_0_cpu_debug_slave_phy" File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v Line: 207
 Info (12130): Elaborated megafunction instantiation "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:lab9_soc_nios2_gen2_0_cpu_debug_slave_phy" File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v Line: 207
 Info (12133): Instantiated megafunction "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:lab9_soc_nios2_gen2_0_cpu_debug_slave_phy" with the following parameter: File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v Line: 207
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
     Info (12134): Parameter "sld_auto_instance_index" = "YES"
     Info (12134): Parameter "sld_instance_index" = "0"
     Info (12134): Parameter "sld_ir_width" = "2"
@@ -11344,6 +11689,16 @@ Info (12133): Instantiated megafunction "lab9_soc:lab9_qsystem|lab9_soc_nios2_ge
     Info (12134): Parameter "sld_sim_total_length" = "0"
     Info (12134): Parameter "sld_type_id" = "34"
     Info (12134): Parameter "sld_version" = "3"
+<<<<<<< HEAD
+Info (12128): Elaborating entity "sld_virtual_jtag_impl" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:lab9_soc_nios2_gen2_0_cpu_debug_slave_phy|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst" File: d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/sld_virtual_jtag_basic.v Line: 151
+Info (12131): Elaborated megafunction instantiation "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:lab9_soc_nios2_gen2_0_cpu_debug_slave_phy|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst", which is child of megafunction instantiation "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:lab9_soc_nios2_gen2_0_cpu_debug_slave_phy" File: d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/sld_virtual_jtag_basic.v Line: 151
+Info (12128): Elaborating entity "sld_jtag_endpoint_adapter" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:lab9_soc_nios2_gen2_0_cpu_debug_slave_phy|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst|sld_jtag_endpoint_adapter:jtag_signal_adapter" File: d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/sld_virtual_jtag_basic.v Line: 414
+Info (12128): Elaborating entity "sld_jtag_endpoint_adapter_impl" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:lab9_soc_nios2_gen2_0_cpu_debug_slave_phy|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst" File: d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd Line: 232
+Info (12128): Elaborating entity "lab9_soc_onchip_memory2_0" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_onchip_memory2_0:onchip_memory2_0" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/lab9_soc.v Line: 172
+Info (12128): Elaborating entity "altsyncram" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_onchip_memory2_0:onchip_memory2_0|altsyncram:the_altsyncram" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_onchip_memory2_0.v Line: 69
+Info (12130): Elaborated megafunction instantiation "lab9_soc:lab9_qsystem|lab9_soc_onchip_memory2_0:onchip_memory2_0|altsyncram:the_altsyncram" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_onchip_memory2_0.v Line: 69
+Info (12133): Instantiated megafunction "lab9_soc:lab9_qsystem|lab9_soc_onchip_memory2_0:onchip_memory2_0|altsyncram:the_altsyncram" with the following parameter: File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_onchip_memory2_0.v Line: 69
+=======
 Info (12128): Elaborating entity "sld_virtual_jtag_impl" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:lab9_soc_nios2_gen2_0_cpu_debug_slave_phy|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst" File: d:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_virtual_jtag_basic.v Line: 151
 Info (12131): Elaborated megafunction instantiation "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:lab9_soc_nios2_gen2_0_cpu_debug_slave_phy|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst", which is child of megafunction instantiation "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:lab9_soc_nios2_gen2_0_cpu_debug_slave_phy" File: d:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_virtual_jtag_basic.v Line: 151
 Info (12128): Elaborating entity "sld_jtag_endpoint_adapter" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_nios2_gen2_0:nios2_gen2_0|lab9_soc_nios2_gen2_0_cpu:cpu|lab9_soc_nios2_gen2_0_cpu_nios2_oci:the_lab9_soc_nios2_gen2_0_cpu_nios2_oci|lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_lab9_soc_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:lab9_soc_nios2_gen2_0_cpu_debug_slave_phy|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst|sld_jtag_endpoint_adapter:jtag_signal_adapter" File: d:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_virtual_jtag_basic.v Line: 414
@@ -11352,6 +11707,7 @@ Info (12128): Elaborating entity "lab9_soc_onchip_memory2_0" for hierarchy "lab9
 Info (12128): Elaborating entity "altsyncram" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_onchip_memory2_0:onchip_memory2_0|altsyncram:the_altsyncram" File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_onchip_memory2_0.v Line: 69
 Info (12130): Elaborated megafunction instantiation "lab9_soc:lab9_qsystem|lab9_soc_onchip_memory2_0:onchip_memory2_0|altsyncram:the_altsyncram" File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_onchip_memory2_0.v Line: 69
 Info (12133): Instantiated megafunction "lab9_soc:lab9_qsystem|lab9_soc_onchip_memory2_0:onchip_memory2_0|altsyncram:the_altsyncram" with the following parameter: File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_onchip_memory2_0.v Line: 69
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
     Info (12134): Parameter "byte_size" = "8"
     Info (12134): Parameter "init_file" = "lab9_soc_onchip_memory2_0.hex"
     Info (12134): Parameter "lpm_type" = "altsyncram"
@@ -11366,6 +11722,71 @@ Info (12133): Instantiated megafunction "lab9_soc:lab9_qsystem|lab9_soc_onchip_m
     Info (12134): Parameter "width_byteena_a" = "4"
     Info (12134): Parameter "widthad_a" = "2"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_tqg1.tdf
+<<<<<<< HEAD
+    Info (12023): Found entity 1: altsyncram_tqg1 File: D:/gitbash/ece385code/lab9/db/altsyncram_tqg1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_tqg1" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_onchip_memory2_0:onchip_memory2_0|altsyncram:the_altsyncram|altsyncram_tqg1:auto_generated" File: d:/quartusprime18.1/quartuslite/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "lab9_soc_sdram" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_sdram:sdram" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/lab9_soc.v Line: 195
+Info (12128): Elaborating entity "lab9_soc_sdram_input_efifo_module" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_sdram:sdram|lab9_soc_sdram_input_efifo_module:the_lab9_soc_sdram_input_efifo_module" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram.v Line: 298
+Info (12128): Elaborating entity "lab9_soc_sdram_pll" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_sdram_pll:sdram_pll" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/lab9_soc.v Line: 219
+Info (12128): Elaborating entity "lab9_soc_sdram_pll_stdsync_sv6" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_sdram_pll:sdram_pll|lab9_soc_sdram_pll_stdsync_sv6:stdsync2" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram_pll.v Line: 282
+Info (12128): Elaborating entity "lab9_soc_sdram_pll_dffpipe_l2c" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_sdram_pll:sdram_pll|lab9_soc_sdram_pll_stdsync_sv6:stdsync2|lab9_soc_sdram_pll_dffpipe_l2c:dffpipe3" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram_pll.v Line: 116
+Info (12128): Elaborating entity "lab9_soc_sdram_pll_altpll_lqa2" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_sdram_pll:sdram_pll|lab9_soc_sdram_pll_altpll_lqa2:sd1" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram_pll.v Line: 288
+Info (12128): Elaborating entity "lab9_soc_sysid_qsys_0" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_sysid_qsys_0:sysid_qsys_0" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/lab9_soc.v Line: 226
+Info (12128): Elaborating entity "lab9_soc_mm_interconnect_0" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/lab9_soc.v Line: 296
+Info (12128): Elaborating entity "altera_merlin_master_translator" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_master_translator:nios2_gen2_0_data_master_translator" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 737
+Info (12128): Elaborating entity "altera_merlin_master_translator" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_master_translator:nios2_gen2_0_instruction_master_translator" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 797
+Info (12128): Elaborating entity "altera_merlin_slave_translator" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:aes_aes_slave_translator" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 861
+Info (12128): Elaborating entity "altera_merlin_slave_translator" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:jtag_uart_0_avalon_jtag_slave_translator" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 925
+Info (12128): Elaborating entity "altera_merlin_slave_translator" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:sysid_qsys_0_control_slave_translator" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 989
+Info (12128): Elaborating entity "altera_merlin_slave_translator" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:nios2_gen2_0_debug_mem_slave_translator" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 1053
+Info (12128): Elaborating entity "altera_merlin_slave_translator" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:sdram_pll_pll_slave_translator" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 1117
+Info (12128): Elaborating entity "altera_merlin_slave_translator" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:onchip_memory2_0_s1_translator" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 1181
+Info (12128): Elaborating entity "altera_merlin_slave_translator" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:sdram_s1_translator" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 1245
+Info (12128): Elaborating entity "altera_merlin_slave_translator" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:timer_s1_translator" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 1309
+Info (12128): Elaborating entity "altera_merlin_master_agent" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_master_agent:nios2_gen2_0_data_master_agent" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 1390
+Info (12128): Elaborating entity "altera_merlin_master_agent" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_master_agent:nios2_gen2_0_instruction_master_agent" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 1471
+Info (12128): Elaborating entity "altera_merlin_slave_agent" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:aes_aes_slave_agent" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 1555
+Info (12128): Elaborating entity "altera_merlin_burst_uncompressor" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:aes_aes_slave_agent|altera_merlin_burst_uncompressor:uncompressor" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_merlin_slave_agent.sv Line: 608
+Info (12128): Elaborating entity "altera_avalon_sc_fifo" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_sc_fifo:aes_aes_slave_agent_rsp_fifo" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 1596
+Info (12128): Elaborating entity "altera_avalon_sc_fifo" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_sc_fifo:sdram_s1_agent_rsp_fifo" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 2346
+Info (12128): Elaborating entity "altera_avalon_sc_fifo" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_sc_fifo:sdram_s1_agent_rdata_fifo" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 2387
+Info (12128): Elaborating entity "lab9_soc_mm_interconnect_0_router" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|lab9_soc_mm_interconnect_0_router:router" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 2528
+Info (12128): Elaborating entity "lab9_soc_mm_interconnect_0_router_default_decode" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|lab9_soc_mm_interconnect_0_router:router|lab9_soc_mm_interconnect_0_router_default_decode:the_default_decode" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_router.sv Line: 191
+Info (12128): Elaborating entity "lab9_soc_mm_interconnect_0_router_001" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|lab9_soc_mm_interconnect_0_router_001:router_001" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 2544
+Info (12128): Elaborating entity "lab9_soc_mm_interconnect_0_router_001_default_decode" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|lab9_soc_mm_interconnect_0_router_001:router_001|lab9_soc_mm_interconnect_0_router_001_default_decode:the_default_decode" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_router_001.sv Line: 188
+Info (12128): Elaborating entity "lab9_soc_mm_interconnect_0_router_002" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|lab9_soc_mm_interconnect_0_router_002:router_002" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 2560
+Info (12128): Elaborating entity "lab9_soc_mm_interconnect_0_router_002_default_decode" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|lab9_soc_mm_interconnect_0_router_002:router_002|lab9_soc_mm_interconnect_0_router_002_default_decode:the_default_decode" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_router_002.sv Line: 173
+Info (12128): Elaborating entity "lab9_soc_mm_interconnect_0_router_004" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|lab9_soc_mm_interconnect_0_router_004:router_004" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 2592
+Info (12128): Elaborating entity "lab9_soc_mm_interconnect_0_router_004_default_decode" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|lab9_soc_mm_interconnect_0_router_004:router_004|lab9_soc_mm_interconnect_0_router_004_default_decode:the_default_decode" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_router_004.sv Line: 178
+Info (12128): Elaborating entity "lab9_soc_mm_interconnect_0_cmd_demux" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|lab9_soc_mm_interconnect_0_cmd_demux:cmd_demux" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 2731
+Info (12128): Elaborating entity "lab9_soc_mm_interconnect_0_cmd_demux_001" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|lab9_soc_mm_interconnect_0_cmd_demux_001:cmd_demux_001" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 2772
+Info (12128): Elaborating entity "lab9_soc_mm_interconnect_0_cmd_mux" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|lab9_soc_mm_interconnect_0_cmd_mux:cmd_mux" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 2789
+Info (12128): Elaborating entity "lab9_soc_mm_interconnect_0_cmd_mux_002" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|lab9_soc_mm_interconnect_0_cmd_mux_002:cmd_mux_002" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 2829
+Info (12128): Elaborating entity "altera_merlin_arbitrator" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|lab9_soc_mm_interconnect_0_cmd_mux_002:cmd_mux_002|altera_merlin_arbitrator:arb" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_cmd_mux_002.sv Line: 287
+Info (12128): Elaborating entity "altera_merlin_arb_adder" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|lab9_soc_mm_interconnect_0_cmd_mux_002:cmd_mux_002|altera_merlin_arbitrator:arb|altera_merlin_arb_adder:adder" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_merlin_arbitrator.sv Line: 169
+Info (12128): Elaborating entity "lab9_soc_mm_interconnect_0_rsp_demux" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|lab9_soc_mm_interconnect_0_rsp_demux:rsp_demux" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 2955
+Info (12128): Elaborating entity "lab9_soc_mm_interconnect_0_rsp_demux_002" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|lab9_soc_mm_interconnect_0_rsp_demux_002:rsp_demux_002" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 2995
+Info (12128): Elaborating entity "lab9_soc_mm_interconnect_0_rsp_mux" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|lab9_soc_mm_interconnect_0_rsp_mux:rsp_mux" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 3163
+Info (12128): Elaborating entity "altera_merlin_arbitrator" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|lab9_soc_mm_interconnect_0_rsp_mux:rsp_mux|altera_merlin_arbitrator:arb" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_rsp_mux.sv Line: 406
+Info (12128): Elaborating entity "altera_merlin_arb_adder" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|lab9_soc_mm_interconnect_0_rsp_mux:rsp_mux|altera_merlin_arbitrator:arb|altera_merlin_arb_adder:adder" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_merlin_arbitrator.sv Line: 169
+Info (12128): Elaborating entity "lab9_soc_mm_interconnect_0_rsp_mux_001" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|lab9_soc_mm_interconnect_0_rsp_mux_001:rsp_mux_001" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 3204
+Info (12128): Elaborating entity "altera_merlin_arbitrator" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|lab9_soc_mm_interconnect_0_rsp_mux_001:rsp_mux_001|altera_merlin_arbitrator:arb" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_rsp_mux_001.sv Line: 358
+Info (12128): Elaborating entity "altera_merlin_arb_adder" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|lab9_soc_mm_interconnect_0_rsp_mux_001:rsp_mux_001|altera_merlin_arbitrator:arb|altera_merlin_arb_adder:adder" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_merlin_arbitrator.sv Line: 169
+Info (12128): Elaborating entity "altera_avalon_st_handshake_clock_crosser" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 3238
+Info (12128): Elaborating entity "altera_avalon_st_clock_crosser" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser|altera_avalon_st_clock_crosser:clock_xer" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v Line: 149
+Info (12128): Elaborating entity "altera_std_synchronizer_nocut" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser|altera_avalon_st_clock_crosser:clock_xer|altera_std_synchronizer_nocut:in_to_out_synchronizer" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_avalon_st_clock_crosser.v Line: 105
+Info (12128): Elaborating entity "lab9_soc_mm_interconnect_0_avalon_st_adapter" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|lab9_soc_mm_interconnect_0_avalon_st_adapter:avalon_st_adapter" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0.v Line: 3369
+Info (12128): Elaborating entity "lab9_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|lab9_soc_mm_interconnect_0_avalon_st_adapter:avalon_st_adapter|lab9_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0:error_adapter_0" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_mm_interconnect_0_avalon_st_adapter.v Line: 200
+Info (12128): Elaborating entity "lab9_soc_irq_mapper" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_irq_mapper:irq_mapper" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/lab9_soc.v Line: 304
+Info (12128): Elaborating entity "altera_reset_controller" for hierarchy "lab9_soc:lab9_qsystem|altera_reset_controller:rst_controller" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/lab9_soc.v Line: 367
+Info (12128): Elaborating entity "altera_reset_synchronizer" for hierarchy "lab9_soc:lab9_qsystem|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_reset_controller.v Line: 208
+Info (12128): Elaborating entity "altera_reset_synchronizer" for hierarchy "lab9_soc:lab9_qsystem|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_req_sync_uq1" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_reset_controller.v Line: 220
+Info (12128): Elaborating entity "altera_reset_controller" for hierarchy "lab9_soc:lab9_qsystem|altera_reset_controller:rst_controller_001" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/lab9_soc.v Line: 430
+Info (12128): Elaborating entity "altera_reset_controller" for hierarchy "lab9_soc:lab9_qsystem|altera_reset_controller:rst_controller_002" File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/lab9_soc.v Line: 493
+Info (12128): Elaborating entity "hexdriver" for hierarchy "hexdriver:hexdrv0" File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 60
+Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
+Info (11172): 2021.12.07.18:12:29 Progress: Loading sld2dead247/alt_sld_fab_wrapper_hw.tcl
+=======
     Info (12023): Found entity 1: altsyncram_tqg1 File: D:/ECE385/ece385code/lab9/db/altsyncram_tqg1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_tqg1" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_onchip_memory2_0:onchip_memory2_0|altsyncram:the_altsyncram|altsyncram_tqg1:auto_generated" File: d:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12128): Elaborating entity "lab9_soc_sdram" for hierarchy "lab9_soc:lab9_qsystem|lab9_soc_sdram:sdram" File: D:/ECE385/ece385code/lab9/lab9_soc/synthesis/lab9_soc.v Line: 195
@@ -11429,6 +11850,7 @@ Info (12128): Elaborating entity "altera_reset_controller" for hierarchy "lab9_s
 Info (12128): Elaborating entity "hexdriver" for hierarchy "hexdriver:hexdrv0" File: D:/ECE385/ece385code/lab9/lab9_top.sv Line: 60
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
 Info (11172): 2021.12.07.20:50:31 Progress: Loading sld2dead247/alt_sld_fab_wrapper_hw.tcl
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -11439,6 +11861,53 @@ Info (11172): Ident: "alt_sld_fab" instantiated altera_connection_identification
 Info (11172): Alt_sld_fab: Done "alt_sld_fab" with 6 modules, 6 files
 Info (11171): Finished IP generation for the debug fabric: alt_sld_fab.
 Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld2dead247/alt_sld_fab.v
+<<<<<<< HEAD
+    Info (12023): Found entity 1: alt_sld_fab File: D:/gitbash/ece385code/lab9/db/ip/sld2dead247/alt_sld_fab.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab.v
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab File: D:/gitbash/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_ident.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_ident File: D:/gitbash/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_ident.sv Line: 33
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_presplit.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_presplit File: D:/gitbash/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_presplit.sv Line: 3
+Info (12021): Found 2 design units, including 1 entities, in source file db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd
+    Info (12022): Found design unit 1: alt_sld_fab_alt_sld_fab_sldfabric-rtl File: D:/gitbash/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 142
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_sldfabric File: D:/gitbash/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 11
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_splitter.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_splitter File: D:/gitbash/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_splitter.sv Line: 3
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276004): RAM logic "lab9_soc:lab9_qsystem|lab9_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_sc_fifo:sdram_s1_agent_rdata_fifo|mem" is uninferred due to inappropriate RAM size File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/altera_avalon_sc_fifo.v Line: 108
+Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (13000): Registers with preset signals will power-up high File: D:/gitbash/ece385code/lab9/lab9_soc/synthesis/submodules/lab9_soc_sdram.v Line: 442
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDG[0]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 14
+    Warning (13410): Pin "LEDG[1]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 14
+    Warning (13410): Pin "LEDG[2]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 14
+    Warning (13410): Pin "LEDG[3]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 14
+    Warning (13410): Pin "LEDG[4]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 14
+    Warning (13410): Pin "LEDG[5]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 14
+    Warning (13410): Pin "LEDG[6]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 14
+    Warning (13410): Pin "LEDG[7]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 14
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 15
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 15
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 15
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 15
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 15
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 15
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 15
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 15
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 15
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 15
+    Warning (13410): Pin "LEDR[10]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 15
+    Warning (13410): Pin "LEDR[11]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 15
+    Warning (13410): Pin "LEDR[12]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 15
+    Warning (13410): Pin "LEDR[13]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 15
+    Warning (13410): Pin "LEDR[14]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 15
+    Warning (13410): Pin "LEDR[15]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 15
+    Warning (13410): Pin "LEDR[16]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 15
+    Warning (13410): Pin "LEDR[17]" is stuck at GND File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 15
+    Warning (13410): Pin "DRAM_CKE" is stuck at VCC File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 27
+=======
     Info (12023): Found entity 1: alt_sld_fab File: D:/ECE385/ece385code/lab9/db/ip/sld2dead247/alt_sld_fab.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab.v
     Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab File: D:/ECE385/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab.v Line: 9
@@ -12129,6 +12598,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[16]" is stuck at GND File: D:/ECE385/ece385code/lab9/lab9_top.sv Line: 15
     Warning (13410): Pin "LEDR[17]" is stuck at GND File: D:/ECE385/ece385code/lab9/lab9_top.sv Line: 15
     Warning (13410): Pin "DRAM_CKE" is stuck at VCC File: D:/ECE385/ece385code/lab9/lab9_top.sv Line: 27
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 Info (286031): Timing-Driven Synthesis is running on partition "Top"
 Info (17049): 51 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 27 assignments for entity "DE2_115_Default" -- entity does not exist in design
@@ -12184,12 +12654,21 @@ Warning (20013): Ignored 24 assignments for entity "lab8" -- entity does not exi
     Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity lab8 -section_id Top was ignored
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity lab8 -section_id Top was ignored
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity lab8 -section_id Top was ignored
+<<<<<<< HEAD
+Info (144001): Generated suppressed messages file D:/gitbash/ece385code/lab9/output_files/lab9.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[1]" File: D:/gitbash/ece385code/lab9/lab9_top.sv Line: 13
+Info (21057): Implemented 4965 device resources after synthesis - the final resource count might be different
+=======
 Info (144001): Generated suppressed messages file D:/ECE385/ece385code/lab9/output_files/lab9.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[1]" File: D:/ECE385/ece385code/lab9/lab9_top.sv Line: 13
 Info (21057): Implemented 8252 device resources after synthesis - the final resource count might be different
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 108 output pins
     Info (21060): Implemented 32 bidirectional pins
@@ -12197,15 +12676,26 @@ Info (21057): Implemented 8252 device resources after synthesis - the final reso
     Info (21064): Implemented 592 RAM segments
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 91 warnings
+<<<<<<< HEAD
+    Info: Peak virtual memory: 4911 megabytes
+    Info: Processing ended: Tue Dec 07 18:14:14 2021
+    Info: Elapsed time: 00:03:25
+    Info: Total CPU time (on all processors): 00:05:34
+=======
     Info: Peak virtual memory: 4984 megabytes
     Info: Processing ended: Tue Dec 07 20:51:05 2021
     Info: Elapsed time: 00:01:01
     Info: Total CPU time (on all processors): 00:01:24
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
+<<<<<<< HEAD
+The suppressed messages can be found in D:/gitbash/ece385code/lab9/output_files/lab9.map.smsg.
+=======
 The suppressed messages can be found in D:/ECE385/ece385code/lab9/output_files/lab9.map.smsg.
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 
 
