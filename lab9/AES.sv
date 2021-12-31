@@ -14,7 +14,8 @@ module AES (
 	output logic AES_DONE,
 	input  logic [127:0] AES_KEY,
 	input  logic [127:0] AES_MSG_ENC,
-	output logic [127:0] AES_MSG_DEC
+	output logic [127:0] AES_MSG_DEC,
+	output logic [127:0] next_state_out
 );
 
 	logic [1407:0] KeySchedule;
@@ -49,13 +50,15 @@ module AES (
 	
 	logic [3:0] loop_counter,loop_counter_next;
 	
-	
+	assign next_state_out = next_state;
 	
 	always_ff @(posedge CLK)
 	begin
 		if (RESET) begin
 			AES_STATE <= WAIT;
 			loop_counter <=4'b0;
+			state <= 128'b0;
+
 		end
 		
 		else begin
@@ -70,10 +73,10 @@ module AES (
 	always_comb 
 	begin 
 	
-		AES_STATE = AES_NEXT_STATE; 
+		AES_NEXT_STATE = AES_STATE; 
 		loop_counter_next = loop_counter; 
-		unique case(AES_STATE)
 		
+		unique case(AES_STATE)
 		WAIT: 
 		begin 
 			if(AES_START == 1'b1)
@@ -92,7 +95,8 @@ module AES (
 		end
 		
 		INITIAL_ROUND:
-			AES_NEXT_STATE = LOOP_INVSHIFTROW;
+			//AES_NEXT_STATE = LOOP_INVSHIFTROW;
+			AES_NEXT_STATE = DONE;
 		
 		LOOP_INVSHIFTROW:
 			AES_NEXT_STATE = LOOP_INVSUB; 
@@ -117,8 +121,10 @@ module AES (
 			if(loop_counter == 4'd8)
 				AES_NEXT_STATE = INVSHIFTROW; 
 			else
+				begin
 				loop_counter_next = loop_counter + 4'b1;
 				AES_NEXT_STATE = LOOP_INVSHIFTROW;
+				end
 		end
 		
 		INVSHIFTROW:
@@ -149,7 +155,13 @@ module AES (
 	
 		next_state = state;
 		AES_DONE = 1'b0;
+		
 		AES_MSG_DEC = 128'b0;
+<<<<<<< HEAD
+=======
+//		AES_MSG_DEC = state;
+		
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
 		mixcolumns_in = 32'b0;
 		key = 128'b0;
 		
@@ -162,21 +174,21 @@ module AES (
 				
 			DONE:
 				begin
-					AES_MSG_DEC = addroundkey_out;
+					AES_MSG_DEC = state;
 					AES_DONE = 1'b1;
 				end
 			
 			KEY_EXPANSION:
 				begin
-					next_state = AES_MSG_ENC;
-					AES_DONE = 0;
+					next_state = AES_MSG_ENC;					
+					AES_DONE = 1'b0;
 				end
 				
 			INITIAL_ROUND:
 				begin
 					key = KeySchedule[127:0];
 					next_state = addroundkey_out;
-					AES_DONE = 0;
+					AES_DONE = 1'b0;
 				end
 			
 			LOOP_INVSUB:

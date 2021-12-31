@@ -1,6 +1,6 @@
 	component lab9_soc is
 		port (
-			aes_export_new_signal : in    std_logic_vector(31 downto 0) := (others => 'X'); -- new_signal
+			aes_export_new_signal : out   std_logic_vector(31 downto 0);                    -- new_signal
 			clk_clk               : in    std_logic                     := 'X';             -- clk
 			reset_reset_n         : in    std_logic                     := 'X';             -- reset_n
 			sdram_clk_clk         : out   std_logic;                                        -- clk

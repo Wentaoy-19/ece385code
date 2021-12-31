@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deploy
+<<<<<<< HEAD
  date="2021.12.07.18:13:10"
  outputDirectory="D:/gitbash/ece385code/lab9/db/ip/sld2dead247/">
+=======
+ date="2021.12.07.20:50:38"
+ outputDirectory="D:/ECE385/ece385code/lab9/db/ip/sld2dead247/">
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
  <perimeter>
   <parameter
      name="AUTO_DEVICE_FAMILY"
@@ -48,11 +53,16 @@
   <parameter name="AUTO_DEVICE_SPEEDGRADE" value="" />
   <generatedFiles>
    <file
+<<<<<<< HEAD
        path="D:/gitbash/ece385code/lab9/db/ip/sld2dead247/alt_sld_fab.v"
+=======
+       path="D:/ECE385/ece385code/lab9/db/ip/sld2dead247/alt_sld_fab.v"
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
        type="VERILOG" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
+<<<<<<< HEAD
        path="D:/gitbash/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab.v"
        type="VERILOG" />
    <file
@@ -69,12 +79,34 @@
        attributes="" />
    <file
        path="D:/gitbash/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_ident.sv"
+=======
+       path="D:/ECE385/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab.v"
+       type="VERILOG" />
+   <file
+       path="D:/ECE385/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_presplit.sv"
+       type="SYSTEM_VERILOG"
+       attributes="TOP_LEVEL_FILE" />
+   <file
+       path="D:/ECE385/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_splitter.sv"
+       type="SYSTEM_VERILOG"
+       attributes="TOP_LEVEL_FILE" />
+   <file
+       path="D:/ECE385/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd"
+       type="VHDL"
+       attributes="" />
+   <file
+       path="D:/ECE385/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_ident.sv"
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
        type="SYSTEM_VERILOG"
        attributes="TOP_LEVEL_FILE" />
   </childGeneratedFiles>
   <sourceFiles>
    <file
+<<<<<<< HEAD
        path="D:/gitbash/ece385code/lab9/db/ip/sld2dead247/alt_sld_fab_wrapper_hw.tcl" />
+=======
+       path="D:/ECE385/ece385code/lab9/db/ip/sld2dead247/alt_sld_fab_wrapper_hw.tcl" />
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
   </sourceFiles>
   <childSourceFiles>
    <file
@@ -169,11 +201,16 @@
   <parameter name="NODE_COUNT" value="2" />
   <generatedFiles>
    <file
+<<<<<<< HEAD
        path="D:/gitbash/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab.v"
+=======
+       path="D:/ECE385/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab.v"
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
        type="VERILOG" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
+<<<<<<< HEAD
        path="D:/gitbash/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_presplit.sv"
        type="SYSTEM_VERILOG"
        attributes="TOP_LEVEL_FILE" />
@@ -187,6 +224,21 @@
        attributes="" />
    <file
        path="D:/gitbash/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_ident.sv"
+=======
+       path="D:/ECE385/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_presplit.sv"
+       type="SYSTEM_VERILOG"
+       attributes="TOP_LEVEL_FILE" />
+   <file
+       path="D:/ECE385/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_splitter.sv"
+       type="SYSTEM_VERILOG"
+       attributes="TOP_LEVEL_FILE" />
+   <file
+       path="D:/ECE385/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd"
+       type="VHDL"
+       attributes="" />
+   <file
+       path="D:/ECE385/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_ident.sv"
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
        type="SYSTEM_VERILOG"
        attributes="TOP_LEVEL_FILE" />
   </childGeneratedFiles>
@@ -256,7 +308,11 @@
   <parameter name="RECEIVE_WIDTHS" value="24 25" />
   <generatedFiles>
    <file
+<<<<<<< HEAD
        path="D:/gitbash/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_presplit.sv"
+=======
+       path="D:/ECE385/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_presplit.sv"
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
        type="SYSTEM_VERILOG"
        attributes="TOP_LEVEL_FILE" />
   </generatedFiles>
@@ -286,7 +342,11 @@
   <parameter name="ADD_INTERFACE_ASGN" value="0" />
   <generatedFiles>
    <file
+<<<<<<< HEAD
        path="D:/gitbash/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_splitter.sv"
+=======
+       path="D:/ECE385/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_splitter.sv"
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
        type="SYSTEM_VERILOG"
        attributes="TOP_LEVEL_FILE" />
   </generatedFiles>
@@ -329,7 +389,11 @@
   <parameter name="COUNT" value="2" />
   <generatedFiles>
    <file
+<<<<<<< HEAD
        path="D:/gitbash/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd"
+=======
+       path="D:/ECE385/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd"
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
        type="VHDL"
        attributes="" />
   </generatedFiles>
@@ -357,7 +421,11 @@
   <parameter name="DESIGN_HASH" value="07eda47f6f27548eed7c" />
   <generatedFiles>
    <file
+<<<<<<< HEAD
        path="D:/gitbash/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_ident.sv"
+=======
+       path="D:/ECE385/ece385code/lab9/db/ip/sld2dead247/submodules/alt_sld_fab_alt_sld_fab_ident.sv"
+>>>>>>> 718f5b13ff6766c63a02fcda7d3d657bacf6d4ca
        type="SYSTEM_VERILOG"
        attributes="TOP_LEVEL_FILE" />
   </generatedFiles>

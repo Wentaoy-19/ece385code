@@ -1,4 +1,4 @@
 eclipse.preferences.version=1
-newSoftwareExampleWizardPage.defaultLocation=D\:\\ECE385\\ece385project\\lab9\\software\\aes_lab9
-newSoftwareExampleWizardPage.sopcinfoFile=D\:\\ECE385\\ece385project\\lab9\\lab9_soc.sopcinfo
-newSoftwareExampleWizardPage2.newBspLocation=D\:\\ECE385\\ece385project\\lab9\\software\\aes_lab9_bsp
+newSoftwareExampleWizardPage.defaultLocation=D\:\\ECE385\\ece385code\\lab9\\software\\lab9soc
+newSoftwareExampleWizardPage.sopcinfoFile=D\:\\ECE385\\ece385code\\lab9\\lab9_soc.sopcinfo
+newSoftwareExampleWizardPage2.newBspLocation=D\:\\ECE385\\ece385code\\lab9\\software\\lab9soc_bsp

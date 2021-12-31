@@ -1,0 +1,73 @@
+20:44:10 **** Incremental Build of configuration Nios II for project lab9 ****
+make all 
+Info: Building ../lab9_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lab9_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../lab9_bsp//HAL/inc -I../lab9_bsp/ -I../lab9_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'encrypt':
+main.c:92:2: warning: implicit declaration of function 'KeyExpansion' [-Wimplicit-function-declaration]
+  KeyExpansion(Key,w,4);
+  ^
+main.c:97:9: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'long unsigned int' [-Wformat=]
+  printf("KeyExpansion: %08x%08x%08x%08x\n",w[40],w[41],w[42],w[43]);
+         ^
+main.c:97:9: warning: format '%x' expects argument of type 'unsigned int', but argument 3 has type 'long unsigned int' [-Wformat=]
+main.c:97:9: warning: format '%x' expects argument of type 'unsigned int', but argument 4 has type 'long unsigned int' [-Wformat=]
+main.c:97:9: warning: format '%x' expects argument of type 'unsigned int', but argument 5 has type 'long unsigned int' [-Wformat=]
+main.c:97:9: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'long unsigned int' [-Wformat=]
+main.c:97:9: warning: format '%x' expects argument of type 'unsigned int', but argument 3 has type 'long unsigned int' [-Wformat=]
+main.c:97:9: warning: format '%x' expects argument of type 'unsigned int', but argument 4 has type 'long unsigned int' [-Wformat=]
+main.c:97:9: warning: format '%x' expects argument of type 'unsigned int', but argument 5 has type 'long unsigned int' [-Wformat=]
+main.c:108:3: warning: implicit declaration of function 'SubBytes' [-Wimplicit-function-declaration]
+   SubBytes(state);
+   ^
+main.c:109:3: warning: implicit declaration of function 'ShiftRows' [-Wimplicit-function-declaration]
+   ShiftRows(state);
+   ^
+main.c: At top level:
+main.c:143:6: warning: conflicting types for 'KeyExpansion'
+ void KeyExpansion(unsigned char* key, unsigned long* w, unsigned int Nk)
+      ^
+main.c:92:2: note: previous implicit declaration of 'KeyExpansion' was here
+  KeyExpansion(Key,w,4);
+  ^
+main.c:248:6: warning: conflicting types for 'SubBytes'
+ void SubBytes(unsigned char* state)
+      ^
+main.c:108:3: note: previous implicit declaration of 'SubBytes' was here
+   SubBytes(state);
+   ^
+main.c: In function 'SubBytes':
+main.c:251:11: warning: variable 'col' set but not used [-Wunused-but-set-variable]
+  int row, col,low,high;
+           ^
+main.c:251:6: warning: variable 'row' set but not used [-Wunused-but-set-variable]
+  int row, col,low,high;
+      ^
+main.c: At top level:
+main.c:275:6: warning: conflicting types for 'ShiftRows'
+ void ShiftRows(unsigned char* state)
+      ^
+main.c:109:3: note: previous implicit declaration of 'ShiftRows' was here
+   ShiftRows(state);
+   ^
+main.c: In function 'ShiftRows':
+main.c:279:16: warning: unused variable 'temp3' [-Wunused-variable]
+  unsigned char temp3;
+                ^
+main.c: In function 'decrypt':
+main.c:322:6: warning: unused variable 'i' [-Wunused-variable]
+  int i;
+      ^
+Info: Linking lab9.elf
+nios2-elf-g++  -T'../lab9_bsp//linker.x' -msys-crt0='../lab9_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../lab9_bsp/   -Wl,-Map=lab9.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o lab9.elf obj/default/main.o -lm -msys-lib=m
+nios2-elf-insert lab9.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x98 --timestamp 1638879171 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name lab9_soc --quartus_project_dir "D:/ECE385/ece385code/lab9" --jdi ../..//output_files/lab9.jdi --sopcinfo D:/ECE385/ece385code/lab9/software/lab9_bsp/../../lab9_soc.sopcinfo
+Info: (lab9.elf) 115 KBytes program size (code + initialized data).
+Info:            130948 KBytes free for stack + heap.
+Info: Creating lab9.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source lab9.elf >lab9.objdump
+[lab9 build complete]
+
+20:44:13 Build Finished (took 3s.241ms)
+
