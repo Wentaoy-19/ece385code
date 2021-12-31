@@ -144,6 +144,7 @@ caojiji caojiji_instance(.Clk(Clk), .Reset(Reset_h),
                              .frame_clk(VGA_VS),       
                .DrawX(DrawX), .DrawY(DrawY),       
                .is_character(is_character), 
+					.character1_state(caojiji_state),
 					.data_Out(character_data),
 					.frame_num(caojiji_frame_num)
 ); 
@@ -166,6 +167,9 @@ color_mapper color_instance(.is_character(is_character), .is_background(is_backg
 caojiji_FSM caojiji_FSM(.Clk(Clk),                
             .Reset(Reset_h),              
              .frame_clk(VGA_VS), 
+				 .character1_attack(character1_attack),
+				 .character1_move_l(character1_move_l),
+				 .character1_move_r(character1_move_r),
 				.state_out(caojiji_state), 
 				.frame_num(caojiji_frame_num));
 
@@ -180,14 +184,19 @@ keycontroller keycontroller(
 							  
     
     // Display keycode on hex display
-    HexDriver hex_inst_0 (keycodes[3:0], HEX0);
-    HexDriver hex_inst_1 (keycodes[7:4], HEX1);
-    HexDriver hex_inst_2 (keycodes[11:8], HEX2);
-    HexDriver hex_inst_3 (keycodes[15:12], HEX3);
-    HexDriver hex_inst_4 (keycodes[19:16], HEX4);
-    HexDriver hex_inst_5 (keycodes[23:20], HEX5);	 
-    HexDriver hex_inst_6 (keycodes[27:24], HEX6);
-    HexDriver hex_inst_7 (keycodes[31:28], HEX7);		 
+//    HexDriver hex_inst_0 (keycodes[3:0], HEX0);
+//    HexDriver hex_inst_1 (keycodes[7:4], HEX1);
+//    HexDriver hex_inst_2 (keycodes[11:8], HEX2);
+//    HexDriver hex_inst_3 (keycodes[15:12], HEX3);
+//    HexDriver hex_inst_4 (keycodes[19:16], HEX4);
+//    HexDriver hex_inst_5 (keycodes[23:20], HEX5);	 
+//    HexDriver hex_inst_6 (keycodes[27:24], HEX6);
+//    HexDriver hex_inst_7 (keycodes[31:28], HEX7);	
+
+
+
+    HexDriver hex_inst_0 (caojiji_state[3:0], HEX0);
+    HexDriver hex_inst_1 (caojiji_state[7:4], HEX1);	 
     /**************************************************************************************
         ATTENTION! Please answer the following quesiton in your lab report! Points will be allocated for the answers!
         Hidden Question #1/2:

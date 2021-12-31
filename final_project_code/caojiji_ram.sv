@@ -12,6 +12,7 @@ module caojiji
 									  
 									  
 					input [7:0]   frame_num,
+					input [7:0]   character1_state,
 					
                input [9:0]   DrawX, DrawY,       // Current pixel coordinates
                output logic  is_character, 
@@ -23,23 +24,25 @@ module caojiji
 	parameter [18:0] FORWARD_HEIGHT = 19'd105;
 	parameter [18:0] BACKWARD_WIDTH = 19'd51;
 	parameter [18:0] BACKWARD_HEIGHT = 19'd108;
-	parameter [18:0] ATTACK_WIDTH = 19'd216;
-	parameter [18:0] ATTACK_HEIGHT = 19'd97;
+	parameter [18:0] ATTACK_WIDTH = 19'd80;
+	parameter [18:0] ATTACK_HEIGHT = 19'd98;
+	parameter [18:0] STAND_WIDTH = 19'd42;
+	parameter [18:0] STAND_HEIGHT = 19'd104;
 
-	logic [18:0] read_address,read_address_forward,read_address_backward;
-	logic [18:0] character_x,character_y; 	
-	logic [18:0] image_width, image_height;
-	
-	logic [18:0] current_state;
-	
-	logic [7:0] data_out_forward, data_out_backward;
+	logic [18:0] read_address,read_address_forward,read_address_backward,read_address_stand,read_address_attack;
+	logic [18:0] character_x,character_y,character_x_in, character_y_in; 	
+	logic [18:0] image_width, image_height;	
+	logic [7:0] data_out_forward, data_out_backward,data_out_attack,data_out_stand;
 	
 	assign character_x = 19'd320;
 	assign character_y = 19'd240; 
 	
+	enum logic [7:0] {state_stand,state_attack, state_movel, state_mover} state_in;
+	
 	assign read_address_forward = frame_num*FORWARD_WIDTH*FORWARD_HEIGHT+ (DrawX - character_x) + (DrawY - character_y)*FORWARD_WIDTH;  
 	assign read_address_backward = frame_num*BACKWARD_WIDTH*BACKWARD_HEIGHT+ (DrawX - character_x) + (DrawY - character_y)*BACKWARD_WIDTH;  
-
+	assign read_address_attack = frame_num*ATTACK_WIDTH*ATTACK_HEIGHT+ (DrawX - character_x) + (DrawY - character_y)*ATTACK_WIDTH;  
+	assign read_address_stand = frame_num*STAND_WIDTH*STAND_HEIGHT + (DrawX - character_x) + (DrawY - character_y)*STAND_WIDTH;
 //	assign read_address = frame_num*ATTACK_WIDTH*ATTACK_HEIGHT+ (DrawX - character_x) + (DrawY - character_y)*ATTACK_WIDTH;  
 //	assign read_address = frame_num*BACKWARD_WIDTH*BACKWARD_HEIGHT+ (DrawX - character_x) + (DrawY - character_y)*BACKWARD_WIDTH;  
 
@@ -48,27 +51,43 @@ module caojiji
 	
 	forward_RAM forward_RAM(.read_address(read_address_forward),.Clk(Clk), .data_Out(data_out_forward) );
 	backward_RAM backward_RAM(.read_address(read_address_backward),.Clk(Clk), .data_Out(data_out_backward) );
-
-	assign current_state = 19'd1;
+	stand_RAM stand_RAM(.read_address(read_address_stand),.Clk(Clk), .data_Out(data_out_stand) );
+	attack_RAM attack_RAM(.read_address(read_address_attack),.Clk(Clk), .data_Out(data_out_attack) );
+	
 	always_comb 
 	begin 
-		image_width = FORWARD_WIDTH;
-		image_height = FORWARD_HEIGHT;
-		data_Out = data_out_forward;
 		
-		if(current_state == 19'b0)
+		if(character1_state == state_stand)
+		begin
+			image_width = STAND_WIDTH;
+			image_height = STAND_HEIGHT;
+			data_Out = data_out_stand;
+		end
+		else if(character1_state == state_attack)
+		begin
+			image_width = ATTACK_WIDTH;
+			image_height = ATTACK_HEIGHT;
+			data_Out = data_out_attack;
+		end	
+		else if(character1_state == state_mover)
 		begin
 			image_width = FORWARD_WIDTH;
 			image_height = FORWARD_HEIGHT;
 			data_Out = data_out_forward;
-		end
-		else if(current_state == 19'd1)
+		end	
+		else if(character1_state == state_movel )
 		begin
 			image_width = BACKWARD_WIDTH;
 			image_height = BACKWARD_HEIGHT;
 			data_Out = data_out_backward;
-
 		end	
+		else
+		begin
+			image_width = STAND_WIDTH;
+			image_height = STAND_HEIGHT;
+			data_Out = data_out_stand;
+		end
+		
 	end
 
 
@@ -96,7 +115,7 @@ logic [7:0] mem [0:26774];
 
 initial
 begin
-	 $readmemh("images/Andy/forward.txt", mem);
+	 $readmemh("images/Andy_new/andy_forward.txt", mem);
 end
 
 always_ff @ (posedge Clk) begin
@@ -104,6 +123,7 @@ always_ff @ (posedge Clk) begin
 end
 
 endmodule
+
 
 
 module  backward_RAM
@@ -118,7 +138,7 @@ logic [7:0] mem [0:27539];
 
 initial
 begin
-	 $readmemh("images/Andy/backward.txt", mem);
+	 $readmemh("images/Andy_new/andy_backward.txt", mem);
 end
 
 always_ff @ (posedge Clk) begin
@@ -138,11 +158,36 @@ module  attack_RAM
 );
 
 // mem has width of 3 bits and a total of 400 addresses
-logic [7:0] mem [0:335231];
+logic [7:0] mem [0:70559];
 
 initial
 begin
-	 $readmemh("images/Andy/attack.txt", mem);
+	 $readmemh("images/Andy_new/andy_attack.txt", mem);
+end
+
+
+always_ff @ (posedge Clk) begin
+	data_Out<= mem[read_address];
+end
+
+endmodule
+
+
+
+module  stand_RAM
+(
+		input [18:0] read_address,
+		input Clk,
+
+		output logic [7:0] data_Out
+);
+
+// mem has width of 3 bits and a total of 400 addresses
+logic [7:0] mem [0:34943];
+
+initial
+begin
+	 $readmemh("images/Andy_new/andy_stand.txt", mem);
 end
 
 
