@@ -4,10 +4,14 @@ module caojiji_FSM(input     Clk,
 									  character1_attack,
 									  character1_move_r,
 									  character1_move_l,
+
 					 output  [7:0] state_out, 
-					 output	[7:0] frame_num);
+					 output	[7:0] frame_num,
+					 output  logic move_l,move_r
+					 );
 
 	logic [7:0] frame_num_in;
+	logic move_r_in, move_l_in;
 	logic [7:0] delay_in, delay; 
 	logic frame_clk_delayed, frame_clk_edge; 
 	logic [7:0] frame_num_max,frame_num_max_in;
@@ -31,6 +35,8 @@ module caojiji_FSM(input     Clk,
 			delay <= 8'd0;
 			frame_num <= 8'd0;
 			frame_num_max <= frame_num_stand;
+			move_r <= 1'b0;
+			move_l <= 1'b0;
 		end
 		else
 		begin
@@ -38,6 +44,8 @@ module caojiji_FSM(input     Clk,
 			delay <= delay_in;
 			frame_num <= frame_num_in;
 			frame_num_max <= frame_num_max_in;
+			move_r <= move_r_in;
+			move_l <= move_l_in;
 		end
 	 end					 
 
@@ -88,6 +96,8 @@ module caojiji_FSM(input     Clk,
 	delay_in = delay; 
 	frame_num_in = frame_num;
 	frame_num_max_in = frame_num_max;
+	move_l_in = 1'b0;
+	move_r_in = 1'b0;
 	
 	if(frame_clk_edge)
 	begin
@@ -106,7 +116,9 @@ module caojiji_FSM(input     Clk,
 				delay_in = 8'd0;
 			end
 			else
+			begin
 				frame_num_in = frame_num + 8'd1;
+			end
 		end
 		else
 		begin
@@ -157,15 +169,21 @@ module caojiji_FSM(input     Clk,
 
 	state_mover: 
 	begin
+		move_r_in = 1'b1;
+		
 		if(character1_move_r)
 		begin
 			if(delay>=delay_move_r)
 			begin
 				delay_in = 8'd0;
 				if(frame_num >= frame_num_move_r)
+				begin
 					frame_num_in = 8'd0;
+				end
 				else
+				begin
 					frame_num_in = frame_num + 8'd1;
+				end
 			end
 			else
 			begin
@@ -194,6 +212,9 @@ module caojiji_FSM(input     Clk,
 	
 	state_movel: 
 	begin
+
+		move_l_in = 1'b1;
+
 		if(character1_move_l)
 		begin
 			if(delay>=delay_move_l)
@@ -202,7 +223,9 @@ module caojiji_FSM(input     Clk,
 				if(frame_num >= frame_num_move_l)
 					frame_num_in = 8'd0;
 				else
+				begin
 					frame_num_in = frame_num + 8'd1;
+				end
 			end
 			else
 			begin
@@ -220,6 +243,7 @@ module caojiji_FSM(input     Clk,
 			state_in = state_mover;
 			delay_in = 8'd0;
 			frame_num_in = 8'd0;
+
 		end
 		else
 		begin
