@@ -5,7 +5,7 @@
  */
 
  
-module Iori
+module iori
 (input         Clk,// 50 MHz clock
                Reset,              // Active-high reset signal
                frame_clk,          // The clock indicating a new frame (~60Hz)
@@ -53,12 +53,12 @@ module Iori
 
 	
 	
-	forward_RAM forward_RAM(.read_address(read_address_forward),.Clk(Clk), .data_Out(data_out_forward) );
-	backward_RAM backward_RAM(.read_address(read_address_backward),.Clk(Clk), .data_Out(data_out_backward) );
-	stand_RAM stand_RAM(.read_address(read_address_stand),.Clk(Clk), .data_Out(data_out_stand) );
-	attack_RAM attack_RAM(.read_address(read_address_attack),.Clk(Clk), .data_Out(data_out_attack) );
-	defense_RAM defense_RAM(.read_address(read_address_attack),.Clk(Clk), .data_Out(data_out_attack) );
-	hurt_RAM hurt_RAM(.read_address(read_address_attack),.Clk(Clk), .data_Out(data_out_attack) );
+	iori_forward_RAM iori_forward_RAM(.read_address(read_address_forward),.Clk(Clk), .data_Out(data_out_forward) );
+	iori_backward_RAM iori_backward_RAM(.read_address(read_address_backward),.Clk(Clk), .data_Out(data_out_backward) );
+	iori_stand_RAM iori_stand_RAM(.read_address(read_address_stand),.Clk(Clk), .data_Out(data_out_stand) );
+	iori_attack_RAM iori_attack_RAM(.read_address(read_address_attack),.Clk(Clk), .data_Out(data_out_attack) );
+	iori_defense_RAM iori_defense_RAM(.read_address(read_address_attack),.Clk(Clk), .data_Out(data_out_attack) );
+	iori_hurt_RAM iori_hurt_RAM(.read_address(read_address_attack),.Clk(Clk), .data_Out(data_out_attack) );
 	
 	always_comb 
 	begin 
@@ -121,7 +121,7 @@ module Iori
  
 
  
-module  forward_RAM
+module  iori_forward_RAM
 (
 		input [18:0] read_address,
 		input Clk,
@@ -144,7 +144,7 @@ endmodule
 
 
 
-module  backward_RAM
+module  iori_backward_RAM
 (
 		input [18:0] read_address,
 		input Clk,
@@ -167,7 +167,7 @@ endmodule
 
 
 
-module  attack_RAM
+module  iori_attack_RAM
 (
 		input [18:0] read_address,
 		input Clk,
@@ -192,7 +192,7 @@ endmodule
 
 
 
-module  stand_RAM
+module  iori_stand_RAM
 (
 		input [18:0] read_address,
 		input Clk,
@@ -217,7 +217,7 @@ endmodule
 
 
 
-module  defense_RAM
+module  iori_defense_RAM
 (
 		input [18:0] read_address,
 		input Clk,
@@ -242,7 +242,7 @@ endmodule
 
 
 
-module  hurt_RAM
+module  iori_hurt_RAM
 (
 		input [18:0] read_address,
 		input Clk,
