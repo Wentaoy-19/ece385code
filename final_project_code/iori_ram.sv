@@ -57,8 +57,8 @@ module iori
 	iori_backward_RAM iori_backward_RAM(.read_address(read_address_backward),.Clk(Clk), .data_Out(data_out_backward) );
 	iori_stand_RAM iori_stand_RAM(.read_address(read_address_stand),.Clk(Clk), .data_Out(data_out_stand) );
 	iori_attack_RAM iori_attack_RAM(.read_address(read_address_attack),.Clk(Clk), .data_Out(data_out_attack) );
-	iori_defense_RAM iori_defense_RAM(.read_address(read_address_attack),.Clk(Clk), .data_Out(data_out_attack) );
-	iori_hurt_RAM iori_hurt_RAM(.read_address(read_address_attack),.Clk(Clk), .data_Out(data_out_attack) );
+	iori_defense_RAM iori_defense_RAM(.read_address(read_address_defense),.Clk(Clk), .data_Out(data_out_defense) );
+	iori_hurt_RAM iori_hurt_RAM(.read_address(read_address_hurt),.Clk(Clk), .data_Out(data_out_hurt) );
 	
 	always_comb 
 	begin 
