@@ -15,9 +15,9 @@ module iori
 					input [7:0]   character2_state,
 					input [7:0]   character1_state,
 					input logic [18:0] character1_x,
-					
+					input logic move_l2,move_r2,character2_hurt,character2_move_r,character2_move_l,stand1,attack,
                input [9:0]   DrawX, DrawY,       // Current pixel coordinates
-               output logic  is_character, 
+               output logic  is_character,
 					output logic [7:0] data_Out,
 					output logic [18:0] character2_x
 ); 
@@ -36,6 +36,8 @@ module iori
 	parameter [18:0] DEFENSE_HEIGHT = 19'd102;
 	parameter [18:0] HURT_WIDTH = 19'd84;
 	parameter [18:0] HURT_HEIGHT = 19'd94; 
+	
+	parameter [18:0] ATTACK = 19'd1;
 	
 	
 	parameter [18:0] R_FORWARD_WIDTH = 19'd34;
@@ -59,9 +61,20 @@ module iori
 	logic [18:0] image_width, image_height;	
 	logic [7:0] data_out_forward, data_out_backward,data_out_attack,data_out_stand,data_out_defense,data_out_hurt;
 	
-	assign character_x = 19'd400;
-	assign character_y = 19'd200; 
 	assign character2_x = character_x;
+	always_ff @ (posedge Clk)
+   begin
+       if (Reset)
+       begin
+           character_x <= 19'd560;
+           character_y <= 19'd200;
+        end
+        else
+        begin
+				character_x <= character_x_in;
+				character_y <= character_y_in;
+        end
+    end
 	
 	enum logic [7:0] {state_stand,state_attack, state_movel, state_mover, state_defense, state_hurt} state_in;
 	
@@ -129,45 +142,50 @@ module iori
 	end
 
 	
+	
+	
+	//Control movement
 	always_comb 
- begin
-  character_x_in = character_x;
-  character_y_in = character_y;
+	begin
+		character_x_in = character_x;
+		character_y_in = character_y;
 
-  if((character2_state == state_hurt))
-  begin
-   character_x_in = character_x + 19'd40;
-  end
-  else if((character2_state == state_attack))
-  begin
-   character_x_in = character_x - ATTACK;
-  end
-  else
-  begin
-   if(move_r2)
-   begin
-    character_x_in = character_x + 19'b1;
-   end
-   if(move_l2)
-   begin
-    character_x_in = character_x - 19'b1;
-   end
-  end
-  
-  
-  if((character_x_in <= character1_x + 19'd50)&&(character1_state != state_stand)&&(character1_x >= 19'd10))
-  begin
-   character_x_in = character1_x + 19'd50;
-  end
+		if((character2_state == state_hurt))
+		begin
+			character_x_in = character_x + 19'd40;
+		end
+		else if((attack)&&(frame_num==8'd0))
+		begin
+			character_x_in = character_x - ATTACK;
+		end
+		else
+		begin
+			if(move_r2)
+			begin
+				character_x_in = character_x + 19'b1;
+			end
+			if(move_l2)
+			begin
+				character_x_in = character_x - 19'b1;
+			end
+		end
+		
+		
+		if((character_x_in <= character1_x + 19'd50)&&(stand1==1'b0)&&(character1_x >= 19'd10))
+		begin
+			character_x_in = character1_x + 19'd50;
+		end
 
-  
-  if(character_x_in >= 19'd630)
-  begin
-   character_x_in = 19'd630;
-  end
- end
+		
+		if(character_x_in >= 19'd560)
+		begin
+			character_x_in = 19'd560;
+		end
+	end
 
 
+	
+	
 
 	always_comb begin
 		is_character = 1'b0;
