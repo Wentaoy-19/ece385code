@@ -96,12 +96,12 @@ module  color_mapper (
             Blue = character2_color[7:0];
         end
 		  
-//		  else if(is_background == 1'b1)
-//		  begin
-//				Red = background_color[23:16];
-//            Green = background_color[15:8];
-//            Blue = background_color[7:0];
-//		  end
+		  else if(is_background == 1'b1)
+		  begin
+				Red = background_color[23:16];
+            Green = background_color[15:8];
+            Blue = background_color[7:0];
+		  end
 		  
         else 
         begin

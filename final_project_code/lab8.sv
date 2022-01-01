@@ -55,12 +55,15 @@ module lab8( input               CLOCK_50,
 	 logic [7:0] character1_data, character2_data, background_data;
 	 logic [7:0] caojiji_frame_num, caojiji_state, iori_frame_num, iori_state; 
 	 
-	 logic character1_move_l, character1_move_r, character1_attack, character1_defend;
+     logic [18:0] character1_x, character2_x,distance_sub;
+
+
+	 logic character1_move_l, character1_move_r, character1_attack, character1_defense, character1_hurt;
 	 logic character2_move_l, character2_move_r, character2_attack, character2_defense, character2_hurt;
     
 	 assign keycodes = {keycode5,keycode4,keycode3,keycode2,keycode1,keycode0};
 	 assign LEDG[1:0] = {move_l,move_r};
-
+     assign distance_sub = character2_x - character1_x;
 	 
     assign Clk = CLOCK_50;
     always_ff @ (posedge Clk) begin
@@ -143,18 +146,21 @@ module lab8( input               CLOCK_50,
 //                         .frame_clk(VGA_VS),          
 //               .DrawX(DrawX), .DrawY(DrawY),      
 //               .is_ball(is_ball) );
-//caojiji caojiji_instance(.Clk(Clk), .Reset(Reset_h),              
-//                             .frame_clk(VGA_VS),       
-//               .DrawX(DrawX), .DrawY(DrawY),       
-//               .is_character(is_character1), 
-//					.character1_state(caojiji_state),
-//					.move_l(move_l),
-//					.move_r(move_r),
-//					.character1_move_r(character1_move_r),
-//					.character1_move_l(character1_move_l),
-//					.data_Out(character1_data),
-//					.frame_num(caojiji_frame_num)
-//);
+caojiji caojiji_instance(.Clk(Clk), .Reset(Reset_h),              
+                             .frame_clk(VGA_VS),       
+               .DrawX(DrawX), .DrawY(DrawY),       
+               .is_character(is_character1), 
+					.character2_x(character2_x),
+					.character1_state(caojiji_state),
+					.move_l(move_l),
+					.move_r(move_r),
+					.character1_move_r(character1_move_r),
+					.character1_move_l(character1_move_l),
+                  .character1_hurt(character1_hurt),
+					.data_Out(character1_data),
+                  .character1_x(character1_x),
+					.frame_num(caojiji_frame_num)
+);
 
 
 
@@ -164,21 +170,23 @@ iori iori_instance(.Clk(Clk),
                    .DrawX(DrawX), 
 						 .DrawY(DrawY),       
                    .is_character(is_character2), 
+						 .character1_x(character1_x),
 					    .character2_state(iori_state),
 					    .data_Out(character2_data),
+                        .character2_x(character2_x),
 					    .frame_num(iori_frame_num) 
 );
 
 
 
-//background background_instance(.Clk(Clk),                
-//                             .Reset(Reset_h),              
-//                             .frame_clk(VGA_VS),        
-//									  
-//									 					
-//               .DrawX(DrawX), .DrawY(DrawY),     
-//               .is_background(is_background), 
-//					.data_Out(background_data));
+background background_instance(.Clk(Clk),                
+                             .Reset(Reset_h),              
+                             .frame_clk(VGA_VS),        
+									  
+									 					
+               .DrawX(DrawX), .DrawY(DrawY),     
+               .is_background(is_background), 
+					.data_Out(background_data));
     
 color_mapper color_instance(
 							  .is_character1(is_character1), 
@@ -192,16 +200,16 @@ color_mapper color_instance(
 							  
 
 
-//caojiji_FSM caojiji_FSM(.Clk(Clk),                
-//            .Reset(Reset_h),              
-//             .frame_clk(VGA_VS), 
-//				 .character1_attack(character1_attack),
-//				 .character1_move_l(character1_move_l),
-//				 .character1_move_r(character1_move_r),
-//				 .move_l(move_l),
-//				 .move_r(move_r),
-//				.state_out(caojiji_state), 
-//				.frame_num(caojiji_frame_num));
+caojiji_FSM caojiji_FSM(.Clk(Clk),                
+            .Reset(Reset_h),              
+             .frame_clk(VGA_VS), 
+				 .character1_attack(character1_attack),
+				 .character1_move_l(character1_move_l),
+				 .character1_move_r(character1_move_r),
+				 .move_l(move_l),
+				 .move_r(move_r),
+				.state_out(caojiji_state), 
+				.frame_num(caojiji_frame_num));
 
 				
 				
@@ -231,19 +239,28 @@ keycontroller keycontroller(
 							  
     
     // Display keycode on hex display
-//    HexDriver hex_inst_0 (keycodes[3:0], HEX0);
-//    HexDriver hex_inst_1 (keycodes[7:4], HEX1);
-//    HexDriver hex_inst_2 (keycodes[11:8], HEX2);
-//    HexDriver hex_inst_3 (keycodes[15:12], HEX3);
-//    HexDriver hex_inst_4 (keycodes[19:16], HEX4);
-//    HexDriver hex_inst_5 (keycodes[23:20], HEX5);	 
-//    HexDriver hex_inst_6 (keycodes[27:24], HEX6);
-//    HexDriver hex_inst_7 (keycodes[31:28], HEX7);	
 
 
 
-    HexDriver hex_inst_0 (caojiji_state[3:0], HEX0);
-    HexDriver hex_inst_1 (caojiji_state[7:4], HEX1);	 
+    // HexDriver hex_inst_0 (keycodes[3:0], HEX0);
+    // HexDriver hex_inst_1 (keycodes[7:4], HEX1);	
+	//  HexDriver hex_inst_2 (keycodes[11:8], HEX2);	
+    // HexDriver hex_inst_3 (keycodes[15:12], HEX3);	
+    // HexDriver hex_inst_4 (keycodes[19:16], HEX4);	
+    // HexDriver hex_inst_5 (keycodes[23:20], HEX5);	
+    // HexDriver hex_inst_6 (keycodes[27:24], HEX6);	
+    // HexDriver hex_inst_7 (keycodes[31:28], HEX7);	
+
+
+    HexDriver hex_inst_0 (distance_sub[3:0], HEX0);
+    HexDriver hex_inst_1 (distance_sub[7:4], HEX1);	
+	HexDriver hex_inst_2 (distance_sub[11:8], HEX2);	
+    HexDriver hex_inst_3 (distance_sub[15:12], HEX3);	
+    HexDriver hex_inst_4 (distance_sub[18:16], HEX4);	
+    // HexDriver hex_inst_5 (keycodes[23:20], HEX5);	
+    // HexDriver hex_inst_6 (keycodes[27:24], HEX6);	
+    // HexDriver hex_inst_7 (keycodes[31:28], HEX7);	
+
     /**************************************************************************************
         ATTENTION! Please answer the following quesiton in your lab report! Points will be allocated for the answers!
         Hidden Question #1/2:
