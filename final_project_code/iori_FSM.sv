@@ -22,7 +22,7 @@ module iori_FSM(input Clk,
 	parameter [7:0] frame_num_move_r = 8'd8; 
 	parameter [7:0] frame_num_move_l = 8'd9; 	
 	parameter [7:0] frame_num_attack = 8'd5;
-	parameter [7:0] frame_num_stand = 8'd8;
+	parameter [7:0] frame_num_stand = 8'd7;
 	parameter [7:0] frame_num_defense = 8'd0;
 	parameter [7:0] frame_num_hurt = 8'd4;
 	

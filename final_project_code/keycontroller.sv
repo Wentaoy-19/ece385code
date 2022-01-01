@@ -3,6 +3,7 @@ module keycontroller(
 	output character1_move_l,
 	output character1_move_r,
 	output character1_attack,
+	output character1_defense,
 	output character2_move_l,
 	output character2_move_r,
 	output character2_attack
@@ -20,9 +21,13 @@ module keycontroller(
 	parameter [7:0] key_move_l = 8'h04; 
 	parameter [7:0] key_move_r = 8'h07;
 	parameter [7:0] key_attack = 8'h1a;
+	parameter [7:0] key_defense = 8'h16;
+	
 	parameter [7:0] key_move_l2 = 8'h50;
 	parameter [7:0] key_move_r2 = 8'h4f;
 	parameter [7:0] key_attack2 = 8'h52;
+	
+//	parameter [7:0] key_hurt = 8'h0d;
 	
 	assign character1_move_l = (key0 == key_move_l) || (key1 == key_move_l)  || (key2 == key_move_l) ||(key3 == key_move_l) ||(key4 == key_move_l)|| (key5 == key_move_l);
 	assign character1_move_r = (key0 == key_move_r) || (key1 == key_move_r)  || (key2 == key_move_r) ||(key3 == key_move_r) ||(key4 == key_move_r)|| (key5 == key_move_r);
@@ -32,6 +37,8 @@ module keycontroller(
 	assign character2_move_r = (key0 == key_move_r2) || (key1 == key_move_r2)  || (key2 == key_move_r2) ||(key3 == key_move_r2) ||(key4 == key_move_r2)|| (key5 == key_move_r2);
 	assign character2_attack = (key0 == key_attack2) || (key1 == key_attack2)  || (key2 == key_attack2) ||(key3 == key_attack2) ||(key4 == key_attack2)|| (key5 == key_attack2);
 	
-	
+//	assign character1_hurt = (key0 == key_hurt) || (key1 == key_hurt)  || (key2 == key_hurt) ||(key3 == key_hurt) ||(key4 == key_hurt)|| (key5 == key_hurt);
+	assign character1_defense = (key0 == key_defense) || (key1 == key_defense)  || (key2 == key_defense) ||(key3 == key_defense) ||(key4 == key_defense)|| (key5 == key_defense);
+
 	
 endmodule 

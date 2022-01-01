@@ -10,9 +10,10 @@ module iori
                Reset,              // Active-high reset signal
                frame_clk,          // The clock indicating a new frame (~60Hz)
 									  
-									  
+					input move_r2,move_l2,
 					input [7:0]   frame_num,
 					input [7:0]   character2_state,
+					input [7:0]   character1_state,
 					input logic [18:0] character1_x,
 					
                input [9:0]   DrawX, DrawY,       // Current pixel coordinates
@@ -51,7 +52,7 @@ module iori
 	parameter [18:0] R_STAND_HEIGHT = 19'd51;
 	
 	parameter [18:0] CHARACTER_WIDTH = 19'd99;
-	
+	parameter [18:0] ATTACK = 19'd50;
 
 	logic [18:0] read_address,read_address_forward,read_address_backward,read_address_stand,read_address_attack,read_address_defense,read_address_hurt;
 	logic [18:0] character_x,character_y,character_x_in, character_y_in; 	
@@ -127,6 +128,44 @@ module iori
 		
 	end
 
+	
+	always_comb 
+ begin
+  character_x_in = character_x;
+  character_y_in = character_y;
+
+  if((character2_state == state_hurt))
+  begin
+   character_x_in = character_x + 19'd40;
+  end
+  else if((character2_state == state_attack))
+  begin
+   character_x_in = character_x - ATTACK;
+  end
+  else
+  begin
+   if(move_r2)
+   begin
+    character_x_in = character_x + 19'b1;
+   end
+   if(move_l2)
+   begin
+    character_x_in = character_x - 19'b1;
+   end
+  end
+  
+  
+  if((character_x_in <= character1_x + 19'd50)&&(character1_state != state_stand)&&(character1_x >= 19'd10))
+  begin
+   character_x_in = character1_x + 19'd50;
+  end
+
+  
+  if(character_x_in >= 19'd630)
+  begin
+   character_x_in = 19'd630;
+  end
+ end
 
 
 

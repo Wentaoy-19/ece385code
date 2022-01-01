@@ -5,30 +5,32 @@ module caojiji_FSM(input     Clk,
 									  character1_move_r,
 									  character1_move_l,
 									  character1_hurt,
+									  character1_defend,
 
 					 output  [7:0] state_out, 
 					 output	[7:0] frame_num,
-					 output  logic move_l,move_r
+					 output  logic move_l1,move_r1
 					 );
 
 	logic [7:0] frame_num_in;
-	logic move_r_in, move_l_in;
+	logic move_r1_in, move_l1_in;
 	logic [7:0] delay_in, delay; 
 	logic frame_clk_delayed, frame_clk_edge; 
 	logic [7:0] frame_num_max,frame_num_max_in;
-	parameter [7:0] delay_move_r = 8'd10;	
-	parameter [7:0] delay_move_l = 8'd10;
+	parameter [7:0] delay_move_r1 = 8'd10;	
+	parameter [7:0] delay_move_l1 = 8'd10;
 	parameter [7:0] delay_attack = 8'd3;
 	parameter [7:0] delay_stand = 8'd10;
-	parameter [7:0] delay_hurt = 8'd2; 
-	parameter [7:0] frame_num_move_r = 8'd3; 
-	parameter [7:0] frame_num_move_l = 8'd4; 	
+	parameter [7:0] delay_hurt = 8'd10; 
+	parameter [7:0] delay_defend = 8'd3;
+	parameter [7:0] frame_num_move_r1 = 8'd3; 
+	parameter [7:0] frame_num_move_l1 = 8'd4; 	
 	parameter [7:0] frame_num_attack = 8'd8;
 	parameter [7:0] frame_num_stand = 8'd7;
 	parameter [7:0] frame_num_hurt = 8'd3; 
 	parameter [7:0] frame_num_defend = 8'd0;
 	
-	enum logic [7:0] {state_stand,state_attack, state_movel, state_mover,state_hurt} state_in, state;
+	enum logic [7:0] {state_stand,state_attack, state_movel, state_mover,state_hurt,state_defend} state_in, state;
 	assign state_out = state;
 					 
 	always_ff @ (posedge Clk)
@@ -39,8 +41,8 @@ module caojiji_FSM(input     Clk,
 			delay <= 8'd0;
 			frame_num <= 8'd0;
 			frame_num_max <= frame_num_stand;
-			move_r <= 1'b0;
-			move_l <= 1'b0;
+			move_r1 <= 1'b0;
+			move_l1 <= 1'b0;
 		end
 		else
 		begin
@@ -48,8 +50,8 @@ module caojiji_FSM(input     Clk,
 			delay <= delay_in;
 			frame_num <= frame_num_in;
 			frame_num_max <= frame_num_max_in;
-			move_r <= move_r_in;
-			move_l <= move_l_in;
+			move_r1 <= move_r1_in;
+			move_l1 <= move_l1_in;
 		end
 	 end					 
 
@@ -100,8 +102,8 @@ module caojiji_FSM(input     Clk,
 	delay_in = delay; 
 	frame_num_in = frame_num;
 	frame_num_max_in = frame_num_max;
-	move_l_in = 1'b0;
-	move_r_in = 1'b0;
+	move_l1_in = 1'b0;
+	move_r1_in = 1'b0;
 	
 	if(frame_clk_edge)
 	begin
@@ -173,14 +175,22 @@ module caojiji_FSM(input     Clk,
 
 	state_mover: 
 	begin
-		move_r_in = 1'b1;
-		
-		if(character1_move_r)
+		if(character1_hurt)
 		begin
-			if(delay>=delay_move_r)
+			frame_num_in = 8'd0;
+			delay_in = 8'd0;
+			state_in = state_hurt;
+		end
+		
+
+		
+		else if(character1_move_r)
+		begin
+			move_r1_in = 1'b1;
+			if(delay>=delay_move_r1)
 			begin
 				delay_in = 8'd0;
-				if(frame_num >= frame_num_move_r)
+				if(frame_num >= frame_num_move_r1)
 				begin
 					frame_num_in = 8'd0;
 				end
@@ -216,15 +226,21 @@ module caojiji_FSM(input     Clk,
 	
 	state_movel: 
 	begin
-
-		move_l_in = 1'b1;
+		if(character1_hurt)
+		begin
+			frame_num_in = 8'd0;
+			delay_in = 8'd0;
+			state_in = state_hurt;
+		end
+		
 
 		if(character1_move_l)
 		begin
-			if(delay>=delay_move_l)
+			move_l1_in = 1'b1;
+			if(delay>=delay_move_l1)
 			begin
 				delay_in = 8'd0;
-				if(frame_num >= frame_num_move_l)
+				if(frame_num >= frame_num_move_l1)
 					frame_num_in = 8'd0;
 				else
 				begin
@@ -260,12 +276,26 @@ module caojiji_FSM(input     Clk,
 	
 	state_stand:
 	begin
-		if(character1_attack)
+		if(character1_hurt)
+		begin
+			state_in = state_hurt;
+			delay_in = 8'd0;
+			frame_num_in = 8'd0;
+		end
+		
+		else if(character1_attack)
 		begin
 			state_in = state_attack;
 			delay_in = 8'd0;
 			frame_num_in = 8'd0;
 		end
+		else if(character1_defend)
+		begin
+			state_in = state_defend;
+			delay_in = 8'd0;
+			frame_num_in = 8'd0;
+		end
+		
 		else if(character1_move_r)
 		begin
 			state_in = state_mover;
@@ -317,6 +347,37 @@ module caojiji_FSM(input     Clk,
 			delay_in = delay + 8'd1;
 		end
 	end
+	
+	state_defend:
+	begin
+		if(delay>=delay_defend)
+		begin
+			delay_in = 8'd0;
+			if(frame_num>= frame_num_defend)
+			begin
+				frame_num_in = 8'd0;
+				delay_in = 8'd0;
+				if(character1_defend)
+				begin
+					state_in = state_defend;
+				end
+				else
+				begin
+					state_in = state_stand;
+				end
+			end
+			else
+			begin
+				frame_num_in = frame_num + 8'd1;
+			end
+		end
+		else
+		begin
+			delay_in = delay + 8'd1;
+		end
+		
+	end
+	
 	
 	endcase
 	

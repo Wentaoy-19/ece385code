@@ -14,7 +14,7 @@ module caojiji
 				input [7:0]   frame_num,
 				input [7:0]   character1_state,
 				input logic [18:0] character2_x,
-				input logic move_l,move_r,character1_move_r, character1_move_l,character1_hurt,
+				input logic move_l,move_r,character1_hurt,
 					
                 input [9:0]   DrawX, DrawY,       // Current pixel coordinates
                 output logic  is_character, 
@@ -71,7 +71,7 @@ module caojiji
     begin
         if (Reset)
         begin
-            character_x <= 19'd10;
+            character_x <= 19'd50;
             character_y <= 19'd200;
         end
         else
@@ -81,7 +81,7 @@ module caojiji
         end
     end
 	
-	enum logic [7:0] {state_stand,state_attack, state_movel, state_mover,state_hurt} state_in;
+	enum logic [7:0] {state_stand,state_attack, state_movel, state_mover,state_hurt,state_defend} state_in;
 	
 	assign read_address_forward = frame_num*R_FORWARD_WIDTH*R_FORWARD_HEIGHT+ (DrawX - character_x)/2 + (DrawY - character_y)/2*R_FORWARD_WIDTH;  
 	assign read_address_backward = frame_num*R_BACKWARD_WIDTH*R_BACKWARD_HEIGHT+ (DrawX - character_x)/2 + (DrawY - character_y)/2*R_BACKWARD_WIDTH;  
@@ -108,6 +108,18 @@ module caojiji
 			image_width = STAND_WIDTH;
 			image_height = STAND_HEIGHT;
 			data_Out = data_out_stand;
+		end
+		else if(character1_state == state_hurt)
+		begin
+			image_width = HURT_WIDTH;
+			image_height = HURT_HEIGHT;
+			data_Out = data_out_hurt;
+		end
+		else if(character1_state == state_defend)
+		begin
+			image_width = DEFEND_WIDTH;
+			image_height = DEFEND_HEIGHT;
+			data_Out = data_out_defend;
 		end
 		else if(character1_state == state_attack)
 		begin

@@ -9,16 +9,13 @@ module AH_judge(
     output logic character1_hurt, character2_hurt  
 );
 
-    parameter [18:0] attack_distance = 19'd40; 
-    
-    logic within_distance;
+    parameter [18:0] attack_distance = 19'd70; 
 
-    assign within_distance = character2_x - character1_x <= attack_distance ? 1'b1 : 1'b0; 
 
     always_comb begin
 		  character1_hurt = 1'b0;
 		  character2_hurt = 1'b0;
-        if(within_distance)
+        if(character2_x - character1_x <= attack_distance)
         begin
             if( attack1 && ~defend2)
             begin
