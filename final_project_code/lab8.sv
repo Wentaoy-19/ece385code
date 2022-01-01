@@ -51,13 +51,15 @@ module lab8( input               CLOCK_50,
     logic [7:0] keycode0,keycode1,keycode2,keycode3,keycode4,keycode5;
 	 logic [47:0] keycodes;
 	 logic [9:0] DrawX,DrawY;
-	 logic is_ball,is_character1,is_character2,is_background,move_l1,move_r1,move_l2,move_r2,stand1,stand2,attack;
+	 logic is_ball,is_character1,is_character2,is_background,move_l1,move_r1,move_l2,move_r2,stand1,stand2,attack2,hurt1,hurt2;
 	 logic [7:0] character1_data, character2_data, background_data;
 	 logic [7:0] caojiji_frame_num, caojiji_state, iori_frame_num, iori_state; 
 	 
      logic [18:0] character1_x, character2_x,distance_sub;
 
 
+     logic is_character1, is_character2, is_background, is_foreground,game_start,game_over,game_restart;
+     logic [7:0] game_state;
 	 logic character1_move_l, character1_move_r, character1_attack, character1_defense, character1_hurt;
 	 logic character2_move_l, character2_move_r, character2_attack, character2_defense, character2_hurt;
     
@@ -155,6 +157,7 @@ caojiji caojiji_instance(.Clk(Clk), .Reset(Reset_h),
 					.move_l1(move_l1),
 					.move_r1(move_r1),
 					.stand2(stand2),
+					.hurt(hurt1),
 					.character1_move_r(character1_move_r),
 					.character1_move_l(character1_move_l),
                   .character1_hurt(character1_hurt),
@@ -176,7 +179,8 @@ iori iori_instance(.Clk(Clk),
 						 .move_l2(move_l2),
 						 .move_r2(move_r2),
 						 .stand1(stand1),
-						 .attack(attack),
+						 .attack(attack2),
+						 .hurt(hurt2),
 						 .character2_move_r(character2_move_r),
 					    .character2_move_l(character2_move_l),
                    .character2_hurt(character2_hurt),
@@ -222,6 +226,7 @@ caojiji_FSM caojiji_FSM(.Clk(Clk),
 				 .character1_hurt(character1_hurt),
 				 .character1_defend(character1_defense),
 				 .stand1(stand1),
+				 .hurt(hurt1),
 				.state_out(caojiji_state), 
 				.frame_num(caojiji_frame_num));
 
@@ -238,6 +243,7 @@ iori_FSM iori_FSM(.Clk(Clk),
 				.move_l2(move_l2),
 				.move_r2(move_r2),
 				.stand2(stand2),
+				.hurt(hurt2),
 				.attack(attack),
 				.state_out(iori_state), 
 				.frame_num(iori_frame_num));
@@ -254,7 +260,9 @@ keycontroller keycontroller(
 	.character2_move_l(character2_move_l),
 	.character2_move_r(character2_move_r),
 	.character2_attack(character2_attack),
-	.character2_defense(character2_defense)
+	.character2_defense(character2_defense),
+    .game_start(game_start),
+    .game_restart(game_restart)
 );
 					
 AH_judge AH_judge(
@@ -266,7 +274,17 @@ AH_judge AH_judge(
     .character2_x(character2_x),
 
     .character1_hurt(character1_hurt), .character2_hurt(character2_hurt)  
-);				
+);			
+
+
+
+
+
+game_controller game_controller(
+    .game_start(game_start), .game_over(game_over), .game_restart(game_restart),
+    .reset(Reset_h),
+    .is_character1(is_character1), .is_character2(is_character2), .is_background(is_background),.is_foreground(is_foreground),.game_state(game_state)
+);
     
     // Display keycode on hex display
 

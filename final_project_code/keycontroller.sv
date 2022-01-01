@@ -7,7 +7,8 @@ module keycontroller(
 	output character2_move_l,
 	output character2_move_r,
 	output character2_attack,
-	output character2_defense
+	output character2_defense,
+	output game_start,game_restart
 );
 
 
@@ -28,6 +29,8 @@ module keycontroller(
 	parameter [7:0] key_move_r2 = 8'h4f;
 	parameter [7:0] key_attack2 = 8'h52;
 	parameter [7:0] key_defense2 = 8'h51;
+	parameter [7:0] key_gamestart = 8'd44;
+	parameter [7:0] key_gamerestart = 8'd44;
 	
 //	parameter [7:0] key_hurt = 8'h0d;
 	
@@ -43,6 +46,8 @@ module keycontroller(
 	assign character1_defense = (key0 == key_defense) || (key1 == key_defense)  || (key2 == key_defense) ||(key3 == key_defense) ||(key4 == key_defense)|| (key5 == key_defense);
 
 	assign character2_defense = (key0 == key_defense2) || (key1 == key_defense2)  || (key2 == key_defense2) ||(key3 == key_defense2) ||(key4 == key_defense2)|| (key5 == key_defense2);
-	
+	assign game_start = (key0 == key_gamestart) || (key1 == key_gamestart)  || (key2 == key_gamestart) ||(key3 == key_gamestart) ||(key4 == key_gamestart)|| (key5 == key_gamestart);
+	assign game_restart = (key0 == key_gamerestart) || (key1 == key_gamerestart)  || (key2 == key_gamerestart) ||(key3 == key_gamerestart) ||(key4 == key_gamerestart)|| (key5 == key_gamerestart);
+
 	
 endmodule 

@@ -8,20 +8,20 @@ module iori_FSM(input Clk,
 							 character2_defense,
 					 output  [7:0] state_out, 
 					 output	[7:0] frame_num,
-					 output logic move_l2,move_r2,stand2,attack
+					 output logic move_l2,move_r2,stand2,attack,hurt
 );
 
 	logic [7:0] frame_num_in;
 	logic [7:0] delay_in, delay;
-	logic move_r_in, move_l_in,stand_in,attack_in;	
+	logic move_r_in, move_l_in,stand_in,attack_in,hurt_in;	
 	logic frame_clk_delayed, frame_clk_edge; 
 	logic [7:0] frame_num_max,frame_num_max_in;
-	parameter [7:0] delay_move_r = 8'd10;	
-	parameter [7:0] delay_move_l = 8'd10;
+	parameter [7:0] delay_move_r = 8'd7;	
+	parameter [7:0] delay_move_l = 8'd7;
 	parameter [7:0] delay_attack = 8'd3;
 	parameter [7:0] delay_stand = 8'd10;
 	parameter [7:0] delay_defense = 8'd10;
-	parameter [7:0] delay_hurt = 8'd10;
+	parameter [7:0] delay_hurt = 8'd3;
 	parameter [7:0] frame_num_move_r = 8'd8; 
 	parameter [7:0] frame_num_move_l = 8'd9; 	
 	parameter [7:0] frame_num_attack = 8'd5;
@@ -44,6 +44,7 @@ module iori_FSM(input Clk,
 			move_l2 <= 1'b0;
 			stand2 <= 1'b0;
 			attack <= 1'b0;
+			hurt <= 1'b0;
 		end
 		else
 		begin
@@ -55,6 +56,7 @@ module iori_FSM(input Clk,
 			move_l2 <= move_l_in;
 			stand2 <= stand_in;
 			attack <= attack_in;
+			hurt <= hurt_in;
 		end
 	 end					 
 
@@ -109,6 +111,7 @@ module iori_FSM(input Clk,
 	move_r_in = 1'b0;
 	stand_in = 1'b0;
 	attack_in = 1'b0;
+	hurt_in = 1'b0;
 	
 	if(frame_clk_edge)
 	begin
@@ -124,8 +127,11 @@ module iori_FSM(input Clk,
 			if(frame_num>= frame_num_attack)
 			begin
 				frame_num_in = 8'd0;
-				state_in = state_stand;
 				delay_in = 8'd0;
+				if(character2_attack)
+					state_in = state_attack;
+				else
+					state_in = state_stand;
 			end
 			else
 				frame_num_in = frame_num + 8'd1;
@@ -147,8 +153,11 @@ module iori_FSM(input Clk,
 			if(frame_num>= frame_num_defense)
 			begin
 				frame_num_in = 8'd0;
-				state_in = state_stand;
 				delay_in = 8'd0;
+				if(character2_defense)
+					state_in = state_defense;
+				else
+					state_in = state_stand;
 			end
 			else
 				frame_num_in = frame_num + 8'd1;
@@ -164,6 +173,7 @@ module iori_FSM(input Clk,
 	
 	state_hurt:
 	begin
+		hurt_in = 1'b1;
 		if(delay>=delay_hurt)
 		begin
 			delay_in = 8'd0;
@@ -187,9 +197,16 @@ module iori_FSM(input Clk,
 
 	state_mover: 
 	begin
-		move_r_in = 1'b1;
-		if(character2_move_r)
+		if(character2_hurt)
 		begin
+			frame_num_in = 8'd0;
+			delay_in = 8'd0;
+			state_in = state_hurt;
+		end
+		
+		else if(character2_move_r)
+		begin
+			move_r_in = 1'b1;
 			if(delay>=delay_move_r)
 			begin
 				delay_in = 8'd0;
@@ -239,9 +256,16 @@ module iori_FSM(input Clk,
 	
 	state_movel:
 	begin
-		move_l_in = 1'b1;
-		if(character2_move_l)
+		if(character2_hurt)
 		begin
+			frame_num_in = 8'd0;
+			delay_in = 8'd0;
+			state_in = state_hurt;
+		end
+		
+		else if(character2_move_l)
+		begin
+			move_l_in = 1'b1;
 			if(delay>=delay_move_l)
 			begin
 				delay_in = 8'd0;
