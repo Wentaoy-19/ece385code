@@ -51,7 +51,7 @@ module lab8( input               CLOCK_50,
     logic [7:0] keycode0,keycode1,keycode2,keycode3,keycode4,keycode5;
 	 logic [47:0] keycodes;
 	 logic [9:0] DrawX,DrawY;
-	 logic is_ball,is_character1,is_character2,is_background,move_l,move_r;
+	 logic is_ball,is_character1,is_character2,is_background,move_l1,move_r1,move_l2,move_r2,stand1,stand2,attack;
 	 logic [7:0] character1_data, character2_data, background_data;
 	 logic [7:0] caojiji_frame_num, caojiji_state, iori_frame_num, iori_state; 
 	 
@@ -62,7 +62,7 @@ module lab8( input               CLOCK_50,
 	 logic character2_move_l, character2_move_r, character2_attack, character2_defense, character2_hurt;
     
 	 assign keycodes = {keycode5,keycode4,keycode3,keycode2,keycode1,keycode0};
-	 assign LEDG[1:0] = {move_l,move_r};
+	 assign LEDG[1:0] = {move_l1,move_r1};
      assign distance_sub = character2_x - character1_x;
 	 
     assign Clk = CLOCK_50;
@@ -152,8 +152,9 @@ caojiji caojiji_instance(.Clk(Clk), .Reset(Reset_h),
                .is_character(is_character1), 
 					.character2_x(character2_x),
 					.character1_state(caojiji_state),
-					.move_l(move_l),
-					.move_r(move_r),
+					.move_l1(move_l1),
+					.move_r1(move_r1),
+					.stand2(stand2),
 					.character1_move_r(character1_move_r),
 					.character1_move_l(character1_move_l),
                   .character1_hurt(character1_hurt),
@@ -172,22 +173,32 @@ iori iori_instance(.Clk(Clk),
                    .is_character(is_character2), 
 						 .character1_x(character1_x),
 					    .character2_state(iori_state),
+						 .move_l2(move_l2),
+						 .move_r2(move_r2),
+						 .stand1(stand1),
+						 .attack(attack),
+						 .character2_move_r(character2_move_r),
+					    .character2_move_l(character2_move_l),
+                   .character2_hurt(character2_hurt),
 					    .data_Out(character2_data),
-                        .character2_x(character2_x),
+                   .character2_x(character2_x),
 					    .frame_num(iori_frame_num) 
 );
 
 
 
-background background_instance(.Clk(Clk),                
-                             .Reset(Reset_h),              
-                             .frame_clk(VGA_VS),        
-									  
-									 					
-               .DrawX(DrawX), .DrawY(DrawY),     
-               .is_background(is_background), 
-					.data_Out(background_data));
+
+//background background_instance(.Clk(Clk),                
+//                             .Reset(Reset_h),              
+//                             .frame_clk(VGA_VS),        
+//									  
+//									 					
+//               .DrawX(DrawX), .DrawY(DrawY),     
+//               .is_background(is_background), 
+//					.data_Out(background_data));
     
+	 
+	 
 color_mapper color_instance(
 							  .is_character1(is_character1), 
 							  .is_character2(is_character2),
@@ -206,8 +217,9 @@ caojiji_FSM caojiji_FSM(.Clk(Clk),
 				 .character1_attack(character1_attack),
 				 .character1_move_l(character1_move_l),
 				 .character1_move_r(character1_move_r),
-				 .move_l(move_l),
-				 .move_r(move_r),
+				 .move_l1(move_l1),
+				 .move_r1(move_r1),
+				 .stand1(stand1),
 				.state_out(caojiji_state), 
 				.frame_num(caojiji_frame_num));
 
@@ -215,12 +227,16 @@ caojiji_FSM caojiji_FSM(.Clk(Clk),
 				
 iori_FSM iori_FSM(.Clk(Clk),                
             .Reset(Reset_h),              
-             .frame_clk(VGA_VS), 
-				 .character2_attack(character2_attack),
-				 .character2_move_l(character2_move_l),
-				 .character2_move_r(character2_move_r),
-				 .character2_hurt(character2_hurt),
-				 .character2_defense(character2_defense),
+            .frame_clk(VGA_VS), 
+				.character2_attack(character2_attack),
+				.character2_move_l(character2_move_l),
+				.character2_move_r(character2_move_r),
+				.character2_hurt(character2_hurt),
+				.character2_defense(character2_defense),
+				.move_l2(move_l2),
+				.move_r2(move_r2),
+				.stand2(stand2),
+				.attack(attack),
 				.state_out(iori_state), 
 				.frame_num(iori_frame_num));
 				
@@ -234,7 +250,8 @@ keycontroller keycontroller(
 	.character1_attack(character1_attack),
 	.character2_move_l(character2_move_l),
 	.character2_move_r(character2_move_r),
-	.character2_attack(character2_attack)
+	.character2_attack(character2_attack),
+	.character2_defense(character2_defense)
 );
 							  
     

@@ -8,11 +8,11 @@ module caojiji_FSM(input     Clk,
 
 					 output  [7:0] state_out, 
 					 output	[7:0] frame_num,
-					 output  logic move_l,move_r
+					 output  logic move_l1,move_r1,stand1
 					 );
 
 	logic [7:0] frame_num_in;
-	logic move_r_in, move_l_in;
+	logic move_r_in, move_l_in,stand_in;
 	logic [7:0] delay_in, delay; 
 	logic frame_clk_delayed, frame_clk_edge; 
 	logic [7:0] frame_num_max,frame_num_max_in;
@@ -39,8 +39,9 @@ module caojiji_FSM(input     Clk,
 			delay <= 8'd0;
 			frame_num <= 8'd0;
 			frame_num_max <= frame_num_stand;
-			move_r <= 1'b0;
-			move_l <= 1'b0;
+			move_r1 <= 1'b0;
+			move_l1 <= 1'b0;
+			stand1 <= 1'b0;
 		end
 		else
 		begin
@@ -48,8 +49,9 @@ module caojiji_FSM(input     Clk,
 			delay <= delay_in;
 			frame_num <= frame_num_in;
 			frame_num_max <= frame_num_max_in;
-			move_r <= move_r_in;
-			move_l <= move_l_in;
+			move_r1 <= move_r_in;
+			move_l1 <= move_l_in;
+			stand1 <= stand_in;
 		end
 	 end					 
 
@@ -102,6 +104,7 @@ module caojiji_FSM(input     Clk,
 	frame_num_max_in = frame_num_max;
 	move_l_in = 1'b0;
 	move_r_in = 1'b0;
+	stand_in = 1'b0;
 	
 	if(frame_clk_edge)
 	begin
@@ -260,6 +263,7 @@ module caojiji_FSM(input     Clk,
 	
 	state_stand:
 	begin
+		stand_in = 1'b1;
 		if(character1_attack)
 		begin
 			state_in = state_attack;

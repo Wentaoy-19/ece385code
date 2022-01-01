@@ -14,7 +14,7 @@ module caojiji
 				input [7:0]   frame_num,
 				input [7:0]   character1_state,
 				input logic [18:0] character2_x,
-				input logic move_l,move_r,character1_move_r, character1_move_l,character1_hurt,
+				input logic move_l1,move_r1,character1_move_r, character1_move_l,character1_hurt,stand2,
 					
                 input [9:0]   DrawX, DrawY,       // Current pixel coordinates
                 output logic  is_character, 
@@ -142,22 +142,21 @@ module caojiji
 
 		if((character1_state == state_hurt))
 		begin
-			character_x_in = character_x;
+			character_x_in = character_x - 19'd40;
 		end
 		else
 		begin
-			if(move_r)
+			if(move_r1)
 			begin
 				character_x_in = character_x + 19'b1;
 			end
-			if(move_l)
+			if(move_l1)
 			begin
 				character_x_in = character_x - 19'b1;
 			end
 		end
 		
-		
-		if(character_x_in + FORWARD_WIDTH >= character2_x)
+		if((character_x_in + FORWARD_WIDTH>= character2_x)&&(stand2==1'b0)&&(character2_x <= 19'd560))
 		begin
 			character_x_in = character2_x - FORWARD_WIDTH;
 		end
@@ -166,9 +165,9 @@ module caojiji
 			character_x_in = 19'd10;
 		end
 	end
-
-
-
+	
+	
+	
 
 	always_comb begin
 		is_character = 1'b0;

@@ -6,7 +6,7 @@ module keycontroller(
 	output character2_move_l,
 	output character2_move_r,
 	output character2_attack,
-	output character2_defense2
+	output character2_defense
 );
 
 
@@ -24,6 +24,7 @@ module keycontroller(
 	parameter [7:0] key_move_l2 = 8'h50;
 	parameter [7:0] key_move_r2 = 8'h4f;
 	parameter [7:0] key_attack2 = 8'h52;
+	parameter [7:0] key_defense2 = 8'h51;
 	
 	assign character1_move_l = (key0 == key_move_l) || (key1 == key_move_l)  || (key2 == key_move_l) ||(key3 == key_move_l) ||(key4 == key_move_l)|| (key5 == key_move_l);
 	assign character1_move_r = (key0 == key_move_r) || (key1 == key_move_r)  || (key2 == key_move_r) ||(key3 == key_move_r) ||(key4 == key_move_r)|| (key5 == key_move_r);
