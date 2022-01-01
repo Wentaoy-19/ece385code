@@ -20,9 +20,9 @@ module keycontroller(
 	parameter [7:0] key_move_l = 8'h04; 
 	parameter [7:0] key_move_r = 8'h07;
 	parameter [7:0] key_attack = 8'h1a;
-	parameter [7:0] key_move_l2 = 8'h80;
-	parameter [7:0] key_move_r2 = 8'h79;
-	parameter [7:0] key_attack2 = 8'h82;
+	parameter [7:0] key_move_l2 = 8'h50;
+	parameter [7:0] key_move_r2 = 8'h4f;
+	parameter [7:0] key_attack2 = 8'h52;
 	
 	assign character1_move_l = (key0 == key_move_l) || (key1 == key_move_l)  || (key2 == key_move_l) ||(key3 == key_move_l) ||(key4 == key_move_l)|| (key5 == key_move_l);
 	assign character1_move_r = (key0 == key_move_r) || (key1 == key_move_r)  || (key2 == key_move_r) ||(key3 == key_move_r) ||(key4 == key_move_r)|| (key5 == key_move_r);

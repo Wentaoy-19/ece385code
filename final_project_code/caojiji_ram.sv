@@ -6,33 +6,57 @@
 
  
 module caojiji
-(input         Clk,                // 50 MHz clock
-                             Reset,              // Active-high reset signal
-                             frame_clk,          // The clock indicating a new frame (~60Hz)
+(input          Clk,                // 50 MHz clock
+             	Reset,              // Active-high reset signal
+                frame_clk,          // The clock indicating a new frame (~60Hz)
 									  
 									  
-					input [7:0]   frame_num,
-					input [7:0]   character1_state,
-					input logic move_l,move_r,character1_move_r, character1_move_l,
+				input [7:0]   frame_num,
+				input [7:0]   character1_state,
+				input logic [18:0] character2_x,
+				input logic move_l,move_r,character1_move_r, character1_move_l,character1_hurt,
 					
-               input [9:0]   DrawX, DrawY,       // Current pixel coordinates
-               output logic  is_character, 
-					output logic [7:0] data_Out
+                input [9:0]   DrawX, DrawY,       // Current pixel coordinates
+                output logic  is_character, 
+				output logic [7:0] data_Out,
+				output logic [18:0] character1_x
 ); 
 	parameter [18:0] SCREEN_WIDTH =  19'd480;
    parameter [18:0] SCREEN_LENGTH = 19'd640;
-	parameter [18:0] FORWARD_WIDTH = 19'd51;
-	parameter [18:0] FORWARD_HEIGHT = 19'd105;
-	parameter [18:0] BACKWARD_WIDTH = 19'd51;
+	
+	
+	parameter [18:0] FORWARD_WIDTH = 19'd50;
+	parameter [18:0] FORWARD_HEIGHT = 19'd106;
+	parameter [18:0] BACKWARD_WIDTH = 19'd50;
 	parameter [18:0] BACKWARD_HEIGHT = 19'd108;
 	parameter [18:0] ATTACK_WIDTH = 19'd80;
 	parameter [18:0] ATTACK_HEIGHT = 19'd98;
 	parameter [18:0] STAND_WIDTH = 19'd42;
-	parameter [18:0] STAND_HEIGHT = 19'd104;
-	parameter [18:0] HURT_HEIGHT = 19'd95; 
+	parameter [18:0] STAND_HEIGHT = 19'd104;	
+	parameter [18:0] HURT_HEIGHT = 19'd94; 
 	parameter [18:0] HURT_WIDTH = 19'd64; 
 	parameter [18:0] DEFEND_HEIGHT = 19'd94;
 	parameter [18:0] DEFEND_WIDTH = 19'd64;
+	parameter [18:0] DIS_MOVE = 19'd1;
+	parameter [18:0] DIS_HURT = 19'd5;
+	
+	
+	
+	
+	parameter [18:0] R_FORWARD_WIDTH = 19'd25;
+	parameter [18:0] R_FORWARD_HEIGHT = 19'd53;
+	parameter [18:0] R_BACKWARD_WIDTH = 19'd25;
+	parameter [18:0] R_BACKWARD_HEIGHT = 19'd54;
+	parameter [18:0] R_ATTACK_WIDTH = 19'd40;
+	parameter [18:0] R_ATTACK_HEIGHT = 19'd49;
+	parameter [18:0] R_STAND_WIDTH = 19'd21;
+	parameter [18:0] R_STAND_HEIGHT = 19'd52;	
+	parameter [18:0] R_HURT_WIDTH = 19'd32; 
+	parameter [18:0] R_HURT_HEIGHT = 19'd47; 
+	parameter [18:0] R_DEFEND_WIDTH = 19'd32;
+	parameter [18:0] R_DEFEND_HEIGHT = 19'd47;
+	
+	parameter [18:0] CHARACTER_WIDTH = 19'd99;
 	
 
 	logic [18:0] read_address,read_address_forward,read_address_backward,read_address_stand,read_address_attack,read_address_hurt,read_address_defend;
@@ -40,13 +64,15 @@ module caojiji
 	logic [18:0] image_width, image_height;	
 	logic [7:0] data_out_forward, data_out_backward,data_out_attack,data_out_stand,data_out_hurt,data_out_defend;
 	
+
+	assign character1_x = character_x;
 	
     always_ff @ (posedge Clk)
     begin
         if (Reset)
         begin
-            character_x <= 19'd320;
-            character_y <= 19'd240;
+            character_x <= 19'd10;
+            character_y <= 19'd200;
         end
         else
         begin
@@ -55,17 +81,16 @@ module caojiji
         end
     end
 	
-	enum logic [7:0] {state_stand,state_attack, state_movel, state_mover} state_in;
+	enum logic [7:0] {state_stand,state_attack, state_movel, state_mover,state_hurt} state_in;
 	
-	assign read_address_forward = frame_num*FORWARD_WIDTH*FORWARD_HEIGHT+ (DrawX - character_x) + (DrawY - character_y)*FORWARD_WIDTH;  
-	assign read_address_backward = frame_num*BACKWARD_WIDTH*BACKWARD_HEIGHT+ (DrawX - character_x) + (DrawY - character_y)*BACKWARD_WIDTH;  
-	assign read_address_attack = frame_num*ATTACK_WIDTH*ATTACK_HEIGHT+ (DrawX - character_x) + (DrawY - character_y)*ATTACK_WIDTH;  
-	assign read_address_stand = frame_num*STAND_WIDTH*STAND_HEIGHT + (DrawX - character_x) + (DrawY - character_y)*STAND_WIDTH;
-	assign read_address_defend = frame_num*DEFEND_WIDTH*DEFEND_HEIGHT + (DrawX - character_x) + (DrawY - character_y)*DEFEND_WIDTH;
-	assign read_address_hurt = frame_num*HURT_WIDTH*HURT_HEIGHT + (DrawX - character_x) + (DrawY - character_y)*HURT_WIDTH;
-//	assign read_address = frame_num*ATTACK_WIDTH*ATTACK_HEIGHT+ (DrawX - character_x) + (DrawY - character_y)*ATTACK_WIDTH;  
-//	assign read_address = frame_num*BACKWARD_WIDTH*BACKWARD_HEIGHT+ (DrawX - character_x) + (DrawY - character_y)*BACKWARD_WIDTH;  
+	assign read_address_forward = frame_num*R_FORWARD_WIDTH*R_FORWARD_HEIGHT+ (DrawX - character_x)/2 + (DrawY - character_y)/2*R_FORWARD_WIDTH;  
+	assign read_address_backward = frame_num*R_BACKWARD_WIDTH*R_BACKWARD_HEIGHT+ (DrawX - character_x)/2 + (DrawY - character_y)/2*R_BACKWARD_WIDTH;  
+	assign read_address_attack = frame_num*R_ATTACK_WIDTH*R_ATTACK_HEIGHT+ (DrawX - character_x)/2 + (DrawY - character_y)/2*R_ATTACK_WIDTH;  
+	assign read_address_stand = frame_num*R_STAND_WIDTH*R_STAND_HEIGHT + (DrawX - character_x)/2 + (DrawY - character_y)/2*R_STAND_WIDTH;
+	assign read_address_defend = frame_num*R_DEFEND_WIDTH*R_DEFEND_HEIGHT + (DrawX - character_x)/2 + (DrawY - character_y)/2*R_DEFEND_WIDTH;
+	assign read_address_hurt = frame_num*R_HURT_WIDTH*R_HURT_HEIGHT + (DrawX - character_x)/2 + (DrawY - character_y)/2*R_HURT_WIDTH;
 
+//	assign read_address_stand = frame_num*R_STAND_WIDTH*R_STAND_HEIGHT + (DrawX - character_x)/2 + (DrawY - character_y)/2*R_STAND_WIDTH;
 
 	
 	
@@ -114,23 +139,31 @@ module caojiji
 	begin
 		character_x_in = character_x;
 		character_y_in = character_y;
-		if(move_r)
+
+		if((character1_state == state_hurt))
 		begin
-			character_x_in = character_x + 19'b1;
+			character_x_in = character_x;
 		end
-		if(move_l)
+		else
 		begin
-			character_x_in = character_x - 19'b1;
+			if(move_r)
+			begin
+				character_x_in = character_x + 19'b1;
+			end
+			if(move_l)
+			begin
+				character_x_in = character_x - 19'b1;
+			end
 		end
 		
 		
-		if(character_x_in + FORWARD_WIDTH >= 19'd640)
+		if(character_x_in + FORWARD_WIDTH >= character2_x)
 		begin
-			character_x_in = 19'd640-FORWARD_WIDTH;
+			character_x_in = character2_x - FORWARD_WIDTH;
 		end
-		if(character_x_in <= 19'd4)
+		if(character_x_in <= 19'd10)
 		begin
-			character_x_in = 19'd4;
+			character_x_in = 19'd10;
 		end
 	end
 
@@ -155,11 +188,11 @@ module  andy_forward_RAM
 		output logic [7:0] data_Out
 );
 
-logic [7:0] mem [0:26774];
+logic [7:0] mem [0:6624];
 
 initial
 begin
-	 $readmemh("images/Andy_new/andy_forward.txt", mem);
+	 $readmemh("images/Andy_resize/andy_forward.txt", mem);
 end
 
 always_ff @ (posedge Clk) begin
@@ -178,11 +211,11 @@ module  andy_backward_RAM
 		output logic [7:0] data_Out
 );
 
-logic [7:0] mem [0:27539];
+logic [7:0] mem [0:6749];
 
 initial
 begin
-	 $readmemh("images/Andy_new/andy_backward.txt", mem);
+	 $readmemh("images/Andy_resize/andy_backward.txt", mem);
 end
 
 always_ff @ (posedge Clk) begin
@@ -202,11 +235,11 @@ module  andy_attack_RAM
 );
 
 // mem has width of 3 bits and a total of 400 addresses
-logic [7:0] mem [0:70559];
+logic [7:0] mem [0:17639];
 
 initial
 begin
-	 $readmemh("images/Andy_new/andy_attack.txt", mem);
+	 $readmemh("images/Andy_resize/andy_attack.txt", mem);
 end
 
 
@@ -227,11 +260,11 @@ module  andy_stand_RAM
 );
 
 // mem has width of 3 bits and a total of 400 addresses
-logic [7:0] mem [0:34943];
+logic [7:0] mem [0:8735];
 
 initial
 begin
-	 $readmemh("images/Andy_new/andy_stand.txt", mem);
+	 $readmemh("images/Andy_resize/andy_stand.txt", mem);
 end
 
 
@@ -251,11 +284,11 @@ module  andy_hurt_RAM
 );
 
 // mem has width of 3 bits and a total of 400 addresses
-logic [7:0] mem [0:24319];
+logic [7:0] mem [0:6015];
 
 initial
 begin
-	 $readmemh("images/Andy_new/andy_hurt.txt", mem);
+	 $readmemh("images/Andy_resize/andy_hurt.txt", mem);
 end
 
 
@@ -276,11 +309,11 @@ module  andy_defend_RAM
 );
 
 // mem has width of 3 bits and a total of 400 addresses
-logic [7:0] mem [0:6015];
+logic [7:0] mem [0:1503];
 
 initial
 begin
-	 $readmemh("images/Andy_new/andy_defense_0.txt", mem);
+	 $readmemh("images/Andy_resize/andy_defense.txt", mem);
 end
 
 

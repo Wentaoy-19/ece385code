@@ -11,8 +11,8 @@ module background
 	parameter [18:0] SCREEN_HEIGHT =  19'd480;
    parameter [18:0] SCREEN_WIDTH = 19'd640;
 	
-	parameter [18:0] RESHAPE_WIDTH = 19'd320;
-	parameter [18:0] RESHAPE_HEIGHT = 19'd240;
+	parameter [18:0] RESHAPE_WIDTH = 19'd640;
+	parameter [18:0] RESHAPE_HEIGHT = 19'd480;
 
 	logic [18:0] read_address;
 	
@@ -22,13 +22,13 @@ module background
 	assign background_x = 19'h0;
 	assign background_y = 19'h0; 
 	
-	assign read_address =DrawX/2 + DrawY/2*RESHAPE_WIDTH;
+	assign read_address =DrawX + DrawY*RESHAPE_WIDTH;
 	background_RAM background_RAM(.read_address(read_address),.Clk(Clk), .data_Out(data_Out) );
 
 
 	always_comb begin
 		is_background = 1'b0;
-		if (DrawX >= background_x && DrawX<=background_x + SCREEN_WIDTH && DrawY >= background_y && DrawY<=background_y + SCREEN_HEIGHT )
+		if (DrawX >= background_x && DrawX<=background_x + RESHAPE_WIDTH && DrawY >= background_y && DrawY<=background_y + RESHAPE_HEIGHT )
 			is_background = 1'b1;
 	end
  
@@ -57,11 +57,11 @@ module  background_RAM
 );
 
 // mem has width of 3 bits and a total of 400 addresses
-logic [7:0] mem [0:76799];
+logic [7:0] mem [0:307200];
 
 initial
 begin
-	 $readmemh("images/background0.txt", mem);
+	 $readmemh("images/background00.txt", mem);
 end
 
 
