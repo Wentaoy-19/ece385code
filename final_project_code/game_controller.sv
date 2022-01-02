@@ -1,10 +1,10 @@
 module game_controller(
+	 input Clk,Reset,
     input game_start, game_over, game_restart,
-    input logic reset,
-    output logic is_character1, is_character2, is_background,is_foreground,game_state
+    output logic exist_character1, exist_character2, exist_background,exist_foreground,exist_hp,exist_ko,game_state
 );
 	enum logic [7:0] {state_start,state_game, state_gameover} state_in, state;
-    logic is_character1_in, is_character2_in, is_background_in, is_foreground_in;
+    logic exist_character1_in, exist_character2_in, exist_background_in, exist_foreground_in,exist_hp_in,exist_ko_in;
 
     assign game_state = state;
 
@@ -12,19 +12,24 @@ module game_controller(
     begin
 		if(Reset)
 		begin
-            state <= state_start; 
-            is_character1 <= 1'b0;
-            is_character2 <= 1'b0; 
-            is_background <= 1'b0; 
-            is_foreground <= 1'b1;
+				state <= state_start;
+				exist_character1 <= 1'b0;
+            exist_character2 <= 1'b0; 
+            exist_background <= 1'b0; 
+            exist_foreground <= 1'b1;
+				exist_hp <= 1'b0;
+                exist_ko <= 1'b0;
+
 		end
 		else
 		begin
             state<= state_in;
-            is_character1 <= is_character1_in;
-            is_character2 <= is_character2_in; 
-            is_background <= is_background_in; 
-            is_foreground <= is_foreground_in;
+            exist_character1 <= exist_character1_in;
+            exist_character2 <= exist_character2_in; 
+            exist_background <= exist_background_in; 
+            exist_foreground <= exist_foreground_in;
+				exist_hp <= exist_hp_in;
+                exist_ko <= exist_ko_in;
 		end
 	end
 
@@ -36,7 +41,7 @@ module game_controller(
             begin
                if(game_start)
                begin
-                   state_in = state_game
+                   state_in = state_game;
                end 
             end
 
@@ -61,33 +66,41 @@ module game_controller(
 
     always_comb 
     begin 
-        is_background_in = is_background;
-        is_foreground_in = is_foreground;
-        is_character1_in = is_character1;
-        is_character2_in = is_character2;
+        exist_background_in = exist_background;
+        exist_foreground_in = exist_foreground;
+        exist_character1_in = exist_character1;
+        exist_character2_in = exist_character2;
+		  exist_hp_in = exist_hp;
+          exist_ko_in = exist_ko;
 
         if(state == state_start)
         begin
-            is_background_in = 1'b0;
-            is_character1_in = 1'b0;
-            is_character2_in = 1'b0;
-            is_foreground_in = 1'b1;
+            exist_background_in = 1'b0;
+            exist_character1_in = 1'b0;
+            exist_character2_in = 1'b0;
+            exist_foreground_in = 1'b1;
+				exist_hp_in = 1'b0;
+                exist_ko_in = 1'b0;
         end
 
         else if(state == state_game)
         begin
-            is_background_in = 1'b1;
-            is_character1_in = 1'b1;
-            is_character2_in = 1'b1;
-            is_foreground_in = 1'b0;
+            exist_background_in = 1'b1;
+            exist_character1_in = 1'b1;
+            exist_character2_in = 1'b1;
+            exist_foreground_in = 1'b0;
+				exist_hp_in = 1'b1;
+                exist_ko_in = 1'b0;
         end
 
         else if(state == state_gameover)
         begin 
-            is_background_in = 1'b1;
-            is_character1_in = 1'b1;
-            is_character2_in = 1'b1;
-            is_foreground_in = 1'b0;           
+            exist_background_in = 1'b1;
+            exist_character1_in = 1'b1;
+            exist_character2_in = 1'b1;
+            exist_foreground_in = 1'b0; 
+			   exist_hp_in = 1'b1;
+            exist_ko_in = 1'b1;
         end
         
     end

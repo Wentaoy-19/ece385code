@@ -29,8 +29,8 @@ module keycontroller(
 	parameter [7:0] key_move_r2 = 8'h4f;
 	parameter [7:0] key_attack2 = 8'h52;
 	parameter [7:0] key_defense2 = 8'h51;
-	parameter [7:0] key_gamestart = 8'd44;
-	parameter [7:0] key_gamerestart = 8'd44;
+	parameter [7:0] key_gamestart = 8'h2c;
+	parameter [7:0] key_gamerestart = 8'h2c;
 	
 //	parameter [7:0] key_hurt = 8'h0d;
 	

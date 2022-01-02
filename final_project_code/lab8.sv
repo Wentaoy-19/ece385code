@@ -51,21 +51,23 @@ module lab8( input               CLOCK_50,
     logic [7:0] keycode0,keycode1,keycode2,keycode3,keycode4,keycode5;
 	 logic [47:0] keycodes;
 	 logic [9:0] DrawX,DrawY;
-	 logic is_ball,is_character1,is_character2,is_background,move_l1,move_r1,move_l2,move_r2,stand1,stand2,attack2,hurt1,hurt2;
-	 logic [7:0] character1_data, character2_data, background_data;
+	 logic is_ball,is_hp_frame,is_hp_bar1,is_hp_bar2,is_foreground,is_character1,is_character2,is_background,move_l1,move_r1,move_l2,move_r2,stand1,stand2,attack2,hurt1,hurt2,die1,die2;
+	 logic [7:0] character1_data, character2_data, background_data,foreground_data,data_hp_frame,data_hp_bar1,data_hp_bar2;
 	 logic [7:0] caojiji_frame_num, caojiji_state, iori_frame_num, iori_state; 
 	 
      logic [18:0] character1_x, character2_x,distance_sub;
+	  logic [18:0] HP1,HP2;
+	  logic character1_die, character2_die;
 
 
-     logic is_character1, is_character2, is_background, is_foreground,game_start,game_over,game_restart;
+     logic exist_character1, exist_character2, exist_background, exist_foreground,exist_hp,game_start,game_over,game_restart;
      logic [7:0] game_state;
-	 logic character1_move_l, character1_move_r, character1_attack, character1_defense, character1_hurt;
-	 logic character2_move_l, character2_move_r, character2_attack, character2_defense, character2_hurt;
+	 logic character1_move_l, character1_move_r, character1_attack, character1_defense, character1_hurt, character1_attack_confirm;
+	 logic character2_move_l, character2_move_r, character2_attack, character2_defense, character2_hurt, character2_attack_confirm;
     
 	 assign keycodes = {keycode5,keycode4,keycode3,keycode2,keycode1,keycode0};
-	 assign LEDG[1:0] = {move_l1,move_r1};
-     assign distance_sub = character2_x - character1_x;
+	 assign LEDG[3:0] = {exist_character1,exist_character2,exist_background,exist_foreground};
+    assign distance_sub = character2_x - character1_x;
 	 
     assign Clk = CLOCK_50;
     always_ff @ (posedge Clk) begin
@@ -152,6 +154,7 @@ caojiji caojiji_instance(.Clk(Clk), .Reset(Reset_h),
                              .frame_clk(VGA_VS),       
                .DrawX(DrawX), .DrawY(DrawY),       
                .is_character(is_character1), 
+               .exist_character1(exist_character1),
 					.character2_x(character2_x),
 					.character1_state(caojiji_state),
 					.move_l1(move_l1),
@@ -163,7 +166,11 @@ caojiji caojiji_instance(.Clk(Clk), .Reset(Reset_h),
                   .character1_hurt(character1_hurt),
 					.data_Out(character1_data),
                   .character1_x(character1_x),
-					.frame_num(caojiji_frame_num)
+					.frame_num(caojiji_frame_num),
+                    .game_state(game_state),
+						  .character1_die(character1_die),
+						  .HP_out(HP1),
+						  .die1(die1)
 );
 
 
@@ -174,8 +181,11 @@ iori iori_instance(.Clk(Clk),
                    .DrawX(DrawX), 
 						 .DrawY(DrawY),       
                    .is_character(is_character2), 
+                   .exist_character2(exist_character2),
 						 .character1_x(character1_x),
 					    .character2_state(iori_state),
+                        .game_state(game_state),
+								.die2(die2),
 						 .move_l2(move_l2),
 						 .move_r2(move_r2),
 						 .stand1(stand1),
@@ -185,6 +195,8 @@ iori iori_instance(.Clk(Clk),
 					    .character2_move_l(character2_move_l),
                    .character2_hurt(character2_hurt),
 					    .data_Out(character2_data),
+						 .HP_out(HP2),
+						 .character2_die(character2_die),
                    .character2_x(character2_x),
 					    .frame_num(iori_frame_num) 
 );
@@ -207,10 +219,20 @@ color_mapper color_instance(
 							  .is_character1(is_character1), 
 							  .is_character2(is_character2),
 							  .is_background(is_background), 
+							  .is_foreground(is_foreground),
+							  .is_hp_bar1(is_hp_bar1),
+							  .is_hp_bar2(is_hp_bar2),
+							  .is_hp_frame(is_hp_frame),
+							  .is_ko(is_ko),
                        .DrawX(DrawX), .DrawY(DrawY),    
 							  .character1_data(character1_data),
 							  .character2_data(character2_data),
 							  .background_data(background_data),
+							  .ko_data(ko_data),
+							  .data_hp_frame(data_hp_frame),
+							  .data_hp_bar1(data_hp_bar1),
+							  .data_hp_bar2(data_hp_bar2),
+                              .foreground_data(foreground_data),
                        .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B));
 							  
 
@@ -218,33 +240,42 @@ color_mapper color_instance(
 caojiji_FSM caojiji_FSM(.Clk(Clk),                
             .Reset(Reset_h),              
              .frame_clk(VGA_VS), 
-				 .character1_attack(character1_attack),
+				 .character1_attack(character1_attack_confirm),
 				 .character1_move_l(character1_move_l),
 				 .character1_move_r(character1_move_r),
 				 .move_l1(move_l1),
 				 .move_r1(move_r1),
 				 .character1_hurt(character1_hurt),
 				 .character1_defend(character1_defense),
+				 .character1_die(character1_die),
 				 .stand1(stand1),
 				 .hurt(hurt1),
+				 .game_state(game_state),
+                 .exist_character1(exist_character1),
 				.state_out(caojiji_state), 
-				.frame_num(caojiji_frame_num));
+				.frame_num(caojiji_frame_num),
+				.die1(die1)
+                );
 
 				
 				
 iori_FSM iori_FSM(.Clk(Clk),                
             .Reset(Reset_h),              
             .frame_clk(VGA_VS), 
-				.character2_attack(character2_attack),
+				.character2_attack(character2_attack_confirm),
 				.character2_move_l(character2_move_l),
 				.character2_move_r(character2_move_r),
 				.character2_hurt(character2_hurt),
 				.character2_defense(character2_defense),
+				.exist_character2(exist_character2),
 				.move_l2(move_l2),
 				.move_r2(move_r2),
 				.stand2(stand2),
 				.hurt(hurt2),
+				.die2(die2),
 				.attack(attack),
+				.game_state(game_state),
+				.character2_die(character2_die),
 				.state_out(iori_state), 
 				.frame_num(iori_frame_num));
 				
@@ -273,18 +304,62 @@ AH_judge AH_judge(
     .character1_x(character1_x),
     .character2_x(character2_x),
 
-    .character1_hurt(character1_hurt), .character2_hurt(character2_hurt)  
+    .character1_hurt(character1_hurt), .character2_hurt(character2_hurt),
+	 .character1_attack_confirm(character1_attack_confirm), .character2_attack_confirm(character2_attack_confirm)
 );			
 
 
+//foreground foreground
+//(.Clk(Clk),                
+//                             .Reset(Reset_h),
+//										.exist_foreground(exist_foreground),
+//                             .frame_clk(VGA_VS),        
+//									  
+//									 					
+//               .DrawX(DrawX), .DrawY(DrawY),     
+//               .is_foreground(is_foreground), 
+//				.data_Out(foreground_data)
+//); 
 
-
+assign game_over = character1_die | character2_die;
 
 game_controller game_controller(
+	 .Clk(Clk),
     .game_start(game_start), .game_over(game_over), .game_restart(game_restart),
-    .reset(Reset_h),
-    .is_character1(is_character1), .is_character2(is_character2), .is_background(is_background),.is_foreground(is_foreground),.game_state(game_state)
+    .Reset(Reset_h),
+    .exist_character1(exist_character1), .exist_character2(exist_character2), .exist_background(exist_background),.exist_foreground(exist_foreground),.game_state(game_state),
+	 .exist_hp(exist_hp),.exist_ko(exist_ko)
+	 );  
+
+
+hp_bar hp_bar(
+.Clk(Clk),                
+                .Reset(Reset_h),              
+                .frame_clk(VGA_VS), 
+                .exist_hp(exist_hp),       
+									  					 					
+               .DrawX(DrawX), .DrawY(DrawY), 
+               .hp1(HP1), .hp2(HP2),    
+               .is_hp_frame(is_hp_frame),
+               .is_hp_bar1(is_hp_bar1), .is_hp_bar2(is_hp_bar2),
+			      .data_hp_frame(data_hp_frame), .data_hp_bar1(data_hp_bar1), .data_hp_bar2(data_hp_bar2)
 );
+
+logic [7:0] ko_data;
+logic exist_ko, is_ko;
+
+
+ko ko
+(.Clk(Clk),                
+                             .Reset(Reset_h),              
+                             .frame_clk(VGA_VS),        
+									  .exist_ko(exist_ko),
+									 					
+               .DrawX(DrawX), .DrawY(DrawY),     
+               .is_ko(is_ko), 
+				.data_Out(ko_data)
+); 	
+
     
     // Display keycode on hex display
 
@@ -300,14 +375,16 @@ game_controller game_controller(
     // HexDriver hex_inst_7 (keycodes[31:28], HEX7);	
 
 
-    HexDriver hex_inst_0 (distance_sub[3:0], HEX0);
-    HexDriver hex_inst_1 (distance_sub[7:4], HEX1);	
-	HexDriver hex_inst_2 (distance_sub[11:8], HEX2);	
-    HexDriver hex_inst_3 (distance_sub[15:12], HEX3);	
-    HexDriver hex_inst_4 (distance_sub[18:16], HEX4);	
+//    HexDriver hex_inst_0 (HP2[3:0], HEX0);
+//    HexDriver hex_inst_1 (HP2[7:4], HEX1);	
+//	HexDriver hex_inst_2 (HP1[3:0], HEX4);	
+//    HexDriver hex_inst_3 (HP1[7:4], HEX5);	
     // HexDriver hex_inst_5 (keycodes[23:20], HEX5);	
     // HexDriver hex_inst_6 (keycodes[27:24], HEX6);	
     // HexDriver hex_inst_7 (keycodes[31:28], HEX7);	
+	 
+    HexDriver hex_inst_0 (game_state[3:0], HEX0);
+    HexDriver hex_inst_1 (game_state[7:4], HEX1);	
 
     /**************************************************************************************
         ATTENTION! Please answer the following quesiton in your lab report! Points will be allocated for the answers!
