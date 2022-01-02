@@ -3,7 +3,7 @@ module AH_judge(
                 attack2,
                 defend1,
                 defend2,
-	 input logic [7:0] character1_state, character2_state,
+	 input logic [7:0] character1_state, character2_state, game_state,
     input  logic [18:0] character1_x,
                         character2_x,
 
@@ -12,6 +12,7 @@ module AH_judge(
 
     parameter [18:0] attack_distance = 19'd70; 
 	enum logic [7:0] {state_stand,state_attack, state_movel, state_mover, state_defense, state_hurt} state_in;
+	enum logic [7:0] {state_start,state_game, state_gameover} game_state_in;
 	
 
     always_comb begin
@@ -21,7 +22,7 @@ module AH_judge(
 	 
 		  character1_hurt = 1'b0;
 		  character2_hurt = 1'b0;
-        if(character2_x - character1_x <= attack_distance)
+        if(character2_x - character1_x <= attack_distance && game_state == state_game)
         begin
             if( attack1 && ~defend2 && character1_state!= state_attack && character1_state!= state_defense)
             begin

@@ -94,7 +94,7 @@ module iori
 	 always_ff @(posedge Clk)
 	 begin 
 		hurt_delayed <= character2_hurt; 
-		hurt_edge <= character2_hurt && (hurt_delayed == 1'b0);
+		hurt_edge <= character2_hurt && (hurt_delayed == 1'b0) && game_state == state_game ;
 	 end
 	 
 	always_ff @ (posedge Clk)
@@ -205,11 +205,11 @@ module iori
 			character_y_in = character_y - 19'b0100;
 		end 
 		
-		else if(hurt)
+		else if(hurt && game_state == state_game)
 		begin
 			character_x_in = character_x + 19'b011;
 		end
-		else if((attack)&&(frame_num==8'd0))
+		else if((attack)&&(frame_num==8'd0) && game_state == state_game)
 		begin
 			character_x_in = character_x - ATTACK;
 		end
@@ -401,7 +401,7 @@ module  iori_hurt_RAM
 );
 
 // mem has width of 3 bits and a total of 400 addresses
-logic [7:0] mem [0:9869 ];
+logic [7:0] mem [0:9869];
 
 initial
 begin

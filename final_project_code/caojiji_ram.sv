@@ -95,7 +95,7 @@ module caojiji
 	always_ff @(posedge Clk)
 	 begin 
 		hurt_delayed <= character1_hurt; 
-		hurt_edge <= character1_hurt && (hurt_delayed == 1'b0);
+		hurt_edge <= character1_hurt && (hurt_delayed == 1'b0) && game_state == state_game;
 	 end
 	
 	
@@ -211,11 +211,11 @@ module caojiji
 		end
 		else
 		begin
-			if(move_r1 && game_state == state_game)
+			if(move_r1)
 			begin
 				character_x_in = character_x + 19'b011;
 			end
-			if(move_l1 && game_state == state_game)
+			if(move_l1)
 			begin
 				character_x_in = character_x - 19'b011;
 			end

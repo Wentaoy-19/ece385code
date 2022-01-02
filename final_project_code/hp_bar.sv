@@ -15,8 +15,11 @@ module hp_bar(
 	parameter [18:0] SCREEN_HEIGHT =  19'd480;
     parameter [18:0] SCREEN_WIDTH = 19'd640;
 	
+    parameter [18:0] R_FRAME_WIDTH = 19'd310;
+    parameter [18:0] R_FRAME_HEIGHT = 19'd37;
     parameter [18:0] FRAME_WIDTH = 19'd620;
-    parameter [18:0] FRAME_HEIGHT = 19'd75;
+    parameter [18:0] FRAME_HEIGHT = 19'd74;
+	 
     parameter [18:0] HP1_WIDTH = 19'd199;
     parameter [18:0] HP1_HEIGHT = 19'd20;
     parameter [18:0] HP2_WIDTH = 19'd200;
@@ -33,11 +36,11 @@ module hp_bar(
     assign hp1_len = 10*hp1; 
     assign hp2_len = 10*hp2;
 	 assign hp2_x = frame_x + 19'd545;
-	 assign hp2_y = frame_y + 19'd28;
-	 assign hp1_x = frame_x + 19'd76;
-	 assign hp1_y = frame_y + 19'd28;
+	 assign hp2_y = frame_y + 19'd26;
+	 assign hp1_x = frame_x + 19'd74;
+	 assign hp1_y = frame_y + 19'd26;
 	
-	 assign read_address_frame =(DrawX-frame_x) + (DrawY - frame_y)*FRAME_WIDTH;
+	 assign read_address_frame =(DrawX-frame_x)/2 + (DrawY - frame_y)/2*R_FRAME_WIDTH;
     assign read_address_hp1 = (DrawX-hp1_x) + (DrawY - hp1_y)*HP1_WIDTH;
     assign read_address_hp2 = (DrawX-hp2_x) + (DrawY - hp2_y)*HP2_WIDTH;
 
@@ -77,11 +80,11 @@ module  frame_RAM
 		output logic [7:0] data_Out
 );
 
-logic [7:0] mem [0:46499];
+logic [7:0] mem [0:11469];
 
 initial
 begin
-	 $readmemh("images/hp_frame.txt", mem);
+	 $readmemh("images/hp_frame_resize.txt", mem);
 end
 
 

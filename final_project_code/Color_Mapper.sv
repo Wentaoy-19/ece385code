@@ -118,12 +118,13 @@ module  color_mapper (
             Blue = ko_color[7:0];
         end
 
-//         else if(is_foreground == 1'b1)
-//		  begin
-//				Red = foreground_color[23:16];
-//           Green = foreground_color[15:8];
-//           Blue = foreground_color[7:0];
-//		  end
+         else if(is_foreground == 1'b1)
+		  begin
+				Red = foreground_color[23:16];
+           Green = foreground_color[15:8];
+           Blue = foreground_color[7:0];
+		  end
+		  
 		  else if(is_hp_bar1 == 1'b1  && data_hp_bar1!=8'd0)
 		  begin
 			  Red = hp1_color[23:16];
@@ -148,12 +149,12 @@ module  color_mapper (
   
 
 		  
-//		  else if(is_background == 1'b1)
-//		  begin
-//				Red = background_color[23:16];
-//            Green = background_color[15:8];
-//            Blue = background_color[7:0];
-//		  end
+		  else if(is_background == 1'b1)
+		  begin
+				Red = background_color[23:16];
+            Green = background_color[15:8];
+            Blue = background_color[7:0];
+		  end
 		  
         else 
         begin

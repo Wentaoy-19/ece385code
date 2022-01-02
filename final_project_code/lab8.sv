@@ -44,7 +44,13 @@ module lab8( input               CLOCK_50,
                                  DRAM_CKE,     //SDRAM Clock Enable
                                  DRAM_WE_N,    //SDRAM Write Enable
                                  DRAM_CS_N,    //SDRAM Chip Select
-                                 DRAM_CLK      //SDRAM Clock
+                                 DRAM_CLK,      //SDRAM Clock
+				 //Add for audio part
+             input AUD_ADCDAT,
+             input AUD_DACLRCK,
+             input AUD_ADCLRCK,
+             input AUD_BCLK,
+             output logic I2C_SCLK, I2C_SDAT, AUD_XCK, AUD_DACDAT
                     );
     
     logic Reset_h, Clk;
@@ -204,14 +210,14 @@ iori iori_instance(.Clk(Clk),
 
 
 
-//background background_instance(.Clk(Clk),                
-//                             .Reset(Reset_h),              
-//                             .frame_clk(VGA_VS),        
-//									  
-//									 					
-//               .DrawX(DrawX), .DrawY(DrawY),     
-//               .is_background(is_background), 
-//					.data_Out(background_data));
+background background_instance(.Clk(Clk),                
+                             .Reset(Reset_h),              
+                             .frame_clk(VGA_VS),        
+									  
+									 					
+               .DrawX(DrawX), .DrawY(DrawY),     
+               .is_background(is_background), 
+					.data_Out(background_data));
     
 	 
 	 
@@ -303,23 +309,24 @@ AH_judge AH_judge(
     .defend2(character2_defense),
     .character1_x(character1_x),
     .character2_x(character2_x),
+	 .game_state(game_state),
 
     .character1_hurt(character1_hurt), .character2_hurt(character2_hurt),
 	 .character1_attack_confirm(character1_attack_confirm), .character2_attack_confirm(character2_attack_confirm)
 );			
 
 
-//foreground foreground
-//(.Clk(Clk),                
-//                             .Reset(Reset_h),
-//										.exist_foreground(exist_foreground),
-//                             .frame_clk(VGA_VS),        
-//									  
-//									 					
-//               .DrawX(DrawX), .DrawY(DrawY),     
-//               .is_foreground(is_foreground), 
-//				.data_Out(foreground_data)
-//); 
+foreground foreground
+(.Clk(Clk),                
+                             .Reset(Reset_h),
+										.exist_foreground(exist_foreground),
+                             .frame_clk(VGA_VS),        
+									  
+									 					
+               .DrawX(DrawX), .DrawY(DrawY),     
+               .is_foreground(is_foreground), 
+				.data_Out(foreground_data)
+); 
 
 assign game_over = character1_die | character2_die;
 
@@ -358,7 +365,39 @@ ko ko
                .DrawX(DrawX), .DrawY(DrawY),     
                .is_ko(is_ko), 
 				.data_Out(ko_data)
-); 	
+); 
+
+
+
+
+
+	 // ---------------- Add for Audio part -----------------
+	logic  [16:0] Add;
+	logic  [16:0] music_content;
+
+        //Audio part wiring 
+    audio audio1(.*, .Reset(Reset_h));
+    music music1(.*);
+    audio_interface music_int ( .LDATA(music_content), 
+          .RDATA(music_content),
+          .CLK(Clk),
+          .Reset(Reset_h), 
+          .INIT(INIT),
+          .INIT_FINISH(INIT_FINISH),
+          .adc_full(adc_full),
+          .data_over(data_over),
+          .AUD_MCLK(AUD_XCK),
+          .AUD_BCLK(AUD_BCLK),     
+          .AUD_ADCDAT(AUD_ADCDAT),
+          .AUD_DACDAT(AUD_DACDAT),
+          .AUD_DACLRCK(AUD_DACLRCK),
+          .AUD_ADCLRCK(AUD_ADCLRCK),
+          .I2C_SDAT(I2C_SDAT),
+          .I2C_SCLK(I2C_SCLK),
+          .ADCDATA(ADCDATA),
+    );
+
+	
 
     
     // Display keycode on hex display
