@@ -1,4 +1,4 @@
-//-------------------------------------------------------------------------
+f//-------------------------------------------------------------------------
 //      lab8.sv                                                          --
 //      Christine Chen                                                   --
 //      Fall 2014                                                        --
@@ -59,7 +59,7 @@ module lab8( input               CLOCK_50,
 	 logic [9:0] DrawX,DrawY;
 	 logic is_ball,is_hp_frame,is_hp_bar1,is_hp_bar2,is_foreground,is_character1,is_character2,is_background,move_l1,move_r1,move_l2,move_r2,stand1,stand2,attack2,hurt1,hurt2,die1,die2;
 	 logic [7:0] character1_data, character2_data, background_data,foreground_data,data_hp_frame,data_hp_bar1,data_hp_bar2;
-	 logic [7:0] caojiji_frame_num, caojiji_state, iori_frame_num, iori_state; 
+	 logic [7:0] andy_frame_num, andy_state, iori_frame_num, iori_state; 
 	 
      logic [18:0] character1_x, character2_x,distance_sub;
 	  logic [18:0] HP1,HP2;
@@ -156,13 +156,13 @@ module lab8( input               CLOCK_50,
 //                         .frame_clk(VGA_VS),          
 //               .DrawX(DrawX), .DrawY(DrawY),      
 //               .is_ball(is_ball) );
-caojiji caojiji_instance(.Clk(Clk), .Reset(Reset_h),              
+andy andy_instance(.Clk(Clk), .Reset(Reset_h),              
                              .frame_clk(VGA_VS),       
                .DrawX(DrawX), .DrawY(DrawY),       
                .is_character(is_character1), 
                .exist_character1(exist_character1),
 					.character2_x(character2_x),
-					.character1_state(caojiji_state),
+					.character1_state(andy_state),
 					.move_l1(move_l1),
 					.move_r1(move_r1),
 					.stand2(stand2),
@@ -172,7 +172,7 @@ caojiji caojiji_instance(.Clk(Clk), .Reset(Reset_h),
                   .character1_hurt(character1_hurt),
 					.data_Out(character1_data),
                   .character1_x(character1_x),
-					.frame_num(caojiji_frame_num),
+					.frame_num(andy_frame_num),
                     .game_state(game_state),
 						  .character1_die(character1_die),
 						  .HP_out(HP1),
@@ -243,7 +243,7 @@ color_mapper color_instance(
 							  
 
 
-caojiji_FSM caojiji_FSM(.Clk(Clk),                
+andy_FSM andy_FSM(.Clk(Clk),                
             .Reset(Reset_h),              
              .frame_clk(VGA_VS), 
 				 .character1_attack(character1_attack_confirm),
@@ -258,8 +258,8 @@ caojiji_FSM caojiji_FSM(.Clk(Clk),
 				 .hurt(hurt1),
 				 .game_state(game_state),
                  .exist_character1(exist_character1),
-				.state_out(caojiji_state), 
-				.frame_num(caojiji_frame_num),
+				.state_out(andy_state), 
+				.frame_num(andy_frame_num),
 				.die1(die1)
                 );
 

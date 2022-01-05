@@ -1,4 +1,4 @@
-module caojiji_FSM(input     Clk,                
+module andy_FSM(input     Clk,                
                              Reset,              
                              frame_clk, 
 									  character1_attack,

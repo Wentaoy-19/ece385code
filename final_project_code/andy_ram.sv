@@ -5,7 +5,7 @@
  */
 
  
-module caojiji
+module andy
 (input          Clk,                // 50 MHz clock
              	Reset,              // Active-high reset signal
                 frame_clk,          // The clock indicating a new frame (~60Hz)
